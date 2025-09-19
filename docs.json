@@ -7,108 +7,175 @@
     "light": "#B06BB7",
     "dark": "#6E3672"
   },
+  "background": {
+    "color": {
+      "dark": "#1c1c24"
+    }
+  },
   "favicon": "/favicon.svg",
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Affelios Platform",
+          "href": "https://affelios.com",
+          "icon": "globe"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Knowledge Base",
         "groups": [
           {
+            "group": "Overview",
+            "pages": [
+              "knowledge-base/overview/what-is-affelios",
+              "knowledge-base/overview/key-concepts",
+              "knowledge-base/overview/benefits"
+            ]
+          },
+          {
             "group": "Getting Started",
             "pages": [
-              "kb/overview/what-is-affelios.md",
-              "kb/overview/key-concepts.md",
-              "kb/overview/benefits.md",
-              "kb/getting-started/operators-quickstart.md",
-              "kb/getting-started/affiliates-quickstart.md"
+              "knowledge-base/getting-started/for-operators",
+              "knowledge-base/getting-started/for-affiliates"
             ]
           },
           {
             "group": "Using the Platform",
             "pages": [
-              "kb/platform/program-settings.md",
-              "kb/platform/branding-and-domains.md",
-              "kb/platform/commission-plans.md",
-              "kb/platform/payouts-and-billing.md",
-              "kb/platform/affiliates-and-traffic-sources.md",
-              "kb/platform/media-assets.md",
-              "kb/platform/reports-and-dashboard.md",
-              "kb/platform/operations-and-security.md"
+              "knowledge-base/platform/dashboard",
+              "knowledge-base/platform/program-settings",
+              "knowledge-base/platform/branding-and-domains",
+              "knowledge-base/platform/commission-plans",
+              "knowledge-base/platform/payouts-and-billing",
+              "knowledge-base/platform/affiliates-and-traffic-sources",
+              "knowledge-base/platform/media-assets",
+              "knowledge-base/platform/reporting",
+              "knowledge-base/platform/operations-and-security"
+            ]
+          },
+          {
+            "group": "For Operators",
+            "pages": [
+              "knowledge-base/operators/pre-launch-checklist",
+              "knowledge-base/operators/setup-guide",
+              "knowledge-base/operators/configuration-details",
+              "knowledge-base/operators/operations-maintenance"
+            ]
+          },
+          {
+            "group": "For Affiliates",
+            "pages": [
+              "knowledge-base/affiliates/affelios-identity",
+              "knowledge-base/affiliates/finding-programs",
+              "knowledge-base/affiliates/affiliate-dashboard",
+              "knowledge-base/affiliates/tracking-links",
+              "knowledge-base/affiliates/earning-commissions"
+            ]
+          },
+          {
+            "group": "Reporting",
+            "pages": [
+              "knowledge-base/reporting/reports",
+              "knowledge-base/reporting/columns"
+            ]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "knowledge-base/operations/affiliate-lifecycle",
+              "knowledge-base/operations/payment-cycle",
+              "knowledge-base/operations/scaling",
+              "knowledge-base/operations/security"
             ]
           },
           {
             "group": "Troubleshooting & FAQ",
             "pages": [
-              "kb/troubleshooting/common-issues.md",
-              "kb/troubleshooting/tracking-issues.md",
-              "kb/faq/glossary.md",
-              "kb/faq/policies-and-compliance.md",
-              "kb/faq/platform-migration.md"
+              "knowledge-base/troubleshooting/common-issues",
+              "knowledge-base/troubleshooting/tracking-issues",
+              "knowledge-base/faq/glossary",
+              "knowledge-base/faq/policies-and-compliance",
+              "knowledge-base/faq/platform-migration"
+            ]
+          },
+          {
+            "group": "Legal & Compliance",
+            "pages": [
+              "knowledge-base/legal/terms-of-service",
+              "knowledge-base/legal/privacy-policy",
+              "knowledge-base/legal/affiliate-policies",
+              "knowledge-base/legal/data-privacy"
             ]
           }
         ]
       },
       {
-        "tab": "Documentation",
+        "tab": "Developers",
         "groups": [
           {
-            "group": "Integration Overview",
+            "group": "API & Developer Reference",
             "pages": [
-              "docs/integration/overview.md",
-              "docs/integration/environments-and-auth.md",
-              "docs/integration/rate-limits.md"
+              "developers/reference/overview",
+              "developers/reference/authentication",
+              "developers/reference/webhooks",
+              "developers/reference/sdks"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "No-Code Integrations",
+            "pages": [
+              "integrations/no-code/shopify",
+              "integrations/no-code/woocommerce",
+              "integrations/no-code/other-platforms"
             ]
           },
           {
-            "group": "Tracking",
+            "group": "Pixel & Tracking",
             "pages": [
-              "docs/tracking/click-tracking.md",
-              "docs/tracking/conversion-tracking.md",
-              "docs/tracking/testing-and-verification.md"
+              "integrations/tracking/pixel-tracking",
+              "integrations/tracking/click-tracking",
+              "integrations/tracking/conversion-tracking",
+              "integrations/tracking/testing-verification"
             ]
           },
           {
-            "group": "Implementation Guides",
+            "group": "API Integration",
             "pages": [
-              "docs/implementations/no-code.md",
-              "docs/implementations/pixel-or-script.md",
-              "docs/implementations/server-to-server.md",
-              "docs/implementations/ecommerce-platforms.md"
-            ]
-          },
-          {
-            "group": "Developers",
-            "pages": [
-              "docs/dev/webhooks.md",
-              "docs/dev/examples.md",
-              "docs/dev/sdks-and-tools.md"
+              "integrations/api/overview",
+              "integrations/api/endpoints",
+              "integrations/api/webhooks",
+              "integrations/api/examples"
             ]
           }
         ]
       },
       {
         "tab": "API Reference",
-        "openapi": "https://platform.affelios.com/swagger/v1/swagger.json"
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Affelios Website",
-          "href": "https://affelios.com",
-          "icon": "globe"
-        },
-        {
-          "anchor": "Support Centre",
-          "href": "https://support.affelios.com",
-          "icon": "lifebuoy"
+        "anchors": [
+          {
+            "anchor": "Download OpenAPI Spec",
+            "href": "https://platform.affelios.com/swagger/v1/swagger.json",
+            "icon": "download"
+          }
+        ],
+        "openapi": {
+          "source": "https://platform.affelios.com/swagger/v1/swagger.json",
+          "directory": "api-reference"
         }
-      ]
-    }
+      }
+    ]
   },
   "navbar": {
     "primary": {
@@ -125,8 +192,13 @@
     }
   },
   "api": {
-    "playground": { "display": "interactive" },
-    "examples": { "languages": ["curl", "python", "javascript"], "defaults": "required" }
+    "baseUrl": "https://platform.affelios.com/api/v1",
+    "playground": {
+      "mode": "show"
+    },
+    "auth": {
+      "method": "bearer"
+    }
   },
   "integrations": {
     "intercom": {
