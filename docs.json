@@ -1,102 +1,136 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Affelios Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#904794",
+    "light": "#B06BB7",
+    "dark": "#6E3672"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Knowledge Base",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "kb/overview/what-is-affelios.md",
+              "kb/overview/key-concepts.md",
+              "kb/overview/benefits.md",
+              "kb/getting-started/operators-quickstart.md",
+              "kb/getting-started/affiliates-quickstart.md"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Using the Platform",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "kb/platform/program-settings.md",
+              "kb/platform/branding-and-domains.md",
+              "kb/platform/commission-plans.md",
+              "kb/platform/payouts-and-billing.md",
+              "kb/platform/affiliates-and-traffic-sources.md",
+              "kb/platform/media-assets.md",
+              "kb/platform/reports-and-dashboard.md",
+              "kb/platform/operations-and-security.md"
+            ]
+          },
+          {
+            "group": "Troubleshooting & FAQ",
+            "pages": [
+              "kb/troubleshooting/common-issues.md",
+              "kb/troubleshooting/tracking-issues.md",
+              "kb/faq/glossary.md",
+              "kb/faq/policies-and-compliance.md",
+              "kb/faq/platform-migration.md"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Integration Overview",
+            "pages": [
+              "docs/integration/overview.md",
+              "docs/integration/environments-and-auth.md",
+              "docs/integration/rate-limits.md"
+            ]
+          },
+          {
+            "group": "Tracking",
+            "pages": [
+              "docs/tracking/click-tracking.md",
+              "docs/tracking/conversion-tracking.md",
+              "docs/tracking/testing-and-verification.md"
+            ]
+          },
+          {
+            "group": "Implementation Guides",
+            "pages": [
+              "docs/implementations/no-code.md",
+              "docs/implementations/pixel-or-script.md",
+              "docs/implementations/server-to-server.md",
+              "docs/implementations/ecommerce-platforms.md"
+            ]
+          },
+          {
+            "group": "Developers",
+            "pages": [
+              "docs/dev/webhooks.md",
+              "docs/dev/examples.md",
+              "docs/dev/sdks-and-tools.md"
             ]
           }
         ]
       },
       {
         "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
+        "openapi": "https://platform.affelios.com/swagger/v1/swagger.json"
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Affelios Website",
+          "href": "https://affelios.com",
+          "icon": "globe"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Support Centre",
+          "href": "https://support.affelios.com",
+          "icon": "lifebuoy"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Go to Platform",
+      "href": "https://affelios.com"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/affelios",
+      "github": "https://github.com/affelios",
+      "linkedin": "https://linkedin.com/company/affelios"
+    }
+  },
+  "api": {
+    "playground": { "display": "interactive" },
+    "examples": { "languages": ["curl", "python", "javascript"], "defaults": "required" }
+  },
+  "integrations": {
+    "intercom": {
+      "appId": "mojxoszn"
     }
   }
 }
