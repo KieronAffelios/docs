@@ -42,8 +42,24 @@
           {
             "group": "Getting Started",
             "pages": [
-              "knowledge-base/getting-started/for-operators",
-              "knowledge-base/getting-started/for-affiliates"
+              "knowledge-base/getting-started/affelios-identity",
+              "knowledge-base/getting-started/quickstart"
+            ]
+          },
+          {
+            "group": "For Operators",
+            "pages": [
+              "knowledge-base/operators/setup-guide",
+              "knowledge-base/operators/operations-maintenance"
+            ]
+          },
+          {
+            "group": "For Affiliates",
+            "pages": [
+              "knowledge-base/affiliates/finding-programs",
+              "knowledge-base/affiliates/affiliate-dashboard",
+              "knowledge-base/affiliates/tracking-links",
+              "knowledge-base/affiliates/earning-commissions"
             ]
           },
           {
@@ -58,25 +74,6 @@
               "knowledge-base/platform/media-assets",
               "knowledge-base/platform/reporting",
               "knowledge-base/platform/operations-and-security"
-            ]
-          },
-          {
-            "group": "For Operators",
-            "pages": [
-              "knowledge-base/operators/pre-launch-checklist",
-              "knowledge-base/operators/setup-guide",
-              "knowledge-base/operators/configuration-details",
-              "knowledge-base/operators/operations-maintenance"
-            ]
-          },
-          {
-            "group": "For Affiliates",
-            "pages": [
-              "knowledge-base/affiliates/affelios-identity",
-              "knowledge-base/affiliates/finding-programs",
-              "knowledge-base/affiliates/affiliate-dashboard",
-              "knowledge-base/affiliates/tracking-links",
-              "knowledge-base/affiliates/earning-commissions"
             ]
           },
           {

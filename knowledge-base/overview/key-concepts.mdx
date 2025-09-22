@@ -1,28 +1,70 @@
-# Key Concepts
+---
+title: Key Concepts
+description: Definitions of the main terms and components used across Affelios — what they mean and how they relate.
+---
 
-Understanding the fundamental concepts of affiliate marketing and the Affelios platform.
+Understanding the core terms and components you’ll encounter while using Affelios will help you navigate setup, reporting, and operations more confidently.
 
-## Core Concepts
+---
 
-### Affiliate Program
-An organized marketing effort where businesses reward partners (affiliates) for driving traffic or sales.
+## Core Terminology
 
-### Commission Structure
-The framework that defines how affiliates are compensated for their promotional efforts.
+| Term | Definition |
+|---|------------|
+| **Affelios Identity** | A unified login used by both **affiliates** and **program operators**. One identity can belong to multiple programs. |
+| **Program** | A branded space managed by a business (operator). Inside a program you configure **commission plans**, **trackers**, **branding**, **traffic sources**, and **payout rules**. |
+| **Affiliate** | A partner who joins programs, drives traffic or conversions, and earns commissions. Affiliates use tracking links, creatives, and reporting tools. |
+| **Operator (Brand)** | The business or organization that creates and manages an affiliate program: defines rules, approves affiliates, issues payments, etc. |
 
-### Tracking Links
-Unique URLs that allow the platform to attribute traffic and conversions to specific affiliates.
+---
 
-### Conversion Tracking
-The system that monitors and records when affiliate-driven actions result in desired outcomes.
+## Features & Settings
 
-## Platform-Specific Terms
+| Concept | Purpose / Use |
+|---------|---------------|
+| **Commission Plan** | Defines how affiliates are rewarded. Can be *CPA*, *revenue share*, or a customized hybrid. You can assign different plans for different affiliates. |
+| **Tracking Link / Tracker** | A URL that allows Affelios to attribute clicks, conversions, and traffic to affiliates. Includes parameters like clickKeys (e.g. `clickId`, `btag`). |
+| **Traffic Source** | The origin of traffic: websites, social media profiles, promotional content, etc. Programs may require verification of traffic sources (DNS or meta-tag). |
+| **ClickKey** | The query parameter that carries a click-identifier in affiliate tracking links. Configurable per program to match affiliate / traffic source needs. |
 
-### Operators
-Businesses that create and manage affiliate programs on the Affelios platform.
+---
 
-### Affiliates
-Marketing partners who promote operator programs and earn commissions.
+## Financial & Compliance Concepts
 
-### Traffic Sources
-The various channels and methods affiliates use to drive traffic to operator offers.
+| Term | Description |
+|------|-------------|
+| **Payout Method** | How affiliates receive their earnings. May include bank transfer, PayPal, cryptocurrency, etc. Affiliates can add multiple methods and set a default. |
+| **Invoice & VAT / Tax** | Affelios handles automatic invoice generation and VAT calculation to ensure compliance across regions. |
+| **Clean Slate / No-Negative Carryover** | A policy setting in programs that resets affiliate balances at the end of each period so negative balances don’t carry forward. |
+
+---
+
+## Relationships & Flows
+
+Here’s how the pieces fit together in practice:
+
+1. An **operator** creates a **program**, configures its branding, commission plans, traffic sources, etc.  
+2. An **affiliate** uses their **Affelios Identity** to join the program.  
+3. The affiliate sets up **trackers** and promotes via verified **traffic sources**.  
+4. When conversions happen, they are tracked via the tracker, attributed to the affiliate.  
+5. Earnings accumulate; at payout time the affiliate is paid via their chosen **payout method**. An invoice is generated, VAT/tax handled.  
+6. If “Clean Slate / No-Negative Carryover” is enabled, balances reset (negatives cleared) each period.
+
+---
+
+## Getting Started Tips
+
+- When you first set up a program, decide up front on a **clickKey** that works for all your affiliates.  
+- Require traffic source verification if you want to maintain data quality and reduce fraud.  
+- Set up at least two payout methods for affiliates in case one fails or isn't supported. 
+- Think about whether “Clean Slate” policy suits your business model (some programs prefer to let negative balances carry over).  
+
+---
+
+## What’s Next
+
+- 🌟 [Benefits](/knowledge-base/benefits) — See the advantages of running your program on Affelios.  
+- ⚡ [Quickstart](/quickstart) — Get up and running fast.  
+- 🧩 [Integrations](/integrations) — Connect your stack.  
+- 👩‍💻 [API Reference](/developers/reference) — Endpoints and examples for developers.
+
