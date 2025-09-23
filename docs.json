@@ -20,11 +20,9 @@
   "navigation": {
     "global": {
       "anchors": [
-        {
-          "anchor": "Affelios Platform",
-          "href": "https://affelios.com",
-          "icon": "globe"
-        }
+        { "anchor": "Affelios Platform", "icon": "globe", "href": "https://affelios.com" },
+        { "anchor": "Management Service", "icon": "people-roof", "href": "https://hrefsmedia.com" },
+        { "anchor": "OpenAPI Specification", "icon": "brackets-curly", "href": "https://platform.affelios.com/swagger/v1/swagger.json" }
       ]
     },
     "tabs": [
@@ -56,6 +54,7 @@
           {
             "group": "For Affiliates",
             "pages": [
+              "knowledge-base/affiliates/onboarding",
               "knowledge-base/affiliates/finding-programs",
               "knowledge-base/affiliates/affiliate-dashboard",
               "knowledge-base/affiliates/tracking-links",
@@ -177,7 +176,7 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Go to Platform",
+      "label": "Affelios Platform",
       "href": "https://affelios.com"
     }
   },
