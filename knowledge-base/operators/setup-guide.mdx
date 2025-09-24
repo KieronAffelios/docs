@@ -324,13 +324,11 @@ Navigate to the **Brands** section to create your first brand. When adding a bra
     - **Landing Page URL**: Include the tracking parameter (ClickKey placeholder)
     
     <CodeGroup>
-      <CodeGroupItem title="Example URLs" active>
         ```bash
         https://yourdomain.com/?clickId=[ClickKey]
         https://yourdomain.com/?referral=[ClickKey]
         https://yourdomain.com/product?utm_source=affiliate&clickId=[ClickKey]
         ```
-      </CodeGroupItem>
     </CodeGroup>
     
     The parameter name must match how you set up tracking in your system.
@@ -349,34 +347,54 @@ Navigate to the **Brands** section to create your first brand. When adding a bra
 ### ClickKey & Tracking Parameter
 
 <Info>
-The **ClickKey** is the query parameter name you use to pass tracking IDs. This is how Affelios identifies which affiliate should receive credit for a conversion.
+The **ClickKey** is a unique tracking value provided by Affelios that enables the tracking of a customer's journey from click to conversion. This value is passed back to Affelios when the customer transacts, allowing the system to properly attribute the sale to the correct affiliate.
 </Info>
 
-<Card title="Common ClickKey Examples" icon="link">
+#### How ClickKey Tracking Works
+
+<Steps>
+  <Step title="Link Generation">
+    When an affiliate creates a tracking link, Affelios generates a unique ClickKey value for that specific link.
+  </Step>
+  <Step title="Customer Click">
+    When a customer clicks the affiliate link, they're redirected to your site with the ClickKey parameter included in the URL.
+  </Step>
+  <Step title="Session Tracking">
+    Your website captures and stores the ClickKey value (typically in cookies or session storage) to maintain attribution throughout the customer's visit.
+  </Step>
+  <Step title="Conversion Event">
+    When the customer completes a purchase, your system sends the ClickKey value back to Affelios along with the transaction details.
+  </Step>
+  <Step title="Commission Attribution">
+    Affelios uses the ClickKey to identify which affiliate should receive credit for the sale and processes the commission accordingly.
+  </Step>
+</Steps>
+
+#### Example Landing Page URLs and ClickKey Parameter Names
+
+<Card icon="link">
 <CodeGroup>
-  <CodeGroupItem title="clickId" active>
-    ```bash
+    ```bash clickId
     https://example.com/product?clickId=abc123
     ```
-  </CodeGroupItem>
-  <CodeGroupItem title="gclid">
-    ```bash
+
+    ```bash gclid
     https://example.com/product?gclid=abc123
     ```
-  </CodeGroupItem>
-  <CodeGroupItem title="btag">
-    ```bash
+
+    ```bash btag
     https://example.com/product?btag=abc123
     ```
-  </CodeGroupItem>
 </CodeGroup>
 </Card>
 
-When creating a brand, you specify the parameter placeholder (e.g. `[ClickKey]`) in your landing URL. Affelios will replace this with the actual tracking ID during use.  
+<Info>
+When creating a brand, you specify the parameter placeholder (e.g. `[ClickKey]`) in your landing URL. Affelios will replace this with the actual tracking ID during use, and this same value will be used to track the customer's journey and attribute commissions.
+</Info>  
 
 ### Commission Plans & Selection Logic
 
-<Card title="Commission Plan Hierarchy" icon="layers">
+<Card title="Commission Plan Hierarchy" icon="layer-group">
 Affelios uses a sophisticated cascading system to determine which commission plan applies to each transaction, always choosing the most specific applicable plan.
 </Card>
 
@@ -438,12 +456,12 @@ Providing high-quality marketing assets helps affiliates promote your brand more
 </Steps>
 
 <Tip>
-Following IAB (Interactive Advertising Bureau) guidelines ensures your creative assets meet industry standards and work well across different advertising platforms.
+Following [IAB (Interactive Advertising Bureau)](https://www.iab.com/) guidelines ensures your creative assets meet industry standards and work well across different advertising platforms.
 </Tip>
 
 ### Create & Configure Products
 
-<Card title="Product Setup" icon="package">
+<Card title="Product Setup" icon="box-taped">
 Create products that affiliates can promote. Each product should be associated with a brand and can have its own commission rates and tracking settings.
 </Card>
 
@@ -473,156 +491,6 @@ When creating a product, you'll typically need to provide:
     - **Custom Landing Page**: Optional custom redirect URL
   </Accordion>
 </AccordionGroup>
-
----
-
-## Tracking & Links
-
-<Card title="Tracking & Link Management" icon="link-2">
-Learn how to create and manage tracking links that allow affiliates to promote your products while ensuring proper attribution and commission tracking.
-</Card>
-
-### How Tracking Works
-
-<Info>
-Understanding how the tracking process works is crucial for successful affiliate program management. This section explains the complete tracking flow from click to commission.
-</Info>
-
-<Card title="Tracking Process Overview" icon="arrow-right">
-```mermaid
-graph LR
-    A[Affiliate Link] --> B[User Clicks]
-    B --> C[Tracking ID Captured]
-    C --> D[User Converts]
-    D --> E[Commission Credited]
-    E --> F[Payout Processed]
-```
-</Card>
-
-#### Key Tracking Concepts
-
-<AccordionGroup>
-  <Accordion title="What is a Tracking Link?">
-    A **tracking link** is a URL that carries a unique identifier (via your ClickKey parameter) so that when users click and convert, the system knows which affiliate must be credited for the sale.
-    
-    **Components:**
-    - Base URL (your website)
-    - ClickKey parameter (unique tracking ID)
-    - Optional UTM parameters for additional analytics
-  </Accordion>
-  
-  <Accordion title="How Attribution Works">
-    **Click Attribution:**
-    - When a user clicks an affiliate link, their session is tagged
-    - The tracking ID is stored in cookies or session data
-    - Multiple touchpoints can be tracked during the attribution window
-    
-    **Conversion Attribution:**
-    - When a conversion occurs, the system looks for the tracking ID
-    - The most recent or highest-value affiliate gets credit
-    - Commission is calculated based on the applicable plan
-  </Accordion>
-  
-  <Accordion title="Traffic Source Segmentation">
-    Affiliates can create multiple trackers to segment campaigns:
-    - **Email campaigns**: Different trackers for newsletter segments
-    - **Social media**: Separate trackers for each platform
-    - **Website sections**: Trackers for different site areas
-    - **Seasonal campaigns**: Holiday or event-specific tracking
-  </Accordion>
-</AccordionGroup>
-
-<Warning>
-Proper tracking setup is essential for accurate commission attribution. Test your tracking links thoroughly before launching campaigns.
-</Warning>
-
-### Creating a Tracker & Traffic Source
-
-<Steps>
-  <Step title="Navigate to Trackers">
-    Go to **Trackers** in the left navigation menu.
-  </Step>
-  <Step title="Add Traffic Source (Optional)">
-    First, add or manage a **Traffic Source**:
-    - Enter the source URL (e.g., affiliate's website, social channel)
-    - Optionally verify via DNS record or meta tag for additional security
-  </Step>
-  <Step title="Create Tracker">
-    Create a **Tracker** with a descriptive label (e.g., "Email Campaign", "Social Media", "Website Banner").
-  </Step>
-  <Step title="Generate Link">
-    Once saved, use the "Get Link" action to copy a properly parameterized tracking link.
-  </Step>
-  <Step title="Reuse Tracker">
-    You can reuse that tracker for future links to maintain consistent tracking across campaigns.
-  </Step>
-</Steps>
-
-### Generating Tracking Links
-
-<Card title="Link Generation Process" icon="external-link">
-Once your tracker exists, generating tracking links is straightforward.
-</Card>
-
-<AccordionGroup>
-  <Accordion title="Get Tracking Link">
-    - Use the "Get Link" action next to your tracker to view the full URL
-    - The link includes your ClickKey parameter with the actual tracking value
-    - Copy and share with affiliates for embedding in promotions
-  </Accordion>
-  
-  <Accordion title="Attribution Process">
-    - Each time the link is clicked and a conversion occurs
-    - Affelios attributes the conversion to the correct affiliate/tracker
-    - Commission is calculated based on the plan hierarchy described in the Commission Plans & Selection Logic section
-  </Accordion>
-</AccordionGroup>  
-
-### PPC / Google Tag Manager Integration (Parallel Tracking)
-
-<Card title="Advanced Tracking Integration" icon="zap">
-For PPC campaigns, parallel tracking ensures that clicks from paid advertising correctly pass through tracking parameters for proper attribution, even when users don't click through affiliate links.
-</Card>
-
-<Info>
-Parallel tracking is essential for PPC campaigns because it allows you to attribute conversions to the correct affiliate even when users interact with your paid ads directly.
-</Info>
-
-<Steps>
-  <Step title="Enable Parallel Tracking">
-    In **Brands → Edit**, enable **parallel tracking** for the brand you want to track.
-  </Step>
-  <Step title="Copy Code Snippet">
-    Copy the provided JavaScript code snippet from the Affelios dashboard.
-  </Step>
-  <Step title="Configure Google Tag Manager">
-    In Google Tag Manager:
-    - Create a **Custom HTML tag**
-    - Paste the Affelios code snippet
-    - Set trigger to **All Pages** (or your preferred trigger)
-    - Save and publish the container
-  </Step>
-  <Step title="Configure Tracker Templates">
-    Configure your tracker(s) to use the **parallel tracking** template:
-    - By default, Affelios provides a Google template
-    - You can also set custom templates if needed
-  </Step>
-</Steps>
-
-<CodeGroup>
-  <CodeGroupItem title="Example GTM Configuration" active>
-    ```html
-    <!-- Affelios Parallel Tracking Code -->
-    <script>
-    // Your tracking code snippet from Affelios
-    </script>
-    ```
-  </CodeGroupItem>
-</CodeGroup>
-
-<Tip>
-With parallel tracking enabled, clicks from PPC campaigns will correctly pass through tracking parameters for attribution, ensuring affiliates receive proper credit for their promotional efforts.
-</Tip>
 
 ---
 
