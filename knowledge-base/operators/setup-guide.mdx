@@ -1,20 +1,23 @@
 ---
 title: "Setup Guide"
 description: "Complete guide for operators to create, configure, and manage affiliate programs in Affelios"
-icon: "settings"
 ---
 
 <Info>
 This comprehensive guide walks through all the steps an **operator** (program owner / admin) must take to create, configure, and run an affiliate program in Affelios. Follow this step-by-step process to get your program up and running successfully.
 </Info>
 
-## 1. Choosing a Plan
+## Choosing a Plan
 
-Choose a plan based on your anticipated volume and business needs.
+<Info>
+Unsure which business plan is best? The following comparison offers insights to help you decide which option aligns with your goals and business needs.
+</Info>
+
+Choose a plan based on your anticipated volume and business needs. Consider your current traffic, expected growth, and budget when making your selection.
 
 <Tabs>
   <Tab title="Flex">
-    <Card title="Flex Plan" icon="zap">
+    <Card title="Flex Plan" icon="bolt">
       **Monthly Fee:** $0 (pay-as-you-go)
       
       **Best for:** New or low-volume users
@@ -72,7 +75,7 @@ If you're uncertain about your volume needs, start with the **Flex** plan and up
 
 ---
 
-## 2. Creating an Affelios Subscription
+## Creating an Affelios Subscription
 
 <Warning>
 The subscription setup process may vary slightly depending on your current UI. The following steps represent the typical flow for creating an Affelios subscription.
@@ -99,15 +102,15 @@ Once your subscription is active, you'll have full access to the Affelios platfo
 
 ---
 
-## 3. Configuring Your Program
+## Configuring Your Program
 
 This is the foundational setup for your affiliate program. These settings will define how your program operates and how affiliates interact with your system.
 
-<Card title="Program Configuration Overview" icon="settings">
+<Card title="Program Configuration Overview" icon="gear">
 The program configuration includes essential settings for branding, communication, payments, and tracking that will apply to your entire affiliate program.
 </Card>
 
-### 3.1 Program Settings & Branding
+### Program Settings & Branding
 
 Navigate to **Program / Settings** to configure your core program settings:
 
@@ -138,30 +141,38 @@ Navigate to **Program / Settings** to configure your core program settings:
   </Accordion>
 </AccordionGroup>  
 
-### 3.2 Affiliate Payout Options
+### Affiliate Payout Options
 
 <Card title="Payment Configuration" icon="credit-card">
-Configure the payment methods and tax settings that affiliates can use to receive their commissions.
+Configure the payment processors you support so that affiliates can choose one that's suitable for them.
 </Card>
 
-Still within program settings, enable payout methods you support:
+Still within program settings, select which payment processors you support:
 
 - Bank transfer
 - PayPal
 - Cryptocurrency
 - Other payment processors
 
-Affiliates will select from these available methods when registering.
+<Info>
+By enabling these payment processors, you're giving affiliates the flexibility to choose the payment method that works best for their location, preferences, and business needs.
+</Info>
+
+Affiliates will be able to select from these supported payment processors when registering and setting up their payout preferences.
 
 <Tip>
 Also configure any relevant tax settings (e.g. withholding, VAT, etc.) based on your business location and legal requirements.
 </Tip>
 
-### 3.3 Custom Domain Setup (Optional but Recommended)
+### Custom Domain Setup (Optional but Recommended)
 
 <Warning>
 While optional, using a custom domain significantly improves your program's professional appearance and brand consistency.
 </Warning>
+
+<Info>
+**Recommended for Ad Performance:** Configuring a custom domain is highly recommended as it can help avoid issues around URL blacklisting and ad blockers. Using your own branded domain instead of the default Affelios domain reduces the risk of your affiliate links being blocked by ad blockers or flagged by security filters.
+</Info>
 
 <Steps>
   <Step title="Add Custom Domain">
@@ -185,37 +196,98 @@ While optional, using a custom domain significantly improves your program's prof
 DNS propagation can take anywhere from a few minutes to 48 hours depending on your domain provider and geographic location.
 </Info>  
 
-### 3.4 Commission Plan Defaults & Brand Association
+### Commission Plan Defaults & Brand Association
 
 <Card title="Commission Planning" icon="percent">
 Set up default commission plans that will apply broadly across your program, with the ability to create more specific plans later.
 </Card>
 
-- During setup or in later configuration, create **default commission plans** that apply broadly.
-- When creating a **Brand**, you may designate a default commission plan that will apply to all products under that brand (unless overridden).
+#### Creating Commission Plans
 
-### 3.5 Internal Affiliate (Optional)
+<Steps>
+  <Step title="Navigate to Commission Plans">
+    Go to **Commission Plans** in your dashboard to create and manage your commission structures.
+  </Step>
+  <Step title="Create Default Plans">
+    During setup or in later configuration, create **default commission plans** that apply broadly across your program.
+  </Step>
+  <Step title="Set Brand-Specific Plans">
+    When creating a **Brand**, you may designate a default commission plan that will apply to all products under that brand (unless overridden).
+  </Step>
+  <Step title="Configure Commission Types">
+    Set up different commission structures:
+    - **Revenue Share**: Commission as a percentage of sale value
+    - **CPA (Cost Per Action)**: Fixed commission per conversion
+    - **Hybrid**: Combination of revenue share and CPA models
+    - **Tiered**: Different rates based on volume or performance (applies to all types)
+  </Step>
+</Steps>
 
-<Info>
-Creating an internal affiliate account allows you to track in-house campaigns and internal marketing efforts through the same system your external affiliates use.
-</Info>
+<AccordionGroup>
+  <Accordion title="Commission Plan Types">
+    **Revenue Share Plans:**
+    - Commission as a percentage of sale value
+    - Most common for e-commerce
+    - Scales with product value
+    - Easy to understand for affiliates
+    
+    **CPA (Cost Per Action) Plans:**
+    - Fixed commission per conversion
+    - Good for lead generation
+    - Predictable costs for operators
+    - Simple to calculate
+    
+    **Hybrid Plans:**
+    - Combination of revenue share and CPA models
+    - Flexible structure for different scenarios
+    - Can optimize for both volume and value
+    
+    **Tiered Structure (All Types):**
+    - Different rates based on volume or performance
+    - Rewards high-performing affiliates
+    - Encourages volume growth
+    - Can be applied to Revenue Share, CPA, or Hybrid plans
+  </Accordion>
+  
+  <Accordion title="Best Practices">
+    - Start with simple Revenue Share plans
+    - Test different rates with top affiliates
+    - Consider your profit margins
+    - Use CPA plans for predictable cost scenarios
+    - Consider Hybrid plans for complex product lines
+    - Implement tiered structures to reward performance
+    - Review and adjust quarterly
+    - Document your commission structure clearly
+  </Accordion>
+</AccordionGroup>
 
-You can create an internal affiliate account during setup to track your own marketing campaigns.
+### Testimonials Management
 
-### 3.6 Tracker / Traffic Source Setup
-
-<Card title="Tracking Configuration" icon="target">
-Set up default tracking mechanisms and allow affiliates to create their own traffic sources for better campaign organization.
+<Card title="Testimonials & Reviews" icon="comment">
+Create and approve testimonials to showcase successful affiliate partnerships and build trust with potential affiliates.
 </Card>
 
-Configure tracking options:
+<Steps>
+  <Step title="Create Testimonials">
+    Navigate to the **Testimonials** section to create new testimonials from successful affiliate partnerships.
+  </Step>
+  <Step title="Gather Content">
+    Collect testimonials that include:
+    - Affiliate name and website
+    - Success metrics (clicks, conversions, earnings)
+    - Quotes about their experience
+    - Performance highlights
+  </Step>
+  <Step title="Review & Approve">
+    Review testimonials for accuracy and appropriateness before approving them for display. When approved, the testimonial will appear on your program's landing page.
+  </Step>
+</Steps>
 
-- Create a **default tracker** to attribute conversions when no other tracker is provided
-- Allow affiliates to add traffic sources (e.g. their website, social media)
-- Optionally verify sources by DNS record or meta tag
-- Create trackers with descriptive names (e.g. "HomepagePromo")
+<Tip>
+Testimonials are powerful social proof that can encourage new affiliates to join your program. Focus on highlighting specific results and success stories.
+</Tip>
 
-### 3.7 Completing Setup
+### Completing Setup
 
 <Steps>
   <Step title="Review Configuration">
@@ -225,19 +297,19 @@ Configure tracking options:
     When all required steps are done, click **Complete Setup**.
   </Step>
   <Step title="Program Ready">
-    Your program is now ready for use and affiliate onboarding!
+    Your program is now ready for brand integration and affiliate onboarding! Follow the steps below to configure your first brand and start building your affiliate program catalog.
   </Step>
 </Steps>  
 
 ---
 
-## 4. Brands, Products & Media
+## Brands, Products & Media
 
 <Card title="Brand & Product Management" icon="tag">
 Once your program is configured, you'll need to create brands and products that affiliates can promote. This section covers setting up your catalog and tracking parameters.
 </Card>
 
-### 4.1 Create & Configure a Brand
+### Create & Configure a Brand
 
 Navigate to the **Brands** section to create your first brand. When adding a brand, you'll need to provide:
 
@@ -274,7 +346,7 @@ Navigate to the **Brands** section to create your first brand. When adding a bra
   </Accordion>
 </AccordionGroup>
 
-### 4.2 ClickKey & Tracking Parameter
+### ClickKey & Tracking Parameter
 
 <Info>
 The **ClickKey** is the query parameter name you use to pass tracking IDs. This is how Affelios identifies which affiliate should receive credit for a conversion.
@@ -302,7 +374,7 @@ The **ClickKey** is the query parameter name you use to pass tracking IDs. This 
 
 When creating a brand, you specify the parameter placeholder (e.g. `[ClickKey]`) in your landing URL. Affelios will replace this with the actual tracking ID during use.  
 
-### 4.3 Commission Plans & Selection Logic
+### Commission Plans & Selection Logic
 
 <Card title="Commission Plan Hierarchy" icon="layers">
 Affelios uses a sophisticated cascading system to determine which commission plan applies to each transaction, always choosing the most specific applicable plan.
@@ -340,7 +412,7 @@ You can create commission rules at multiple scopes. The system always prefers th
 </Tip>  
 
   
-### 4.4 Uploading Media for Affiliates
+### Uploading Media for Affiliates
 
 <Card title="Marketing Assets" icon="image">
 Providing high-quality marketing assets helps affiliates promote your brand more effectively and maintains brand consistency across all promotional materials.
@@ -369,7 +441,7 @@ Providing high-quality marketing assets helps affiliates promote your brand more
 Following IAB (Interactive Advertising Bureau) guidelines ensures your creative assets meet industry standards and work well across different advertising platforms.
 </Tip>
 
-### 4.5 Create & Configure Products
+### Create & Configure Products
 
 <Card title="Product Setup" icon="package">
 Create products that affiliates can promote. Each product should be associated with a brand and can have its own commission rates and tracking settings.
@@ -404,31 +476,67 @@ When creating a product, you'll typically need to provide:
 
 ---
 
-## 5. Tracking & Links
+## Tracking & Links
 
 <Card title="Tracking & Link Management" icon="link-2">
 Learn how to create and manage tracking links that allow affiliates to promote your products while ensuring proper attribution and commission tracking.
 </Card>
 
-### 5.1 How Tracking Works
+### How Tracking Works
 
 <Info>
-A **tracking link** is a URL that carries a unique identifier (via your ClickKey parameter) so that when users click and convert, the system knows which affiliate must be credited for the sale.
+Understanding how the tracking process works is crucial for successful affiliate program management. This section explains the complete tracking flow from click to commission.
 </Info>
 
-<Card title="Tracking Flow" icon="arrow-right">
+<Card title="Tracking Process Overview" icon="arrow-right">
 ```mermaid
 graph LR
     A[Affiliate Link] --> B[User Clicks]
     B --> C[Tracking ID Captured]
     C --> D[User Converts]
     D --> E[Commission Credited]
+    E --> F[Payout Processed]
 ```
 </Card>
 
-Affiliates can create multiple trackers to segment campaigns or traffic sources, giving you detailed insights into which promotional efforts are most effective.
+#### Key Tracking Concepts
 
-### 5.2 Creating a Tracker & Traffic Source
+<AccordionGroup>
+  <Accordion title="What is a Tracking Link?">
+    A **tracking link** is a URL that carries a unique identifier (via your ClickKey parameter) so that when users click and convert, the system knows which affiliate must be credited for the sale.
+    
+    **Components:**
+    - Base URL (your website)
+    - ClickKey parameter (unique tracking ID)
+    - Optional UTM parameters for additional analytics
+  </Accordion>
+  
+  <Accordion title="How Attribution Works">
+    **Click Attribution:**
+    - When a user clicks an affiliate link, their session is tagged
+    - The tracking ID is stored in cookies or session data
+    - Multiple touchpoints can be tracked during the attribution window
+    
+    **Conversion Attribution:**
+    - When a conversion occurs, the system looks for the tracking ID
+    - The most recent or highest-value affiliate gets credit
+    - Commission is calculated based on the applicable plan
+  </Accordion>
+  
+  <Accordion title="Traffic Source Segmentation">
+    Affiliates can create multiple trackers to segment campaigns:
+    - **Email campaigns**: Different trackers for newsletter segments
+    - **Social media**: Separate trackers for each platform
+    - **Website sections**: Trackers for different site areas
+    - **Seasonal campaigns**: Holiday or event-specific tracking
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+Proper tracking setup is essential for accurate commission attribution. Test your tracking links thoroughly before launching campaigns.
+</Warning>
+
+### Creating a Tracker & Traffic Source
 
 <Steps>
   <Step title="Navigate to Trackers">
@@ -450,7 +558,7 @@ Affiliates can create multiple trackers to segment campaigns or traffic sources,
   </Step>
 </Steps>
 
-### 5.3 Generating Tracking Links
+### Generating Tracking Links
 
 <Card title="Link Generation Process" icon="external-link">
 Once your tracker exists, generating tracking links is straightforward.
@@ -466,11 +574,11 @@ Once your tracker exists, generating tracking links is straightforward.
   <Accordion title="Attribution Process">
     - Each time the link is clicked and a conversion occurs
     - Affelios attributes the conversion to the correct affiliate/tracker
-    - Commission is calculated based on the plan hierarchy described in section 4.3
+    - Commission is calculated based on the plan hierarchy described in the Commission Plans & Selection Logic section
   </Accordion>
 </AccordionGroup>  
 
-### 5.4 PPC / Google Tag Manager Integration (Parallel Tracking)
+### PPC / Google Tag Manager Integration (Parallel Tracking)
 
 <Card title="Advanced Tracking Integration" icon="zap">
 For PPC campaigns, parallel tracking ensures that clicks from paid advertising correctly pass through tracking parameters for proper attribution, even when users don't click through affiliate links.
@@ -518,7 +626,114 @@ With parallel tracking enabled, clicks from PPC campaigns will correctly pass th
 
 ---
 
-## 6. User Permissions & Roles
+## Integrations
+
+<Card title="Platform Integrations" icon="plug">
+Connect Affelios with your existing systems and platforms to streamline your affiliate program management and data flow.
+</Card>
+
+### Available Integrations
+
+<Info>
+Choose your integration and follow our easy-to-follow integration guides to help you get started with connecting your systems.
+</Info>
+
+<Tabs>
+  <Tab title="Shopify">
+    <Card title="Shopify Integration" icon="shopping-cart">
+      **Perfect for:** E-commerce stores using Shopify
+      
+      **Features:**
+      - Automatic product sync
+      - Real-time conversion tracking
+      - Commission calculations
+      - Order management integration
+      
+      **Setup Process:**
+      1. Install the Affelios app from Shopify App Store
+      2. Connect your Affelios account
+      3. Configure product mappings
+      4. Set up commission plans
+      5. Test tracking and conversions
+    </Card>
+  </Tab>
+  
+  <Tab title="JavaScript">
+    <Card title="JavaScript SDK" icon="code">
+      **Perfect for:** Custom websites and applications
+      
+      **Features:**
+      - Flexible tracking implementation
+      - Custom event tracking
+      - Real-time conversion reporting
+      - Advanced analytics integration
+      
+      **Implementation:**
+      ```javascript
+      // Basic tracking implementation
+      <script>
+        // Your Affelios tracking code
+        window.affelios = {
+          track: function(event, data) {
+            // Tracking logic
+          }
+        };
+      </script>
+      ```
+    </Card>
+  </Tab>
+  
+  <Tab title="Playbook">
+    <Card title="Playbook Integration" icon="layers">
+      **Perfect for:** Marketing automation and workflow management
+      
+      **Features:**
+      - Automated affiliate onboarding
+      - Workflow-based commission management
+      - Advanced reporting and analytics
+      - Custom trigger configurations
+      
+      **Benefits:**
+      - Streamlined affiliate management
+      - Automated communication flows
+      - Performance-based automation
+      - Custom workflow creation
+    </Card>
+  </Tab>
+</Tabs>
+
+### Integration Best Practices
+
+<AccordionGroup>
+  <Accordion title="Testing Your Integration">
+    - Test all tracking links before going live
+    - Verify conversion attribution works correctly
+    - Check commission calculations
+    - Validate data sync accuracy
+  </Accordion>
+  
+  <Accordion title="Data Synchronization">
+    - Ensure product data stays current
+    - Set up automated sync schedules
+    - Monitor for sync errors
+    - Maintain data consistency across platforms
+  </Accordion>
+  
+  <Accordion title="Performance Monitoring">
+    - Monitor integration performance
+    - Track API usage and limits
+    - Set up alerts for failures
+    - Regular health checks
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+Start with the integration that best matches your current tech stack. You can always add more integrations later as your program grows.
+</Tip>
+
+---
+
+## User Permissions & Roles
 
 <Card title="Team Management" icon="users">
 Manage your team by inviting users and assigning appropriate roles and permissions to help manage your affiliate program.
@@ -554,83 +769,279 @@ User permission configurations may vary based on your specific setup. The follow
 
 ---
 
-## 7. Data, Reporting & API
+## Data, Reporting & API
 
 <Card title="Data & Analytics" icon="bar-chart">
 Access comprehensive reporting and programmatic access to your affiliate program data for analysis and automation.
 </Card>
 
-### 7.1 Exporting & Reporting
+### Exporting & Reporting
 
 <Card title="Reporting Dashboard" icon="pie-chart">
-Access detailed analytics and reporting through the Affelios dashboard.
+Access detailed analytics and reporting through the Affelios dashboard to gain insights into your affiliate program performance.
 </Card>
 
-You can view and export comprehensive data including:
-
-- **Click Analytics**: Track link performance and user engagement
-- **Conversion Data**: Monitor sales and conversion rates
-- **Affiliate Performance**: Individual and aggregate affiliate statistics
-- **Commission Reports**: Detailed payout and earnings data
-- **Custom Reports**: Create tailored reports for specific needs
-
-### 7.2 API & Programmatic Access
-
-<Card title="API Integration" icon="code">
-Integrate Affelios with your existing systems and automate common tasks using our REST API.
-</Card>
+#### Available Reports
 
 <AccordionGroup>
-  <Accordion title="API Key Management">
-    Generate and manage **API keys** to access program data programmatically:
-    - Create new API keys
-    - Set permissions and access levels
-    - Monitor API usage and limits
+  <Accordion title="Performance Analytics">
+    **Click Analytics:**
+    - Track link performance and user engagement
+    - Monitor click-through rates by traffic source
+    - Analyze geographic distribution of clicks
+    - Track device and browser statistics
+    
+    **Conversion Data:**
+    - Monitor sales and conversion rates
+    - Track conversion funnels
+    - Analyze time-to-conversion metrics
+    - Monitor seasonal trends
   </Accordion>
   
-  <Accordion title="Common Use Cases">
-    Use the API for:
-    - Automating affiliate management
-    - Syncing data with external systems
-    - Custom reporting and analytics
-    - Integration with CRM systems
-    - Automated payout processing
+  <Accordion title="Affiliate Management">
+    **Affiliate Performance:**
+    - Individual and aggregate affiliate statistics
+    - Top performer identification
+    - Performance trends and growth metrics
+    - Affiliate ranking and leaderboards
+    
+    **Commission Reports:**
+    - Detailed payout and earnings data
+    - Commission calculations and breakdowns
+    - Payout history and schedules
+    - Tax reporting information
+  </Accordion>
+  
+  <Accordion title="Custom Reports">
+    **Tailored Analytics:**
+    - Create custom date ranges
+    - Filter by specific affiliates or products
+    - Export data in multiple formats (CSV, Excel, PDF)
+    - Schedule automated report delivery
+    - Create dashboard widgets for key metrics
+  </Accordion>
+</AccordionGroup>
+
+#### Export Options
+
+<Steps>
+  <Step title="Access Reports">
+    Navigate to the **Reports** section in your dashboard.
+  </Step>
+  <Step title="Select Data Range">
+    Choose your desired date range and filters for the report.
+  </Step>
+  <Step title="Choose Export Format">
+    Select from CSV, Excel, or PDF export formats.
+  </Step>
+  <Step title="Download or Schedule">
+    Download immediately or schedule regular report delivery.
+  </Step>
+</Steps>
+
+### API & Programmatic Access
+
+<Card title="API Integration" icon="code">
+Integrate Affelios with your existing systems and automate common tasks using our REST API for seamless data management and workflow automation.
+</Card>
+
+#### API Key Management
+
+<Info>
+API keys are essential for programmatic access to your affiliate program data. Learn how API keys are created, managed, and used for accessing your data.
+</Info>
+
+<Steps>
+  <Step title="Generate API Keys">
+    Navigate to **Settings → API Keys** to create new API keys for your applications.
+  </Step>
+  <Step title="Set Permissions">
+    Configure specific permissions and access levels for each API key:
+    - **Read-only**: View data only
+    - **Write**: Create and update data
+    - **Admin**: Full access including user management
+  </Step>
+  <Step title="Monitor Usage">
+    Track API usage, rate limits, and performance through the dashboard.
+  </Step>
+  <Step title="Rotate Keys">
+    Regularly rotate API keys for security and revoke unused keys.
+  </Step>
+</Steps>
+
+#### API Capabilities
+
+<AccordionGroup>
+  <Accordion title="Affiliate Management">
+    **Automated Affiliate Operations:**
+    - Create and manage affiliate accounts
+    - Approve or reject affiliate applications
+    - Update affiliate information and settings
+    - Send automated communications
+    - Track affiliate performance metrics
+  </Accordion>
+  
+  <Accordion title="Data Synchronization">
+    **System Integration:**
+    - Sync product catalogs with external systems
+    - Import/export affiliate data
+    - Real-time conversion tracking
+    - Automated commission calculations
+    - Payout processing and reconciliation
+  </Accordion>
+  
+  <Accordion title="Reporting & Analytics">
+    **Custom Analytics:**
+    - Generate custom reports programmatically
+    - Create automated dashboard updates
+    - Export data for external analysis tools
+    - Set up automated alerts and notifications
+    - Integration with BI tools and dashboards
+  </Accordion>
+  
+  <Accordion title="Workflow Automation">
+    **Process Automation:**
+    - Automated affiliate onboarding workflows
+    - Commission plan management
+    - Payout scheduling and processing
+    - Performance monitoring and alerts
+    - Integration with CRM and marketing tools
+  </Accordion>
+</AccordionGroup>
+
+#### API Best Practices
+
+<Warning>
+Always secure your API keys and never expose them in client-side code or public repositories.
+</Warning>
+
+<AccordionGroup>
+  <Accordion title="Security">
+    - Store API keys securely in environment variables
+    - Use HTTPS for all API requests
+    - Implement proper error handling
+    - Monitor for unusual API activity
+    - Regularly rotate API keys
+  </Accordion>
+  
+  <Accordion title="Performance">
+    - Implement proper rate limiting
+    - Use pagination for large data sets
+    - Cache frequently accessed data
+    - Monitor API response times
+    - Handle API errors gracefully
+  </Accordion>
+  
+  <Accordion title="Development">
+    - Use API versioning for stability
+    - Test in sandbox environment first
+    - Implement proper logging
+    - Document your integrations
+    - Keep API libraries updated
   </Accordion>
 </AccordionGroup>
 
 ---
 
-## 8. Billing, Subscription & Cancellation
+## Billing, Subscription & Cancellation
 
 <Card title="Billing Management" icon="credit-card">
 Monitor your usage, manage your subscription, and handle billing-related tasks.
 </Card>
 
-### 8.1 Understanding Billing Cycles & Usage
+### Understanding Billing Cycles & Unit Usage
 
 <Card title="Usage Monitoring" icon="activity">
-Keep track of your usage to stay within your plan limits and optimize costs.
+Keep track of your usage to stay within your plan limits and optimize costs. Understanding billing cycles and unit usage is crucial for effective program management.
 </Card>
 
+#### Unit Usage Tracking
+
+<Info>
+Monitor your usage across different metrics to ensure you stay within plan limits and understand your program's growth patterns.
+</Info>
+
 <AccordionGroup>
-  <Accordion title="Usage Tracking">
-    Review your current usage:
-    - **Clicks**: Number of clicks processed
-    - **Transactions**: Number of conversions tracked
-    - **API Calls**: Programmatic access usage
-    - **Storage**: Media and data storage usage
+  <Accordion title="Core Usage Metrics">
+    **Primary Usage Units:**
+    - **Clicks**: Number of affiliate link clicks processed
+    - **Transactions**: Number of conversions tracked and attributed
+    - **API Calls**: Programmatic access and integration usage
+    - **Storage**: Media assets and data storage consumption
+    
+    **Additional Metrics:**
+    - **Affiliates**: Number of active affiliate accounts
+    - **Products**: Products in your catalog
+    - **Reports**: Generated and exported reports
+    - **Custom Domains**: Branded domain usage
   </Accordion>
   
-  <Accordion title="Billing Cycles">
-    Monitor your billing cycle:
-    - Current billing period
-    - Next billing date
-    - Usage against plan limits
-    - Projected costs
+  <Accordion title="Usage Monitoring Dashboard">
+    **Real-time Tracking:**
+    - Current usage vs. plan limits
+    - Daily, weekly, and monthly usage trends
+    - Projected usage for current billing cycle
+    - Cost projections and overage alerts
+    - Usage breakdown by metric type
+  </Accordion>
+  
+  <Accordion title="Billing Cycle Management">
+    **Cycle Information:**
+    - Current billing period start/end dates
+    - Next billing date and amount
+    - Usage reset schedule
+    - Payment method and history
+    - Invoice access and download
   </Accordion>
 </AccordionGroup>
 
-### 8.2 Canceling a Subscription
+#### Usage Optimization
+
+<Steps>
+  <Step title="Monitor Daily Usage">
+    Check your usage dashboard regularly to track consumption patterns.
+  </Step>
+  <Step title="Set Usage Alerts">
+    Configure alerts when approaching plan limits (80%, 90%, 100%).
+  </Step>
+  <Step title="Analyze Trends">
+    Review usage patterns to predict future needs and optimize costs.
+  </Step>
+  <Step title="Plan Upgrades">
+    Upgrade your plan proactively if you're consistently approaching limits.
+  </Step>
+</Steps>
+
+<Warning>
+Exceeding your plan limits may result in additional charges or service limitations. Monitor your usage regularly to avoid unexpected costs.
+</Warning>
+
+#### Cost Optimization Tips
+
+<AccordionGroup>
+  <Accordion title="Efficient Usage">
+    - Optimize tracking implementation to reduce API calls
+    - Clean up unused media assets to reduce storage costs
+    - Use batch operations for bulk data processing
+    - Implement caching to reduce redundant API requests
+  </Accordion>
+  
+  <Accordion title="Plan Optimization">
+    - Analyze usage patterns to choose the right plan
+    - Consider annual billing for potential discounts
+    - Evaluate if you need all features in your current plan
+    - Plan for seasonal usage spikes
+  </Accordion>
+  
+  <Accordion title="Monitoring Best Practices">
+    - Set up automated usage reports
+    - Review billing statements monthly
+    - Track usage trends over time
+    - Plan for growth and scaling needs
+  </Accordion>
+</AccordionGroup>
+
+### Canceling a Subscription
 
 <Warning>
 Before canceling your subscription, ensure you've exported any important data and notified your affiliates of the change.
