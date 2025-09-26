@@ -500,103 +500,50 @@ When creating a product, you'll typically need to provide:
 Connect Affelios with your existing systems and platforms to streamline your affiliate program management and data flow.
 </Card>
 
-### Available Integrations
+### What Are Integrations?
 
 <Info>
-Choose your integration and follow our easy-to-follow integration guides to help you get started with connecting your systems.
+Integrations allow you to connect Affelios with your existing business systems (like your website, e-commerce platform, or CRM) to automatically sync data and track affiliate performance without manual intervention.
 </Info>
 
-<Tabs>
-  <Tab title="Shopify">
-    <Card title="Shopify Integration" icon="shopping-cart">
-      **Perfect for:** E-commerce stores using Shopify
-      
-      **Features:**
-      - Automatic product sync
-      - Real-time conversion tracking
-      - Commission calculations
-      - Order management integration
-      
-      **Setup Process:**
-      1. Install the Affelios app from Shopify App Store
-      2. Connect your Affelios account
-      3. Configure product mappings
-      4. Set up commission plans
-      5. Test tracking and conversions
-    </Card>
-  </Tab>
-  
-  <Tab title="JavaScript">
-    <Card title="JavaScript SDK" icon="code">
-      **Perfect for:** Custom websites and applications
-      
-      **Features:**
-      - Flexible tracking implementation
-      - Custom event tracking
-      - Real-time conversion reporting
-      - Advanced analytics integration
-      
-      **Implementation:**
-      ```javascript
-      // Basic tracking implementation
-      <script>
-        // Your Affelios tracking code
-        window.affelios = {
-          track: function(event, data) {
-            // Tracking logic
-          }
-        };
-      </script>
-      ```
-    </Card>
-  </Tab>
-  
-  <Tab title="Playbook">
-    <Card title="Playbook Integration" icon="layers">
-      **Perfect for:** Marketing automation and workflow management
-      
-      **Features:**
-      - Automated affiliate onboarding
-      - Workflow-based commission management
-      - Advanced reporting and analytics
-      - Custom trigger configurations
-      
-      **Benefits:**
-      - Streamlined affiliate management
-      - Automated communication flows
-      - Performance-based automation
-      - Custom workflow creation
-    </Card>
-  </Tab>
-</Tabs>
-
-### Integration Best Practices
+#### How Integrations Work in Affelios
 
 <AccordionGroup>
-  <Accordion title="Testing Your Integration">
-    - Test all tracking links before going live
-    - Verify conversion attribution works correctly
-    - Check commission calculations
-    - Validate data sync accuracy
-  </Accordion>
-  
   <Accordion title="Data Synchronization">
-    - Ensure product data stays current
-    - Set up automated sync schedules
-    - Monitor for sync errors
-    - Maintain data consistency across platforms
+    **Automatic Data Flow:**
+    - Product information syncs from your system to Affelios
+    - Conversion data flows back from your system to Affelios
+    - Real-time updates ensure accurate tracking and reporting
   </Accordion>
   
-  <Accordion title="Performance Monitoring">
-    - Monitor integration performance
-    - Track API usage and limits
-    - Set up alerts for failures
-    - Regular health checks
+  <Accordion title="Tracking Implementation">
+    **Seamless Attribution:**
+    - ClickKey values are automatically captured from affiliate links
+    - Conversion events are tracked and attributed to the correct affiliate
+    - Commission calculations happen automatically based on your configured plans
+  </Accordion>
+  
+  <Accordion title="Platform Support">
+    **Multiple Integration Options:**
+    - **E-commerce platforms** (like Shopify) for product and order management
+    - **Custom websites** via JavaScript SDK for flexible implementation
+    - **Marketing tools** (like Playbook) for automated workflows
+    - **Custom solutions** using REST API for unique requirements
   </Accordion>
 </AccordionGroup>
 
+### Getting Started with Integrations
+
+<Card title="Integration Implementation" icon="code">
+To integrate your brand with your system, you'll need to choose the appropriate integration method and follow the setup process for your specific platform.
+</Card>
+
+<Info>
+**Need detailed integration guidance?** Visit our comprehensive [Integration Documentation](/integrations/api/overview) for platform-specific setup guides, code examples, and step-by-step implementation instructions.
+</Info>
+
 <Tip>
-Start with the integration that best matches your current tech stack. You can always add more integrations later as your program grows.
+Start with the integration that best matches your current tech stack. First-class supported integrations can typically be set up in under 30 minutes, while custom integrations may take longer depending on your specific requirements. You can always add more integrations later as your program grows.
 </Tip>
 
 ---
@@ -639,13 +586,13 @@ User permission configurations may vary based on your specific setup. The follow
 
 ## Data, Reporting & API
 
-<Card title="Data & Analytics" icon="bar-chart">
-Access comprehensive reporting and programmatic access to your affiliate program data for analysis and automation.
+<Card title="Data & Analytics" icon="chart-simple">
+Access comprehensive reporting of your affiliate program data for analysis and automation.
 </Card>
 
 ### Exporting & Reporting
 
-<Card title="Reporting Dashboard" icon="pie-chart">
+<Card title="Reporting Dashboard" icon="gauge">
 Access detailed analytics and reporting through the Affelios dashboard to gain insights into your affiliate program performance.
 </Card>
 
@@ -684,7 +631,7 @@ Access detailed analytics and reporting through the Affelios dashboard to gain i
     **Tailored Analytics:**
     - Create custom date ranges
     - Filter by specific affiliates or products
-    - Export data in multiple formats (CSV, Excel, PDF)
+    - Export data in CSV format
     - Schedule automated report delivery
     - Create dashboard widgets for key metrics
   </Accordion>
@@ -699,115 +646,12 @@ Access detailed analytics and reporting through the Affelios dashboard to gain i
   <Step title="Select Data Range">
     Choose your desired date range and filters for the report.
   </Step>
-  <Step title="Choose Export Format">
-    Select from CSV, Excel, or PDF export formats.
-  </Step>
-  <Step title="Download or Schedule">
-    Download immediately or schedule regular report delivery.
+  <Step title="View & Export">
+    View your data and optionally export it in CSV format for use in other software.
   </Step>
 </Steps>
 
-### API & Programmatic Access
-
-<Card title="API Integration" icon="code">
-Integrate Affelios with your existing systems and automate common tasks using our REST API for seamless data management and workflow automation.
-</Card>
-
-#### API Key Management
-
-<Info>
-API keys are essential for programmatic access to your affiliate program data. Learn how API keys are created, managed, and used for accessing your data.
-</Info>
-
-<Steps>
-  <Step title="Generate API Keys">
-    Navigate to **Settings → API Keys** to create new API keys for your applications.
-  </Step>
-  <Step title="Set Permissions">
-    Configure specific permissions and access levels for each API key:
-    - **Read-only**: View data only
-    - **Write**: Create and update data
-    - **Admin**: Full access including user management
-  </Step>
-  <Step title="Monitor Usage">
-    Track API usage, rate limits, and performance through the dashboard.
-  </Step>
-  <Step title="Rotate Keys">
-    Regularly rotate API keys for security and revoke unused keys.
-  </Step>
-</Steps>
-
-#### API Capabilities
-
-<AccordionGroup>
-  <Accordion title="Affiliate Management">
-    **Automated Affiliate Operations:**
-    - Create and manage affiliate accounts
-    - Approve or reject affiliate applications
-    - Update affiliate information and settings
-    - Send automated communications
-    - Track affiliate performance metrics
-  </Accordion>
-  
-  <Accordion title="Data Synchronization">
-    **System Integration:**
-    - Sync product catalogs with external systems
-    - Import/export affiliate data
-    - Real-time conversion tracking
-    - Automated commission calculations
-    - Payout processing and reconciliation
-  </Accordion>
-  
-  <Accordion title="Reporting & Analytics">
-    **Custom Analytics:**
-    - Generate custom reports programmatically
-    - Create automated dashboard updates
-    - Export data for external analysis tools
-    - Set up automated alerts and notifications
-    - Integration with BI tools and dashboards
-  </Accordion>
-  
-  <Accordion title="Workflow Automation">
-    **Process Automation:**
-    - Automated affiliate onboarding workflows
-    - Commission plan management
-    - Payout scheduling and processing
-    - Performance monitoring and alerts
-    - Integration with CRM and marketing tools
-  </Accordion>
-</AccordionGroup>
-
-#### API Best Practices
-
-<Warning>
-Always secure your API keys and never expose them in client-side code or public repositories.
-</Warning>
-
-<AccordionGroup>
-  <Accordion title="Security">
-    - Store API keys securely in environment variables
-    - Use HTTPS for all API requests
-    - Implement proper error handling
-    - Monitor for unusual API activity
-    - Regularly rotate API keys
-  </Accordion>
-  
-  <Accordion title="Performance">
-    - Implement proper rate limiting
-    - Use pagination for large data sets
-    - Cache frequently accessed data
-    - Monitor API response times
-    - Handle API errors gracefully
-  </Accordion>
-  
-  <Accordion title="Development">
-    - Use API versioning for stability
-    - Test in sandbox environment first
-    - Implement proper logging
-    - Document your integrations
-    - Keep API libraries updated
-  </Accordion>
-</AccordionGroup>
+ 
 
 ---
 
@@ -869,9 +713,6 @@ Monitor your usage across different metrics to ensure you stay within plan limit
   <Step title="Monitor Daily Usage">
     Check your usage dashboard regularly to track consumption patterns.
   </Step>
-  <Step title="Set Usage Alerts">
-    Configure alerts when approaching plan limits (80%, 90%, 100%).
-  </Step>
   <Step title="Analyze Trends">
     Review usage patterns to predict future needs and optimize costs.
   </Step>
@@ -881,7 +722,7 @@ Monitor your usage across different metrics to ensure you stay within plan limit
 </Steps>
 
 <Warning>
-Exceeding your plan limits may result in additional charges or service limitations. Monitor your usage regularly to avoid unexpected costs.
+Exceeding your plan limits may result in additional charges. Monitor your usage regularly to avoid unexpected costs.
 </Warning>
 
 #### Cost Optimization Tips
@@ -902,7 +743,6 @@ Exceeding your plan limits may result in additional charges or service limitatio
   </Accordion>
   
   <Accordion title="Monitoring Best Practices">
-    - Set up automated usage reports
     - Review billing statements monthly
     - Track usage trends over time
     - Plan for growth and scaling needs
