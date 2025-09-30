@@ -1,0 +1,505 @@
+---
+title: "How attribution works"
+description: "Technical guide for implementing Affelios tracking on your website - ClickKey handling, attribution setup, and backend integration"
+---
+
+<Info>
+This guide is specifically for **program operators** who need to implement Affelios tracking on their websites. If you're an affiliate looking to understand how tracking works, see [How Tracking Links Work](/knowledge-base/affiliates/tracking-links).
+</Info>
+
+## Technical Implementation Overview
+
+<Card title="Implementation Requirements" icon="code">
+As an operator, you need to integrate Affelios tracking into your website to properly attribute sales to affiliates and process commission payments. This involves handling ClickKeys, storing attribution data, and sending transaction information to Affelios.
+</Card>
+
+### Integration Architecture
+
+<Steps>
+  <Step title="ClickKey Reception">
+    Configure your website to receive and capture ClickKeys from affiliate tracking links when customers arrive at your site.
+  </Step>
+  
+  <Step title="Attribution Storage">
+    Store ClickKey data in your backend system, associating it with customer sessions or accounts for future attribution.
+  </Step>
+  
+  <Step title="Transaction Reporting">
+    Send revenue and transaction data to Affelios along with stored ClickKeys to generate affiliate commissions.
+  </Step>
+  
+  <Step title="Commission Processing">
+    Affelios processes the transaction data and calculates commissions based on your configured commission plans.
+  </Step>
+</Steps>
+
+---
+
+## ClickKey Parameter Implementation
+
+<Card title="Landing Page Integration" icon="globe">
+When setting up your brands in Affelios, you specify how ClickKeys are passed to your website through URL parameters.
+</Card>
+
+### Common Parameter Configurations
+
+<AccordionGroup>
+  <Accordion title="Standard Parameter Names">
+    **Most Common Implementations:**
+    ```
+    https://yoursite.com/product?clickId=[ClickKey]
+    https://yoursite.com/product?referral=[ClickKey]
+    https://yoursite.com/product?utm_source=affiliate&clickId=[ClickKey]
+    ```
+    
+    **Parameter Name Options:**
+    - `clickId` - Most common and recommended
+    - `gclid` - Google-style parameter for familiarity
+    - `btag` - Custom brand tag
+    - `referral` - Simple referral parameter
+    - `affiliate_id` - Descriptive parameter name
+    - `tracking_code` - Alternative descriptive name
+  </Accordion>
+  
+  <Accordion title="URL Structure Examples">
+    **Product-Specific Landing:**
+    ```
+    https://yourstore.com/products/widget-pro?clickId=abc123def456
+    ```
+    
+    **Category Landing:**
+    ```
+    https://yourstore.com/category/electronics?referral=xyz789uvw012
+    ```
+    
+    **Homepage with UTM:**
+    ```
+    https://yourstore.com/?utm_source=affiliate&utm_medium=link&clickId=mno345pqr678
+    ```
+    
+    **Custom Landing Pages:**
+    ```
+    https://yourstore.com/special-offer?btag=stu901vwx234&campaign=summer2024
+    ```
+  </Accordion>
+  
+  <Accordion title="Multi-Parameter Support">
+    **Combining Parameters:**
+    ```
+    https://yoursite.com/product?clickId=abc123&utm_source=affiliate&utm_campaign=summer
+    ```
+    
+    **Fallback Parameters:**
+    - Primary: `clickId`
+    - Secondary: `gclid` (for Google Ads compatibility)
+    - Tertiary: `referral` (for general referral tracking)
+    
+    **Implementation Logic:**
+    ```javascript
+    function getClickKey() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('clickId') || 
+             urlParams.get('gclid') || 
+             urlParams.get('referral') || 
+             null;
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Backend ClickKey Storage
+
+<Card title="Attribution Data Management" icon="database">
+Proper ClickKey storage is critical for accurate commission attribution. You need to capture and maintain ClickKey data throughout the customer journey.
+</Card>
+
+### Storage Implementation Strategies
+
+<Tabs>
+  <Tab title="Session-Based Storage">
+    <Card title="Server Session Storage" icon="server">
+      **Implementation Approach:**
+      - Store ClickKey in server-side sessions
+      - Maintain throughout customer browsing session
+      - Associate with customer actions and eventual purchases
+      
+      **Example (Node.js/Express):**
+      ```javascript
+      // Capture ClickKey on landing
+      app.get('*', (req, res, next) => {
+        const clickKey = req.query.clickId || req.query.gclid || req.query.referral;
+        if (clickKey) {
+          req.session.clickKey = clickKey;
+          req.session.clickTimestamp = new Date();
+        }
+        next();
+      });
+      
+      // Use during checkout
+      app.post('/checkout', (req, res) => {
+        const order = processOrder(req.body);
+        if (req.session.clickKey) {
+          order.affiliateClickKey = req.session.clickKey;
+          order.clickTimestamp = req.session.clickTimestamp;
+        }
+        // Process order and send to Affelios
+      });
+      ```
+      
+      **Pros:**
+      - Simple implementation
+      - Reliable for same-session purchases
+      - No client-side storage issues
+      
+      **Cons:**
+      - Lost if session expires
+      - Doesn't work across devices
+      - Limited attribution window
+    </Card>
+  </Tab>
+  
+  <Tab title="Cookie-Based Storage">
+    <Card title="Browser Cookie Storage" icon="cookie">
+      **Implementation Approach:**
+      - Store ClickKey in persistent cookies
+      - Configure appropriate expiration time
+      - Maintain across multiple sessions and visits
+      
+      **Example (JavaScript):**
+      ```javascript
+      // Set ClickKey cookie on landing
+      function setClickKeyCookie() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const clickKey = urlParams.get('clickId') || urlParams.get('gclid');
+        
+        if (clickKey) {
+          // Set cookie for 30 days
+          const expirationDate = new Date();
+          expirationDate.setDate(expirationDate.getDate() + 30);
+          
+          document.cookie = `clickKey=${clickKey}; expires=${expirationDate.toUTCString()}; path=/; SameSite=Lax`;
+          document.cookie = `clickTimestamp=${Date.now()}; expires=${expirationDate.toUTCString()}; path=/; SameSite=Lax`;
+        }
+      }
+      
+      // Retrieve during checkout
+      function getClickKeyFromCookie() {
+        const cookies = document.cookie.split(';');
+        const clickKeyCookie = cookies.find(cookie => cookie.trim().startsWith('clickKey='));
+        return clickKeyCookie ? clickKeyCookie.split('=')[1] : null;
+      }
+      ```
+      
+      **Cookie Configuration Best Practices:**
+      - Set appropriate expiration (30-90 days typical)
+      - Use `SameSite=Lax` for cross-site compatibility
+      - Consider `Secure` flag for HTTPS sites
+      - Implement cookie consent compliance
+      
+      **Pros:**
+      - Persists across sessions
+      - Works for return customers
+      - Client-side implementation possible
+      
+      **Cons:**
+      - Subject to cookie blocking
+      - Privacy concerns
+      - May be cleared by users
+    </Card>
+  </Tab>
+</Tabs>
+
+---
+
+## Transaction Reporting to Affelios
+
+Once you have ClickKey data stored and a customer completes a purchase, you need to send transaction information to Affelios to generate affiliate commissions.
+
+<Card title="Attribution flow" icon="cloud-binary">
+      **Complete Attribution Flow:**
+      The optimal approach follows a clear progression from initial capture to permanent storage and reporting.
+      
+      **Step-by-Step Flow:**
+      
+      1. **Initial Capture** - Store in temporary locations for immediate tracking
+      2. **User Registration** - Transfer to permanent user record when they sign up
+      3. **Purchase Event** - Associate with transaction and report to Affelios
+      
+      **Implementation Approach:**
+      - **Frontend**: Capture ClickKeys in session storage and cookies for persistence
+      - **Backend**: Transfer attribution data to permanent database storage during registration
+      - **Purchase Flow**: Retrieve ClickKey from user account or temporary storage, then report to Affelios
+      
+      **Integration Points:**
+      - User registration endpoint receives and stores ClickKey data
+      - Order creation endpoint handles attribution lookup and reporting
+      - Fallback logic ensures attribution works for both registered and anonymous users
+      
+      **Benefits of This Flow:**
+      - **Immediate capture** - No attribution loss from page navigation
+      - **Progressive enhancement** - Upgrades from temporary to permanent storage
+      - **Reliable reporting** - Multiple fallback sources ensure attribution
+      - **Clean architecture** - Clear separation of capture, storage, and reporting
+    </Card>
+
+---
+
+## Commission Plan Configuration
+
+<Card title="Attribution Logic Setup" icon="user-plus">
+Configure how commissions are calculated and attributed to affiliates based on your business requirements.
+</Card>
+
+### Commission Plan Hierarchy
+
+  <Card title="Plan Priority System" icon="sitemap">
+    **Commission Plan Evaluation Order:**  
+    Affelios evaluates commission plans in order of specificity, using the most specific match available:
+
+    1. **Affiliate + Brand + Product + Tracker** (Most specific)
+    2. **Affiliate + Brand + Tracker**
+    3. **Affiliate + Tracker**
+    4. **Affiliate + Product**
+    5. **Affiliate + Brand**
+    6. **Affiliate only** (Least specific affiliate plan)
+    7. **Default Product Plan** (Brand + Product)
+    8. **Default Brand Plan**
+    9. **Fully Default Plan** (System-wide fallback)
+
+    **Implementation Considerations:**
+    - Create specific plans for high-value affiliates
+    - Set product-specific rates for different margin items
+    - Use tracker-specific plans for performance incentives
+    - Always have default plans as fallbacks
+  </Card>
+
+---
+
+## Testing and Validation
+
+<Card title="Implementation Verification" icon="cloud-check">
+Ensure your tracking implementation is working correctly before going live with affiliate programs.
+</Card>
+
+### Testing Procedures
+
+<Steps>
+  <Step title="ClickKey Capture Testing">
+    **Test URL Parameter Handling:**
+    1. Create test affiliate links with ClickKeys
+    2. Visit your site using these test links
+    3. Verify ClickKeys are captured and stored correctly
+    4. Test different parameter names and URL structures
+    5. Confirm storage persistence across page navigation
+  </Step>
+  
+  <Step title="Attribution Flow Testing">
+    **Test Complete Customer Journey:**
+    1. Click test affiliate link
+    2. Browse your site normally
+    3. Add products to cart
+    4. Complete checkout process
+    5. Verify ClickKey is included in transaction data
+    6. Confirm transaction is sent to Affelios correctly
+  </Step>
+  
+  <Step title="API Integration Testing">
+    **Validate API Communication:**
+    1. Test transaction submission endpoints
+    2. Verify authentication is working
+    3. Test error handling and retry logic
+    4. Validate data format and required fields
+    5. Test both individual and batch submissions
+  </Step>
+  
+  <Step title="Commission Verification">
+    **Confirm Commission Attribution:**
+    1. Submit test transactions through API
+    2. Check Affelios dashboard for commission records
+    3. Verify commission amounts match expected rates
+    4. Test different commission plan scenarios
+    5. Validate attribution timing and processing
+  </Step>
+</Steps>
+
+### Common Implementation Issues
+
+<AccordionGroup>
+  <Accordion title="ClickKey Not Being Captured">
+    **Symptoms:**
+    - Affiliate links working but no attribution
+    - Missing ClickKey data in transaction submissions
+    - No commissions being generated
+    
+    **Troubleshooting:**
+    - Verify URL parameter configuration matches affiliate links
+    - Check JavaScript console for errors
+    - Test with different browsers and privacy settings
+    - Ensure proper parameter parsing and storage
+    - Validate server-side parameter handling
+  </Accordion>
+  
+  <Accordion title="Attribution Data Loss">
+    **Symptoms:**
+    - ClickKeys captured but lost during customer journey
+    - Partial attribution for some transactions
+    - Inconsistent commission attribution
+    
+    **Solutions:**
+    - Implement multiple storage methods (session, cookie, database)
+    - Increase cookie expiration times
+    - Add ClickKey persistence across customer login
+    - Test cross-device and return customer scenarios
+    - Implement backup attribution methods
+  </Accordion>
+  
+  <Accordion title="API Integration Problems">
+    **Symptoms:**
+    - Transactions not appearing in Affelios
+    - API errors or authentication failures
+    - Delayed or missing commission processing
+    
+    **Resolution:**
+    - Verify API endpoint URLs and authentication tokens
+    - Check API response status codes and error messages
+    - Implement proper error handling and retry logic
+    - Validate JSON data format and required fields
+    - Test with Affelios sandbox environment first
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Security and Compliance
+
+<Card title="Data Protection and Security" icon="shield">
+Implement proper security measures to protect customer data and ensure compliance with privacy regulations.
+</Card>
+
+### Data Security Requirements
+
+<AccordionGroup>
+  <Accordion title="ClickKey Data Protection">
+    **Security Measures:**
+    - Store ClickKeys securely in your database
+    - Use encrypted connections (HTTPS) for all tracking
+    - Implement access controls for attribution data
+    - Regular security audits of tracking implementation
+    - Secure API token management
+    
+    **Data Retention:**
+    - Define retention policies for attribution data
+    - Implement data purging for expired attributions
+    - Comply with customer data deletion requests
+    - Maintain audit logs for attribution activities
+  </Accordion>
+  
+  <Accordion title="Privacy Compliance">
+    **GDPR Compliance:**
+    - Obtain proper consent for tracking cookies
+    - Provide clear privacy notices about affiliate tracking
+    - Support customer data deletion requests
+    - Implement data portability for attribution data
+    
+    **Privacy-First Alternatives:**
+    - Server-side attribution storage
+    - Account-based attribution for logged-in users
+    - First-party cookie implementation
+    - Consent-based tracking activation
+  </Accordion>
+  
+  <Accordion title="API Security">
+    **Authentication Security:**
+    - Use strong API tokens and rotate regularly
+    - Implement IP whitelisting for API access
+    - Use HTTPS for all API communications
+    - Monitor API usage for suspicious activity
+    
+    **Data Transmission Security:**
+    - Encrypt sensitive data in API payloads
+    - Implement request signing for data integrity
+    - Use secure token storage and management
+    - Regular security audits of API integration
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Performance Optimization
+
+<Card title="Scalable Implementation" icon="gauge">
+Optimize your tracking implementation for performance and scalability as your affiliate program grows.
+</Card>
+
+### Performance Best Practices
+
+<AccordionGroup>
+  <Accordion title="Client-Side Optimization">
+    **Minimize Page Load Impact:**
+    - Load tracking scripts asynchronously
+    - Use lightweight ClickKey capture methods
+    - Implement lazy loading for non-critical tracking
+    - Optimize cookie and storage operations
+  </Accordion>
+  
+  <Accordion title="Server-Side Optimization">
+    **Database Performance:**
+    - Index ClickKey and customer ID columns
+    - Implement efficient attribution lookup queries
+    - Use database connection pooling
+    - Consider read replicas for reporting queries
+    
+    **API Performance:**
+    - Implement batch transaction submissions
+    - Use asynchronous API calls where possible
+    - Implement request queuing for high volume
+    - Add monitoring and alerting for API performance
+  </Accordion>
+  
+  <Accordion title="Scalability Planning">
+    **High-Volume Considerations:**
+    - Plan for batch processing of transactions
+    - Implement queue systems for API submissions
+    - Design for horizontal scaling of tracking infrastructure
+    - Monitor performance metrics and bottlenecks
+    
+    **Infrastructure Scaling:**
+    - Load balancing for tracking endpoints
+    - Database sharding for large attribution datasets
+    - Auto-scaling for transaction processing
+    - Monitoring and alerting for system health
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps and Resources
+
+<Card title="Implementation Support" icon="arrow-right">
+<Info>
+Ready to implement Affelios tracking on your website? Use these resources to ensure a successful integration.
+</Info>
+
+**Technical Documentation:**
+- [API Reference](/developers/reference/overview) - Complete API documentation
+- [Authentication Guide](/developers/reference/authentication) - API authentication setup
+- [Webhook Configuration](/developers/reference/webhooks) - Real-time event notifications
+- [Integration Examples](/integrations/api/examples) - Code samples and implementations
+
+**Testing Resources:**
+- [Testing and Verification](/integrations/tracking/testing-verification) - Comprehensive testing procedures
+- [Sandbox Environment](/developers/reference/overview#sandbox) - Safe testing environment
+- [Debug Tools](/integrations/tracking/testing-verification#debug-tools) - Troubleshooting utilities
+
+**Support and Assistance:**
+- Technical support through your operator dashboard
+- Implementation consulting services available
+- Developer community forums and resources
+- Regular webinars on integration best practices
+</Card>
+
+<Tip>
+Start with a simple implementation using session-based ClickKey storage and immediate API submission. You can add more sophisticated features like database storage and batch processing as your program scales.
+</Tip>

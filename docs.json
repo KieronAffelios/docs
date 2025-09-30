@@ -47,7 +47,8 @@
           {
             "group": "For Operators",
             "pages": [
-              "knowledge-base/operators/setup-guide"
+              "knowledge-base/operators/setup-guide",
+              "knowledge-base/operators/attribution"
             ]
           },
           {
@@ -55,9 +56,9 @@
             "pages": [
               "knowledge-base/affiliates/onboarding",
               "knowledge-base/affiliates/finding-programs",
-              "knowledge-base/affiliates/affiliate-dashboard",
               "knowledge-base/affiliates/tracking-links",
-              "knowledge-base/affiliates/earning-commissions"
+              "knowledge-base/affiliates/payout-methods",
+              "knowledge-base/affiliates/invoice-generation-vat"
             ]
           },
           {
