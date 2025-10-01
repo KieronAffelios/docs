@@ -48,7 +48,11 @@
             "group": "For Operators",
             "pages": [
               "knowledge-base/operators/setup-guide",
-              "knowledge-base/operators/attribution"
+              "knowledge-base/operators/attribution",
+              "knowledge-base/operators/automated-deductions",
+              "knowledge-base/operators/clean-slate",
+              "knowledge-base/operators/auto-approve-commissions",
+              "knowledge-base/operators/auto-approve-affiliates"
             ]
           },
           {

@@ -1,0 +1,427 @@
+---
+title: "Automated Deductions"
+description: "Configure automated deductions to exclude business costs from commission calculations - including tax, deposits, and net revenue fees at the brand level"
+---
+
+<Info>
+This guide is specifically for **program operators** who want to configure automated deductions to exclude certain business costs from commission calculations. These settings are configured at the brand level and automatically apply to all transactions for that brand.
+</Info>
+
+## Automated Deductions Overview
+
+<Card title="Business Cost Management" icon="calculator">
+Automated deductions is a per-brand setting that allows you to automatically exclude specific business costs from commission calculations. This ensures affiliates are only paid commissions on net revenue after accounting for taxes, deposits, processing fees, and other operational costs.
+</Card>
+
+### How Automated Deductions Work in Affelios
+
+<Steps>
+  <Step title="Transaction Processing">
+    When a customer completes a purchase through an affiliate link, you send the transaction data to Affelios including the gross transaction amount.
+  </Step>
+  
+  <Step title="Deduction Application">
+    Affelios automatically applies the configured deductions (tax, deposits, fees) to calculate the net revenue amount for commission purposes.
+  </Step>
+  
+  <Step title="Commission Calculation">
+    Commissions are calculated based on the net revenue amount after deductions, ensuring affiliates are paid on actual profit rather than gross sales.
+  </Step>
+  
+  <Step title="Transparent Reporting">
+    Both gross amounts and net amounts after deductions are visible in reporting, providing full transparency into commission calculations.
+  </Step>
+</Steps>
+
+---
+
+## Types of Automated Deductions
+
+<Card title="Configurable Business Costs" icon="receipt">
+Automated deductions can be configured for various types of business costs that should be excluded from commission calculations to ensure accurate profit-based payouts.
+</Card>
+
+### Available Deduction Types
+
+<AccordionGroup>
+  <Accordion title="Tax Deductions">
+    **Sales Tax & VAT:**
+    - Automatically deduct sales tax percentages from transaction amounts
+    - Support for VAT percentage calculations in international markets
+    - Region-specific tax rate configuration
+    - Compliance with local tax regulations
+    
+    **Income Tax Considerations:**
+    - Deduct estimated income tax obligation percentages
+    - Account for corporate tax liability percentages
+    - Ensure commissions reflect after-tax profitability
+    
+    **Tax Reporting Benefits:**
+    - Simplified tax compliance and reporting
+    - Clear separation of taxable vs. commission amounts
+    - Accurate profit calculations for tax purposes
+  </Accordion>
+  
+  <Accordion title="Deposit & Refund Reserves">
+    **Customer Deposits:**
+    - Exclude deposit percentages from commission calculations
+    - Handle partial payments and installment plans
+    - Account for refundable deposits as percentage of transaction
+    - Manage subscription setup fee percentages
+    
+    **Refund Reserves:**
+    - Set aside percentage reserves for potential refunds and chargebacks
+    - Protect against commission overpayments on returned items
+    - Maintain cash flow stability with percentage-based refund provisions
+    - Account for seasonal return patterns with percentage adjustments
+    
+    **Risk Management:**
+    - Reduce financial exposure from commission advances
+    - Maintain healthy cash flow during high-refund periods
+    - Protect program profitability from return volatility
+  </Accordion>
+  
+  <Accordion title="Net Revenue Fees">
+    **Payment Processing Fees:**
+    - Deduct credit card processing fee percentages (typically 2.9%)
+    - Account for PayPal, Stripe, and other gateway fee percentages
+    - Handle international transaction fee percentages and currency conversion
+    - Include chargeback and dispute fee percentages
+    
+    **Platform & Service Fees:**
+    - Deduct marketplace fee percentages (Amazon, eBay, etc.)
+    - Account for SaaS platform cost percentages and subscriptions
+    - Include customer service and support cost percentages
+    - Factor in shipping and fulfillment fee percentages
+    
+    **Operational Costs:**
+    - Deduct cost of goods sold (COGS) percentages
+    - Account for inventory and warehousing cost percentages
+    - Include marketing and advertising expense percentages
+    - Factor in customer acquisition cost percentages
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Benefits of Automated Deductions
+
+<Card title="Accurate Commission Management" icon="chart-line">
+Automated deductions ensure commission calculations reflect true business profitability by automatically accounting for operational costs and maintaining sustainable affiliate program economics.
+</Card>
+
+### Financial Benefits
+
+<AccordionGroup>
+  <Accordion title="Profit-Based Commissions">
+    **True Profitability:**
+    - Commissions calculated on actual net revenue, not gross sales
+    - Ensures affiliate payouts don't exceed actual profit margins
+    - Protects business sustainability and cash flow
+    - Maintains healthy unit economics across all transactions
+    
+    **Cost Transparency:**
+    - Clear visibility into all business costs affecting commissions
+    - Accurate profit margin calculations and reporting
+    - Better understanding of true affiliate program ROI
+    - Improved financial planning and budgeting accuracy
+    
+    **Sustainable Growth:**
+    - Commission structure that scales profitably with business growth
+    - Protection against unprofitable affiliate partnerships
+    - Maintained program viability during market fluctuations
+    - Long-term financial sustainability of affiliate operations
+  </Accordion>
+  
+  <Accordion title="Automated Cost Management">
+    **Operational Efficiency:**
+    - No manual calculation of deductions for each transaction
+    - Consistent application of cost rules across all sales
+    - Reduced administrative overhead and human error
+    - Streamlined commission processing workflow
+    
+    **Real-Time Accuracy:**
+    - Immediate application of current tax rates and fee percentages
+    - Dynamic adjustment to changing operational cost percentages
+    - Up-to-date commission calculations without manual updates
+    - Consistent accuracy across high transaction volumes
+    
+    **Scalable Operations:**
+    - Handle growing transaction volumes without additional manual work
+    - Maintain accuracy as business complexity increases
+    - Support multiple brands with different cost structures
+    - Scale efficiently without proportional administrative growth
+  </Accordion>
+  
+  <Accordion title="Risk Mitigation">
+    **Financial Protection:**
+    - Prevent commission overpayments that exceed actual profits
+    - Protect against cash flow issues from cost fluctuations
+    - Maintain program viability during economic uncertainty
+    - Reduce financial risk from affiliate program operations
+    
+    **Compliance & Accuracy:**
+    - Ensure tax compliance through accurate deductions
+    - Maintain accurate financial records and reporting
+    - Reduce audit risk through systematic cost accounting
+    - Support regulatory compliance requirements
+    
+    **Business Stability:**
+    - Consistent profitability regardless of cost variations
+    - Protection against margin erosion from hidden costs
+    - Stable commission structure during market changes
+    - Predictable financial performance and planning
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Configuration & Setup
+
+<Card title="Brand-Level Configuration" icon="gear">
+Automated deductions are configured at the brand level, allowing different deduction rules for different product lines, markets, or business units within your organization.
+</Card>
+
+### Setting Up Automated Deductions
+
+<Steps>
+  <Step title="Access Brand Settings">
+    Navigate to your brand settings in the Affelios dashboard and locate the "Automated Deductions" section under the brand settings.
+  </Step>
+  
+  <Step title="Configure Deduction Types">
+    Configure the specific types of deductions relevant to your business model and operational costs.
+  </Step>
+  
+  <Step title="Set Deduction Amounts">
+    Define the deduction amounts as percentages based on your business requirements.
+  </Step>
+  
+  <Step title="Test & Validate">
+    Process test transactions to verify deductions are calculated correctly and commission amounts reflect expected net revenue.
+  </Step>
+  
+  <Step title="Monitor & Adjust">
+    Regularly review deduction performance and adjust settings as business costs or market conditions change.
+  </Step>
+</Steps>
+
+---
+
+## Best Practices & Considerations
+
+<Card title="Implementation Guidelines" icon="lightbulb">
+Follow these best practices to ensure automated deductions are configured optimally for your business model and provide fair, transparent commission calculations.
+</Card>
+
+### Implementation Best Practices
+
+<AccordionGroup>
+  <Accordion title="Accurate Cost Calculation">
+    **Comprehensive Cost Analysis:**
+    - Include all relevant business costs that affect profitability
+    - Account for both direct and indirect costs in deductions
+    - Regular review and update of cost assumptions
+    - Benchmark against actual operational expenses
+    
+    **Conservative Estimates:**
+    - Use slightly conservative deduction estimates to protect margins
+    - Account for cost fluctuations and seasonal variations
+    - Include buffer for unexpected costs or fee increases
+    - Maintain sustainable commission rates during market changes
+    
+    **Regular Validation:**
+    - Compare deducted amounts against actual business costs
+    - Validate commission profitability through regular analysis
+    - Adjust deduction rates based on actual cost experience
+    - Monitor affiliate program ROI and unit economics
+  </Accordion>
+  
+  <Accordion title="Transparent Communication">
+    **Affiliate Education:**
+    - Clearly explain deduction policies to affiliates during onboarding
+    - Provide examples of how deductions affect commission calculations
+    - Document deduction policies in affiliate terms and agreements
+    - Offer transparency into the reasoning behind deduction rates
+    
+    **Reporting Clarity:**
+    - Show both gross and net amounts in affiliate reporting
+    - Provide detailed breakdown of applied deductions
+    - Explain deduction calculations in commission statements
+    - Maintain audit trail for all deduction applications
+    
+    **Policy Documentation:**
+    - Document all deduction policies and calculation methods
+    - Maintain version history of deduction rate changes
+    - Provide clear terms regarding deduction modifications
+    - Establish dispute resolution process for deduction questions
+  </Accordion>
+  
+  <Accordion title="Ongoing Management">
+    **Regular Review Cycles:**
+    - Quarterly review of deduction rates and accuracy
+    - Annual comprehensive analysis of cost structures
+    - Monitor market changes affecting operational costs
+    - Adjust deductions proactively rather than reactively
+    
+    **Performance Monitoring:**
+    - Track affiliate satisfaction with deduction transparency
+    - Monitor commission profitability and program sustainability
+    - Analyze deduction impact on affiliate recruitment and retention
+    - Measure accuracy of deduction calculations vs. actual costs
+    
+    **Continuous Optimization:**
+    - Refine deduction models based on operational experience
+    - Optimize deduction structure for competitive positioning
+    - Balance profitability protection with affiliate attractiveness
+    - Implement improvements based on affiliate feedback and market conditions
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Common Use Cases & Examples
+
+<Card title="Real-World Applications" icon="building">
+Explore common scenarios where automated deductions provide significant value in managing affiliate program profitability and operational efficiency.
+</Card>
+
+### Industry-Specific Examples
+
+<AccordionGroup>
+  <Accordion title="E-commerce Retail">
+    **Typical Deduction Structure:**
+    - Sales tax: 8.5% (varies by location)
+    - Payment processing: 3.2% of transaction value
+    - Refund reserve: 5% of transaction value
+    - Shipping/fulfillment costs: 9% of transaction value
+    
+    **Example Calculation:**
+    ```
+    Gross Sale: $100.00
+    - Sales Tax (8.5%): -$8.50
+    - Processing Fee (3.2%): -$3.20
+    - Refund Reserve (5%): -$5.00
+    - Shipping/Fulfillment (9%): -$9.00
+    = Net Commission Base: $74.30
+    
+    Commission (10% of net): $7.43
+    ```
+    
+    **Business Benefits:**
+    - Commissions based on actual profit after all costs
+    - Protection against refund and chargeback losses
+    - Sustainable commission structure for long-term growth
+  </Accordion>
+  
+  <Accordion title="SaaS & Subscription Services">
+    **Typical Deduction Structure:**
+    - Payment processing: 3.5% of transaction value
+    - Chargeback reserve: 2% of transaction value
+    - Customer service costs: 10% of transaction value
+    - Platform fees: 1.5% of revenue
+    
+    **Example Calculation:**
+    ```
+    Monthly Subscription: $49.00
+    - Processing Fee (3.5%): -$1.72
+    - Chargeback Reserve (2%): -$0.98
+    - Service Costs (10%): -$4.90
+    - Platform Fees (1.5%): -$0.74
+    = Net Commission Base: $40.66
+    
+    Commission (20% of net): $8.13
+    ```
+    
+    **Business Benefits:**
+    - Account for customer acquisition and service costs
+    - Protect against subscription churn and disputes
+    - Maintain profitability across customer lifecycle
+  </Accordion>
+  
+  <Accordion title="Digital Products & Services">
+    **Typical Deduction Structure:**
+    - Payment processing: 3.3% of transaction value
+    - VAT (EU customers): 20% where applicable
+    - Platform fees: 3% of gross revenue
+    - Customer support allocation: 2% of revenue
+    
+    **Example Calculation:**
+    ```
+    Digital Product Sale: $79.00
+    - Processing Fee (3.3%): -$2.61
+    - VAT (20% for EU): -$15.80
+    - Platform Fees (3%): -$2.37
+    - Support Allocation (2%): -$1.58
+    = Net Commission Base: $56.64
+    
+    Commission (25% of net): $14.16
+    ```
+    
+    **Business Benefits:**
+    - Compliance with international tax requirements
+    - Account for platform and operational costs
+    - Maintain competitive commission rates on net revenue
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting & Support
+
+<Card title="Common Issues & Solutions" icon="wrench">
+Address common challenges and questions related to automated deductions configuration and management.
+</Card>
+
+### Frequently Asked Questions
+
+<AccordionGroup>  
+  <Accordion title="Affiliate Communication">
+    **Q: How do I explain deductions to affiliates?**
+    
+    **Best Practices:**
+    - Provide clear documentation of all deduction policies
+    - Show examples of gross vs. net commission calculations
+    - Explain the business rationale behind each deduction type
+    - Offer transparency reports showing deduction breakdowns
+    
+    **Q: Affiliates are complaining about lower commissions due to deductions.**
+    
+    **Solutions:**
+    - Emphasize that deductions ensure program sustainability
+    - Compare net commission rates favorably to competitors
+    - Highlight other program benefits and support provided
+    - Consider adjusting base commission rates if deductions are high
+  </Accordion>
+  
+  <Accordion title="Technical Configuration">
+    **Q: Can I change deduction settings after the program is live?**
+    
+    **Answer:** Yes, but consider the following:
+    - Changes apply to new transactions going forward
+    - Communicate changes to affiliates in advance
+    - Consider grandfathering existing affiliate agreements
+    - Document all changes for compliance and transparency
+    
+    **Q: How do deductions interact with different commission plans?**
+    
+    **Integration:**
+    - Percentage deductions are applied before commission plan calculations
+    - All commission tiers and bonuses use the net amount after percentage deductions
+    - Performance thresholds should account for percentage deduction impact
+    - Consider adjusting commission rates to maintain competitive payouts
+  </Accordion>
+</AccordionGroup>
+
+### Getting Support
+
+<Info>
+Need help configuring automated deductions for your specific business model? Our support team can assist with:
+
+- Custom deduction configuration and setup
+- Integration with external cost calculation systems
+- Complex multi-brand deduction strategies
+- Affiliate communication and change management
+
+Contact support through the Affelios dashboard or reach out to your account manager for personalized assistance.
+</Info>

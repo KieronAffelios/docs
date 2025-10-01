@@ -1,0 +1,451 @@
+---
+title: "Auto-Approve Commissions"
+description: "Comprehensive guide to auto-approving affiliate commissions - benefits, risks, configuration, and best practices for reducing administrative overhead"
+---
+
+<Info>
+This guide is specifically for **program operators** who want to streamline commission processing by automatically approving affiliate commissions. If you're an affiliate looking to understand commission processing, see [Affiliate Lifecycle](/knowledge-base/operations/affiliate-lifecycle).
+</Info>
+
+## Auto-Approve Overview
+
+<Card title="Automated Commission Processing" icon="circle-check">
+Auto-approve commissions is a simple per-brand setting that eliminates the need to manually approve each commission. When enabled, all commissions for transactions sent to Affelios are automatically approved and queued for payment, removing the administrative overhead of reviewing each commission individually.
+</Card>
+
+### How Auto-Approve Works in Affelios
+
+<Steps>
+  <Step title="Transaction Processing">
+    When a customer completes a purchase through an affiliate link, you send the transaction data to Affelios where commissions are calculated based on your commission plans.
+  </Step>
+  
+  <Step title="Commission Creation">
+    Affelios processes the transaction and creates commissions for the relevant affiliates based on attribution and commission plan rules.
+  </Step>
+  
+  <Step title="Automatic Approval">
+    If auto-approve is enabled for the brand, commissions are immediately approved and queued for the next payment cycle without requiring manual review.
+  </Step>
+  
+  <Step title="Manual Review (if disabled)">
+    If auto-approve is disabled, commissions remain pending until you manually review and approve each one through the Affelios dashboard.
+  </Step>
+</Steps>
+
+---
+
+## Benefits of Auto-Approve Commissions
+
+<Card title="Administrative Efficiency" icon="clock">
+Auto-approve commissions significantly reduces the time and resources required to manage affiliate programs by eliminating routine manual approval tasks.
+</Card>
+
+### Operational Benefits
+
+<AccordionGroup>
+  <Accordion title="Eliminated Manual Commission Review">
+    **Time Savings:**
+    - No more clicking through individual commissions to approve them
+    - Eliminate the daily task of reviewing commission queues
+    - Free up operator time for program growth and optimization
+    - Remove bottlenecks in commission processing workflow
+    
+    **Simplified Operations:**
+    - Transactions sent to Affelios are automatically processed to payment
+    - No risk of forgetting to approve commissions before payment cycles
+    - Consistent processing without manual intervention
+    - Reduced complexity in day-to-day program management
+    
+    **Scalability:**
+    - Handle growing transaction volumes without additional manual work
+    - Process hundreds or thousands of commissions automatically
+    - Scale affiliate programs without scaling administrative overhead
+  </Accordion>
+  
+  <Accordion title="Improved Affiliate Experience">
+    **Faster Commission Processing:**
+    - Commissions are approved immediately when transactions are processed
+    - No delays waiting for manual operator approval
+    - Affiliates see approved commissions in their dashboard right away
+    - Faster path from sale to payment
+    
+    **Predictable Payment Cycles:**
+    - Affiliates know their commissions will be automatically approved
+    - No uncertainty about whether commissions will be approved
+    - Reliable, consistent processing for all transactions
+    - Improved affiliate confidence in program reliability
+    
+    **Better Program Appeal:**
+    - Auto-approve is an attractive feature for recruiting affiliates
+    - Demonstrates trust in affiliate partners
+    - Reduces friction in the affiliate relationship
+    - Competitive advantage over programs requiring manual approval
+  </Accordion>
+  
+  <Accordion title="Operational Efficiency">
+    **Focus on Growth:**
+    - Spend time on program optimization instead of manual approvals
+    - Focus on recruiting and managing affiliate relationships
+    - Allocate resources to strategic initiatives and growth
+    - Improve overall program management efficiency
+    
+    **Reduced Risk of Errors:**
+    - No risk of accidentally missing commissions in manual review
+    - Eliminate human error in approval process
+    - Consistent processing for all transactions
+    - No delays due to operator availability or workload
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Security Advisory: Auto-Approve Affiliates
+
+<Card title="Critical Security Consideration" icon="shield-exclamation">
+<Info>
+**Important**: Affelios also offers [Auto-Approve Affiliates](/knowledge-base/operators/auto-approve-affiliates) functionality. Using both auto-approve features together significantly increases fraud risk.
+</Info>
+
+**Recommended Approach:**
+- **If enabling auto-approve commissions**: Keep affiliate approval manual for better security
+- **If using auto-approve affiliates**: Keep commission approval manual to maintain oversight
+- **Avoid using both together** unless you have robust fraud detection and monitoring systems
+
+**Why This Matters:**
+When both features are enabled, fraudulent affiliates can be automatically approved and their fraudulent commissions can be automatically paid out, creating a high-risk scenario with minimal human oversight until the payout phase.
+</Card>
+
+---
+
+## Risks and Disadvantages
+
+<Card title="Potential Drawbacks" icon="triangle-exclamation">
+While auto-approve commissions offers significant benefits, operators should understand the potential risks and implement appropriate safeguards to mitigate them.
+</Card>
+
+### Risk Categories
+
+<AccordionGroup>
+  <Accordion title="Reduced Oversight Risks">
+    **Loss of Manual Review:**
+    - All commissions are approved automatically without individual review
+    - Fraudulent or suspicious transactions may be approved
+    - No opportunity to catch unusual patterns before payment
+    - Potential for affiliate abuse without immediate detection
+    
+    **Enhanced Risk with Auto-Approve Affiliates:**
+    - **Critical**: Risk multiplies significantly when combined with auto-approve affiliates
+    - Fraudulent affiliates can join and generate commissions without any manual checkpoints
+    - Requires enhanced monitoring during payout phase to catch fraudulent activity
+    - **Strong Recommendation**: Use manual affiliate approval when enabling auto-approve commissions
+    
+    **Mitigation Strategies:**
+    - Maintain manual affiliate approval processes when using auto-approve commissions
+    - Monitor overall program metrics and trends regularly
+    - Investigate any unusual spikes in commission volume
+    - Keep detailed transaction logs for post-payment review
+    - Maintain ability to quickly disable auto-approve if needed
+  </Accordion>
+  
+  <Accordion title="Financial and Operational Risks">
+    **Automatic Payment of All Commissions:**
+    - Commissions for returned/refunded orders may be paid out
+    - No opportunity to hold suspicious commissions for investigation
+    - Potential overpayment if transaction data contains errors
+    - Difficulty recovering payments made in error
+    
+    **Operational Considerations:**
+    - Need for robust transaction data validation before sending to Affelios
+    - Importance of handling refunds and cancellations properly
+    - Requirement for good affiliate agreement terms
+    - Need for clear dispute resolution processes
+  </Accordion>
+  
+  <Accordion title="Program Control Considerations">
+    **Reduced Individual Transaction Visibility:**
+    - Less hands-on review of affiliate performance patterns
+    - Potential to miss emerging issues or trends
+    - Reduced opportunity for affiliate coaching and feedback
+    - May miss optimization opportunities from transaction analysis
+    
+    **Trust and Relationship Factors:**
+    - Requires higher trust in affiliate partners
+    - Less direct oversight of affiliate compliance
+    - Need for strong affiliate agreements and terms
+    - Importance of clear program guidelines and expectations
+    
+    **When Manual Review Might Be Better:**
+    - New affiliate programs still learning patterns
+    - High-value or complex commission structures
+    - Programs with frequent refunds or cancellations
+    - Brands where close oversight adds significant value
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Configuration and Setup
+
+<Card title="Simple Per-Brand Configuration" icon="gear">
+Auto-approve commissions in Affelios is configured as a simple on/off toggle for each brand in your program. There are no complex rules or thresholds - when enabled, all commissions for that brand are automatically approved.
+</Card>
+
+### How to Enable Auto-Approve
+
+<Steps>
+  <Step title="Access Brand Settings">
+    Navigate to your program dashboard in Affelios and select the brand you want to configure.
+  </Step>
+  
+  <Step title="Toggle Auto-Approve">
+    Find the "Auto-Approve Commissions" setting and enable it for the selected brand.
+  </Step>
+  
+  <Step title="Save Configuration">
+    Save your changes. From this point forward, all new commissions for this brand will be automatically approved.
+  </Step>
+  
+  <Step title="Repeat for Other Brands">
+    If you have multiple brands in your program, repeat this process for each brand you want to enable auto-approve for.
+  </Step>
+</Steps>
+
+### Per-Brand Flexibility
+
+<Card title="Brand-Level Control" icon="toggle-on">
+**Independent Configuration:**
+Each brand in your Affelios program can have auto-approve enabled or disabled independently. This allows you to:
+
+- Enable auto-approve for trusted, established brands
+- Keep manual approval for new or high-risk brands  
+- Test auto-approve on one brand before rolling out to others
+- Maintain different approval workflows based on brand characteristics
+
+**Example Setup:**
+```
+Brand A (Established): Auto-approve enabled
+Brand B (New launch): Manual approval required
+Brand C (High-value): Manual approval for oversight
+Brand D (High-volume): Auto-approve enabled
+```
+</Card>
+
+---
+
+## Implementation Best Practices
+
+<Card title="Smart Auto-Approve Implementation" icon="lightbulb">
+Since auto-approve in Affelios is a simple on/off toggle, success depends on choosing the right brands and timing for enablement.
+</Card>
+
+### Recommended Implementation Approach
+
+<Steps>
+  <Step title="Prioritize High-Volume, Simple Brands">
+    **Best Candidates:**
+    - Enable auto-approve commissions for brands with high transaction volume and straightforward, low-complexity commission structures.
+    - Avoid enabling for brands with complex or variable commission rules.
+  </Step>
+  
+  <Step title="Require Manual Affiliate Vetting">
+    **Affiliate Approval Prerequisite:**
+    - Only enable auto-approve commissions if auto-approve affiliates is **disabled**.
+    - Ensure all affiliates are manually reviewed and vetted before being allowed to participate in the program.
+    - This reduces the risk of fraudulent or low-quality affiliates receiving automatic commission approvals.
+  </Step>
+  
+  <Step title="Monitor and Adjust">
+    **Ongoing Oversight:**
+    - Closely monitor commission activity and affiliate performance after enabling.
+    - Watch for unusual spikes, suspicious patterns, or unexpected behavior.
+    - Be prepared to disable auto-approve commissions or revert to manual review if any issues arise.
+  </Step>
+</Steps>
+
+### Decision Framework
+
+<AccordionGroup>
+  <Accordion title="When to Enable Auto-Approve">
+    **Good Candidates for Auto-Approve:**
+    - Brands with consistent commission patterns
+    - Brands with reliable affiliate partners
+    - High-volume, low-complexity commission structures
+    - Brands where manual review adds little value
+    
+    **Consider Manual Approval For:**
+    - Brand new launches (first 30-60 days)
+    - Brands with high-value commissions requiring oversight
+    - Brands in testing or experimental phases
+    - Brands with complex commission structures
+    - Brands where you want to maintain close control
+  </Accordion>
+  
+  <Accordion title="Monitoring After Enablement">
+    **Key Metrics to Watch:**
+    - Total commission volume and trends
+    - Payment processing efficiency
+    - Affiliate satisfaction and feedback
+    - Any unusual patterns or spikes
+    - Overall program performance
+    
+    **Regular Review Activities:**
+    - Weekly commission volume reports
+    - Monthly program performance reviews
+    - Quarterly assessment of auto-approve effectiveness
+    - Ongoing affiliate feedback collection
+  </Accordion>
+  
+  <Accordion title="Managing Issues">
+    **If Problems Arise:**
+    - Disable auto-approve immediately if fraud is suspected
+    - Review recent commissions for patterns
+    - Investigate any affiliate behavior anomalies
+    - Consider temporary return to manual approval
+    - Document issues and resolution steps
+    
+    **Prevention Strategies:**
+    - Maintain good affiliate vetting processes
+    - Regular program health checks
+    - Clear terms and conditions for affiliates
+    - Prompt investigation of unusual activity
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Monitoring and Management
+
+<Card title="Ongoing Program Oversight" icon="chart-line">
+With auto-approve enabled, monitoring shifts from individual commission review to overall program health and performance tracking.
+</Card>
+
+### Key Monitoring Areas
+
+<AccordionGroup>
+  <Accordion title="Commission Volume and Patterns">
+    **Regular Monitoring:**
+    - Track total commission volumes and trends
+    - Monitor for unusual spikes or drops in activity
+    - Review commission patterns by affiliate and brand
+    - Watch for any suspicious activity or anomalies
+    
+    **Red Flags to Watch For:**
+    - Sudden large increases in commission volume from specific affiliates
+    - Unusual geographic patterns in traffic or sales
+    - Commission patterns that don't match expected business cycles
+    - Affiliates with dramatically different performance than historical norms
+  </Accordion>
+  
+  <Accordion title="Program Health Metrics">
+    **Key Performance Indicators:**
+    - Overall program growth and affiliate retention
+    - Average commission values and payment cycles
+    - Affiliate satisfaction and feedback
+    - Return/refund rates and their impact on commissions
+    
+    **Regular Reviews:**
+    - Weekly commission volume reports
+    - Monthly program performance summaries
+    - Quarterly affiliate performance reviews
+    - Annual program optimization assessments
+  </Accordion>
+  
+  <Accordion title="Quality Control">
+    **Maintaining Standards:**
+    - Regular review of affiliate onboarding and vetting processes
+    - Monitoring compliance with program terms and conditions
+    - Tracking customer complaints or quality issues
+    - Ensuring transaction data accuracy before sending to Affelios
+    
+    **Corrective Actions:**
+    - Ability to disable auto-approve if issues arise
+    - Process for investigating and resolving disputes
+    - Clear procedures for affiliate account suspension if needed
+    - Regular updates to program terms and affiliate agreements
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting and Support
+
+<Card title="Common Scenarios and Solutions" icon="wrench">
+Address common situations that may arise when using auto-approve commissions in Affelios.
+</Card>
+
+### Common Scenarios
+
+<AccordionGroup>
+  <Accordion title="Suspicious Activity Detected">
+    **What to Look For:**
+    - Unusual spikes in commission volume from specific affiliates
+    - Patterns that don't match normal business cycles
+    - Customer complaints about unauthorized transactions
+    - Affiliates with dramatically changed performance
+    
+    **Immediate Actions:**
+    - Disable auto-approve for the affected brand temporarily
+    - Review recent commissions and transaction patterns
+    - Investigate the specific affiliate(s) in question
+    - Contact affiliates directly if needed for clarification
+    - Document findings and resolution steps
+  </Accordion>
+  
+  <Accordion title="High Refund/Return Rates">
+    **Potential Issues:**
+    - Commissions paid out for transactions that are later refunded
+    - Need to recover commission payments from affiliates
+    - Impact on program profitability
+    
+    **Management Strategies:**
+    - Ensure your transaction system properly handles refunds
+    - Send negative commission transactions to Affelios for refunds
+    - Consider temporary manual approval for brands with high return rates
+    - Review affiliate traffic quality and customer satisfaction
+  </Accordion>
+  
+  <Accordion title="Affiliate Complaints or Disputes">
+    **Common Issues:**
+    - Affiliates questioning commission calculations
+    - Disputes about attribution or tracking
+    - Questions about payment timing
+    
+    **Resolution Process:**
+    - Review transaction data and commission calculations
+    - Check Affelios reporting for commission details
+    - Communicate clearly with affiliates about findings
+    - Use manual approval temporarily if needed during disputes
+    - Document resolutions for future reference
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps and Resources
+
+<Card title="Getting Started with Auto-Approve" icon="arrow-right">
+<Info>
+Ready to enable auto-approve commissions for your Affelios program? Follow these steps and use these resources for successful implementation.
+</Info>
+
+**Getting Started:**
+- [Program Settings](/knowledge-base/platform/program-settings) - Access brand configuration settings
+- [Commission Plans Setup](/knowledge-base/platform/commission-plans) - Ensure commission structures are properly configured
+- [Attribution Guide](/knowledge-base/operators/attribution) - Understand how transactions create commissions
+- [Auto-Approve Affiliates](/knowledge-base/operators/auto-approve-affiliates) - Learn about affiliate auto-approval and combined risks
+
+**Monitoring and Management:**
+- [Reporting Dashboard](/knowledge-base/platform/reporting) - Monitor commission volumes and trends
+- [Analytics and Insights](/knowledge-base/reporting/reports) - Analyze program performance data
+- [Affiliate Management](/knowledge-base/platform/affiliates-and-traffic-sources) - Manage affiliate relationships
+
+**Program Optimization:**
+- [Operations and Security](/knowledge-base/platform/operations-and-security) - Best practices for program management
+- [Affiliate Policies](/knowledge-base/legal/affiliate-policies) - Maintain clear program terms
+- Technical support through your operator dashboard
+</Card>
+
+<Tip>
+Start by enabling auto-approve for your most established, trusted brands first. Monitor the results for a few weeks before expanding to other brands in your program.
+</Tip>
