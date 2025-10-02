@@ -93,6 +93,13 @@
             ]
           },
           {
+            "group": "Data Management",
+            "pages": [
+              "knowledge-base/reporting/reporting",
+              "knowledge-base/reporting/exporting"
+            ]
+          },
+          {
             "group": "Troubleshooting & FAQ",
             "pages": [
               "knowledge-base/troubleshooting/common-issues",
