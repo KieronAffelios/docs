@@ -1,0 +1,259 @@
+---
+title: "Configuring User Permissions"
+description: "Learn how to control access within your affiliate platform with user-based permissions and role management"
+---
+
+<Info>
+This guide explains how to configure user permissions and roles within your Affelios affiliate platform. As an **operator**, you can control what different team members can access and modify in your affiliate program.
+</Info>
+
+## Understanding Platform Users
+
+<Card title="Platform User Overview" icon="users">
+In the Affelios Ecosystem, a **Platform User** is an individual who has an Affelios Identity that has shared their information with your **Affiliate Platform** to become a collaborator and work with you to promote your Brands.
+</Card>
+
+### Default Platform Permissions
+
+<Info>
+By default, a new user that has registered with your platform will only have access to create affiliate accounts along with trackers and testimonials that are linked to those accounts.
+</Info>
+
+**Default User Capabilities:**
+- Create unlimited affiliate accounts
+- Create trackers and testimonials linked to their accounts
+- View their own affiliate account data and reports
+- Access basic program information
+
+<Warning>
+Default users cannot self-approve affiliate accounts or make changes that require elevated permissions. They must wait for operator approval for most actions.
+</Warning>
+
+---
+
+## Platform Module Permissions
+
+<Card title="Permission System Overview" icon="shield">
+You can add any combination of permissions to individual users by navigating to **Settings > Users**, clicking the three dots next to a user, and selecting **Edit Permissions**.
+</Card>
+
+### Available Permission Modules
+
+Each module can be assigned with **Read** or **Write** access levels:
+
+| **Module** | **Read Access** | **Write Access** | **Notes** |
+|------------|-----------------|------------------|-----------|
+| **Admin** | Read access to ALL Modules listed below, regardless of whether they are individually assigned. | Write access to ALL Modules listed below regardless of whether they are individually assigned. | Admin permissions grant complete access to your platform. Use with caution and only assign to trusted team members. |
+| **Manage Affiliates** | Access to **View** and **Report on ALL Affiliates** within the platform. | Access to make changes and **Edit ALL Affiliates** within the platform. | Some actions are limited to Users that have access to the Company associated with an Affiliate Account, such as Company Transfers and Payout Information. |
+| **Brand Management** | Access to **View internal information about Brands**. | Access to **Create** and **Edit Brands**. | All users are able to view Enabled brands even without this module. |
+| **Product Management** | Access to **View internal information about Products**. | Access to **Create** and **Edit Products**. | All users are able to view Enabled products even without this module. |
+| **Media** | Access to **View internal information about Media** including Images, HTML Banners, and links. | Access to **Create** and **Update Media** including Images, HTML Banners, and links. | All users are able to view Enabled media even without this module. |
+| **Affiliate Transactions** | Access to **View ALL Transactions** in the system, regardless of which affiliate they are associated with. | Access to **Create Transactions** and **Adjustments**. | All users are able to view transactions that are associated with affiliate accounts where they are a collaborator. |
+| **Affiliate Payouts** | Access to **View ALL Payout Invoices** generated in the system, regardless of which affiliate they are from. | Access to start a **New Payout Process** and to **Approve** or **Delete Payout Invoices**. | All users are able to view Payouts that are associated with affiliate accounts where they are a collaborator. |
+| **Content Management** | Access to **View the Content Management Module**. | Access to **Edit Content** pages. | - |
+| **User Management** | Access to **View All Users** that have joined the Affiliate Program. | Access to **Update Permissions** and **Update Report Columns** for a User. | A User can only assign modules and columns that they already have access to. |
+| **Commission Plans** | Access to **View ALL Commission Plans** available in the system. | Access to **Create and Edit Commission Plans** and **Assign** them to Affiliates they have access to. | Any user can view any Commission Plan that is already assigned to an affiliate account to which they have access. |
+| **Data Imports** | Access to **View Scheduled Daily Import Logs**. | Access to **Run Data Imports**. | - |
+| **API Keys** | Access to **View Api Keys** scoped to the User. | Access to **Create** and **Delete Api Keys** scoped to a User with Permissions that are available to the User. | If the User is an Admin, all Api Keys are available to view. |
+
+---
+
+## Platform Reporting Permissions
+
+<Card title="Report Column Access" icon="chart-bar">
+Affelios allows you to specify which reporting columns are available to Users registered to your affiliate platform.
+</Card>
+
+### Configuring Report Access
+
+<Steps>
+  <Step title="Set System Defaults">
+    Configure default report columns in the **Settings > Reports** section.
+  </Step>
+  
+  <Step title="Customize Per User">
+    Navigate to **Settings > Users > User Actions > Customize Report Columns** to customize on a per-user basis.
+  </Step>
+  
+  <Step title="Configure Columns">
+    Drag options from the Restricted Columns section to the Available Columns section.
+  </Step>
+</Steps>
+
+<Info>
+Information about which reporting columns are available and their descriptions can be found by hovering over the tooltips in the columns sections.
+</Info>
+
+---
+
+## Best Practices for User Management
+
+<Card title="Security and Access Control" icon="shield-check">
+Follow these best practices to maintain security and proper access control in your affiliate platform.
+</Card>
+
+### Permission Assignment Guidelines
+
+<AccordionGroup>
+  <Accordion title="Principle of Least Privilege">
+    **Security Best Practice:**
+    - Grant users only the minimum permissions they need to perform their job
+    - Start with read-only access and add write permissions as needed
+    - Regularly review and audit user permissions
+    - Remove access for users who no longer need it
+    
+    **Implementation:**
+    - Create role templates for common job functions
+    - Document permission requirements for each role
+    - Establish approval processes for elevated permissions
+  </Accordion>
+  
+  <Accordion title="Regular Access Reviews">
+    **Ongoing Security Maintenance:**
+    - Schedule quarterly permission audits
+    - Review user access when roles change
+    - Remove access for departed team members immediately
+    - Monitor for unusual access patterns or activities
+    
+    **Review Checklist:**
+    - Verify all active users still need their current permissions
+    - Check for users with excessive permissions
+    - Ensure proper separation of duties
+    - Validate that company ownership is correctly assigned
+  </Accordion>
+</AccordionGroup>
+
+### User Onboarding Process
+
+<Steps>
+  <Step title="Determine Required Access">
+    Identify what permissions the new user needs based on their role and responsibilities.
+  </Step>
+  
+  <Step title="Create User Account">
+    Invite the user to your platform through the user management interface.
+  </Step>
+  
+  <Step title="Assign Permissions">
+    Configure the appropriate module permissions and reporting access.
+  </Step>
+  
+  <Step title="Provide Training">
+    Ensure the user understands their access level and platform capabilities.
+  </Step>
+  
+  <Step title="Monitor Usage">
+    Track user activity to ensure they're using permissions appropriately.
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting Permission Issues
+
+<Card title="Common Permission Problems" icon="triangle-exclamation">
+Address common issues that arise with user permissions and access control.
+</Card>
+
+### Access Denied Issues
+
+<AccordionGroup>
+  <Accordion title="User Cannot Access Expected Features">
+    **Symptoms:**
+    - User reports they can't see certain sections or data
+    - "Access Denied" or "Permission Required" messages
+    - Missing menu items or navigation options
+    
+    **Solutions:**
+    - Verify user has the correct module permissions assigned
+    - Check if they need Read or Write access for the specific feature
+    - Ensure they have access to the Company associated with affiliate accounts
+    - Review reporting column permissions if data is missing from reports
+  </Accordion>
+  
+  <Accordion title="Cannot Modify Affiliate Accounts">
+    **Symptoms:**
+    - User can view affiliates but cannot make changes
+    - Cannot approve affiliate applications
+    - Cannot modify payout information
+    
+    **Resolution:**
+    - Ensure user has "Manage Affiliates" Write permission
+    - Verify they have access to the Company associated with the affiliate account
+    - Check if they have the correct collaborator role on specific affiliate accounts
+    - Confirm they're not limited by company ownership restrictions
+  </Accordion>
+  
+  <Accordion title="API Access Problems">
+    **Symptoms:**
+    - API calls returning permission errors
+    - Cannot create or manage API keys
+    - Limited data access through API
+    
+    **Troubleshooting:**
+    - Verify user has "API Keys" Write permission to create keys
+    - Check that API keys are scoped with appropriate permissions
+    - Ensure API key permissions match user's platform permissions
+    - Review API key expiration and validity
+  </Accordion>
+</AccordionGroup>
+
+### Permission Conflicts
+
+<AccordionGroup>
+  <Accordion title="Overlapping Permissions">
+    **Issue:** Multiple permission sources creating conflicts
+    
+    **Common Scenarios:**
+    - Platform permissions vs. affiliate collaborator roles
+    - Admin permissions overriding specific module restrictions
+    - Company ownership vs. platform access levels
+    
+    **Resolution:**
+    - Review permission hierarchy and precedence rules
+    - Ensure consistent permission assignment across all levels
+    - Document permission inheritance and override rules
+    - Test permission changes in a safe environment first
+  </Accordion>
+  
+  <Accordion title="Inheritance Problems">
+    **Issue:** Permissions not propagating correctly
+    
+    **Symptoms:**
+    - User has platform permissions but cannot access affiliate data
+    - Company ownership not transferring properly
+    - Collaborator roles not taking effect
+    
+    **Solutions:**
+    - Verify user has access to both platform and affiliate account levels
+    - Check company association and ownership settings
+    - Ensure proper invitation and acceptance processes
+    - Review permission inheritance rules and timing
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<Card title="Advanced User Management" icon="arrow-right">
+<Info>
+Once you've configured basic user permissions, consider these advanced features and next steps for comprehensive user management.
+</Info>
+
+**Additional Resources:**
+- [Setup Guide](/knowledge-base/operators/setup-guide) - Complete program setup including user management
+- [API Documentation](/developers/reference/overview) - Programmatic user management via API
+- [Webhook Configuration](/developers/reference/webhooks) - Real-time user activity notifications
+- [Security Best Practices](/knowledge-base/operators/setup-guide#security-best-practices) - Platform security guidelines
+
+**Advanced Features:**
+- Bulk user permission management
+- Automated permission assignment based on roles
+- Integration with external identity providers
+- Advanced audit logging and compliance reporting
+</Card>
+
+<Tip>
+Start with simple permission assignments and gradually add more granular controls as your team grows and your needs become more complex. Regular permission reviews help maintain security and ensure users have appropriate access.
+</Tip>

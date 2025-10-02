@@ -1,0 +1,433 @@
+---
+title: "Setup Custom Domains"
+description: "Configure custom domains for your affiliate program to improve branding, reduce ad blocking, and enhance affiliate experience"
+---
+
+<Info>
+This guide explains how to configure custom domains for your Affelios affiliate program. As an **operator**, you can set up three types of custom domains to improve your program's performance and reduce the likelihood of ads being blocked by ad blockers.
+</Info>
+
+## Custom Domain Overview
+
+<Card title="Three Domain Types" icon="globe">
+Affelios allows you to configure three different types of custom domains, each serving a specific purpose in your affiliate program infrastructure.
+</Card>
+
+### Domain Types Explained
+
+<AccordionGroup>
+  <Accordion title="Platform Domain (White-labeling)">
+    **Purpose:** Complete white-labeling of your affiliate program interface
+    
+    **Benefits:**
+    - Your affiliate portal appears under your own domain (e.g., `affiliates.yourcompany.com`)
+    - Complete brand consistency for affiliate experience
+    - Professional appearance that builds trust
+    - Seamless integration with your existing website structure
+    
+    **Use Cases:**
+    - Main affiliate program landing page
+    - Affiliate dashboard and account management
+    - Program information and resources
+    - Branded affiliate portal experience
+  </Accordion>
+  
+  <Accordion title="Click Domain (Tracking Links)">
+    **Purpose:** Custom domain for affiliate tracking links and redirects
+    
+    **Benefits:**
+    - Affiliate links use your domain instead of default Affelios domains
+    - Reduced risk of link blocking by ad blockers and security filters
+    - Better click-through rates due to trusted domain appearance
+    - Consistent branding in affiliate marketing materials
+    
+    **Use Cases:**
+    - Affiliate tracking link redirects
+    - Campaign-specific landing pages
+    - Product promotion links
+    - Marketing campaign URLs
+  </Accordion>
+  
+  <Accordion title="Ad Server Domain (Media Assets)">
+    **Purpose:** Custom domain for serving marketing assets and media content
+    
+    **Benefits:**
+    - Media assets served from your domain instead of third-party servers
+    - Reduced ad blocking of banners, images, and HTML5 creatives
+    - Better performance and reliability for affiliate marketing materials
+    - Complete control over media asset delivery
+    
+    **Use Cases:**
+    - Banner advertisements
+    - Product images and graphics
+    - HTML5 creative assets
+    - Marketing materials and promotional content
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Why Configure Custom Domains?
+
+<Card title="Ad Blocker Prevention" icon="shield-check">
+Configuring custom domains is **highly recommended** to reduce the likelihood of your affiliate marketing materials being blocked by ad blockers and security filters.
+</Card>
+
+### Benefits of Custom Domain Configuration
+
+<AccordionGroup>
+  <Accordion title="Ad Blocker Avoidance">
+    **Reduced Blocking Risk:**
+    - Ad blockers often target known affiliate network domains
+    - Custom domains appear as first-party content to users
+    - Lower chance of being flagged by browser security features
+    - Improved delivery rates for affiliate marketing materials
+    
+    **Technical Advantages:**
+    - First-party domain status improves trust scores
+    - Better compatibility with browser security policies
+    - Reduced false positives from security scanning
+    - Enhanced user experience without blocking interruptions
+  </Accordion>
+  
+  <Accordion title="Brand Consistency">
+    **Professional Appearance:**
+    - All affiliate touchpoints use your branded domains
+    - Consistent user experience across all interactions
+    - Enhanced credibility and trust with affiliates
+    - Seamless integration with your existing brand presence
+    
+    **Marketing Benefits:**
+    - Affiliates more likely to promote with trusted domains
+    - Better conversion rates due to domain familiarity
+    - Improved affiliate recruitment and retention
+    - Enhanced program reputation in affiliate networks
+  </Accordion>
+  
+  <Accordion title="Performance Optimization">
+    **Technical Performance:**
+    - Faster loading times with optimized domain configuration
+    - Better caching and CDN integration possibilities
+    - Reduced latency for affiliate link redirects
+    - Improved reliability and uptime for media assets
+    
+    **Analytics Benefits:**
+    - Cleaner analytics data with first-party domains
+    - Better tracking accuracy and attribution
+    - Reduced data loss from blocked requests
+    - More reliable performance metrics
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Domain Configuration Process
+
+<Card title="Setup Steps" icon="gear">
+Follow these steps to configure each type of custom domain for your affiliate program.
+</Card>
+
+### Platform Domain Setup
+
+<Steps>
+  <Step title="Access Domain Settings">
+    Navigate to **Program Settings > Domains** in your Affelios dashboard.
+  </Step>
+  
+  <Step title="Add Platform Domain">
+    Click **"Add Platform Domain"** and enter your desired hostname (e.g., `affiliates.yourcompany.com`).
+  </Step>
+  
+  <Step title="Configure DNS Records">
+    Add the provided DNS records to your domain registrar. These typically include CNAME and A records.
+  </Step>
+  
+  <Step title="Validate Configuration">
+    Click **"Validate"** to verify DNS propagation and configuration.
+  </Step>
+  
+  <Step title="Complete Setup">
+    Mark the platform domain setup as complete once validation succeeds.
+  </Step>
+</Steps>
+
+### Click Domain Setup
+
+<Steps>
+  <Step title="Add Click Domain">
+    In the same domain settings area, click **"Add Click Domain"** for tracking links.
+  </Step>
+  
+  <Step title="Enter Click Domain">
+    Specify your click domain (e.g., `go.yourcompany.com` or `track.yourcompany.com`).
+  </Step>
+  
+  <Step title="Configure DNS">
+    Add the required DNS records for click domain functionality.
+  </Step>
+  
+  <Step title="Test Links">
+    Validate that affiliate tracking links properly redirect through your custom domain.
+  </Step>
+</Steps>
+
+### Ad Server Domain Setup
+
+<Steps>
+  <Step title="Add Ad Server Domain">
+    Click **"Add Ad Server Domain"** for media asset delivery.
+  </Step>
+  
+  <Step title="Specify Media Domain">
+    Enter your media domain (e.g., `media.yourcompany.com` or `assets.yourcompany.com`).
+  </Step>
+  
+  <Step title="Configure DNS Records">
+    Add the necessary DNS configuration for media asset serving.
+  </Step>
+  
+  <Step title="Upload Test Assets">
+    Upload a test media asset to verify proper serving from your custom domain.
+  </Step>
+</Steps>
+
+---
+
+## DNS Configuration Details
+
+<Card title="DNS Requirements" icon="network-wired">
+Understanding the DNS configuration requirements for each domain type ensures successful setup and optimal performance.
+</Card>
+
+### DNS Propagation Timeline
+
+<Info>
+DNS propagation can take anywhere from a few minutes to 48 hours depending on your domain provider, geographic location, and DNS caching. Most changes propagate within 15-30 minutes.
+</Info>
+
+**Factors Affecting Propagation:**
+- Domain registrar and DNS provider
+- Geographic location of users
+- DNS caching at various levels
+- TTL (Time To Live) settings
+
+---
+
+## Best Practices & Recommendations
+
+<Card title="Domain Strategy" icon="lightbulb">
+Follow these best practices to maximize the benefits of custom domain configuration and minimize potential issues.
+</Card>
+
+### Domain Naming Conventions
+
+<AccordionGroup>
+  <Accordion title="Platform Domain">
+    **Recommended Patterns:**
+    - `affiliates.yourcompany.com` - Clear affiliate program identification
+    - `partners.yourcompany.com` - Partnership-focused branding
+    - `program.yourcompany.com` - Simple and direct
+    
+    **Avoid:**
+    - Generic names that don't reflect your brand
+    - Confusing or misleading subdomain choices
+    - Names that conflict with existing services
+  </Accordion>
+  
+  <Accordion title="Click Domain">
+    **Recommended Patterns:**
+    - `refer.yourcompany.com` - Short and memorable
+    - `redirect.yourcompany.com` - Clear tracking purpose
+    
+    **Considerations:**
+    - Keep URLs short for better user experience
+    - Use memorable subdomains for affiliate sharing
+    - Ensure consistency with your brand voice
+  </Accordion>
+  
+  <Accordion title="Ad Server Domain">
+    **Recommended Patterns:**
+    - `media.yourcompany.com` - Clear media asset purpose
+    - `assets.yourcompany.com` - Asset-focused naming
+    - `cdn.yourcompany.com` - Content delivery emphasis
+    
+    **Technical Considerations:**
+    - Choose names that reflect technical purpose
+    - Consider future scalability and expansion
+    - Ensure compatibility with your existing infrastructure
+  </Accordion>
+</AccordionGroup>
+
+### Security Considerations
+
+<Warning>
+Always ensure you have proper administrative access to your domain's DNS settings before beginning the configuration process. Incorrect DNS configuration can temporarily disrupt your website or services.
+</Warning>
+
+**Security Best Practices:**
+- Use strong, unique verification codes for each domain
+- Regularly monitor DNS configuration for unauthorized changes
+- Implement proper access controls for DNS management
+- Keep domain registration information up to date
+
+---
+
+## Troubleshooting Domain Issues
+
+<Card title="Common Problems & Solutions" icon="triangle-exclamation">
+Address frequently encountered issues during custom domain setup and configuration.
+</Card>
+
+### DNS Configuration Issues
+
+<AccordionGroup>
+  <Accordion title="Validation Failures">
+    **Symptoms:**
+    - Domain validation fails repeatedly
+    - "DNS records not found" error messages
+    - Timeout errors during validation process
+    
+    **Solutions:**
+    - Double-check DNS record syntax and values
+    - Verify record types match requirements exactly
+    - Wait longer for DNS propagation (up to 48 hours)
+    - Check for typos in domain names or record values
+    - Ensure DNS changes were saved and published
+  </Accordion>
+  
+  <Accordion title="Slow Propagation">
+    **Symptoms:**
+    - Validation works intermittently
+    - Some users can access domains while others cannot
+    - Inconsistent behavior across different locations
+    
+    **Resolution:**
+    - Wait for full DNS propagation (typically 15-30 minutes)
+    - Check DNS propagation status using online tools
+    - Verify TTL settings are appropriate for your needs
+    - Consider geographic differences in propagation timing
+  </Accordion>
+  
+  <Accordion title="Access Permission Issues">
+    **Symptoms:**
+    - Cannot modify DNS records
+    - "Access denied" errors during setup
+    - Domain ownership verification failures
+    
+    **Troubleshooting:**
+    - Ensure you have administrative access to domain DNS
+    - Verify domain ownership and registration details
+    - Check if domain is locked or has transfer restrictions
+    - Contact your domain registrar for assistance if needed
+  </Accordion>
+</AccordionGroup>
+
+### Performance Issues
+
+<AccordionGroup>
+  <Accordion title="Slow Loading Times">
+    **Symptoms:**
+    - Custom domains load slower than expected
+    - Media assets take longer to serve
+    - Affiliate links redirect slowly
+    
+    **Optimization:**
+    - Check DNS resolution speed and accuracy
+    - Verify CDN configuration and geographic distribution
+    - Monitor server response times and performance metrics
+    - Consider DNS optimization services if needed
+  </Accordion>
+  
+  <Accordion title="Intermittent Failures">
+    **Symptoms:**
+    - Domains work sometimes but not others
+    - Random access failures or timeouts
+    - Inconsistent behavior across different times
+    
+    **Investigation:**
+    - Monitor DNS resolution consistency
+    - Check for DNS server outages or issues
+    - Verify domain registrar service status
+    - Review server logs for error patterns
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Monitoring & Maintenance
+
+<Card title="Ongoing Domain Management" icon="chart-line">
+Regular monitoring and maintenance ensure your custom domains continue to perform optimally and provide the expected benefits.
+</Card>
+
+### Regular Monitoring Tasks
+
+<Steps>
+  <Step title="DNS Health Checks">
+    Monitor DNS resolution and propagation status regularly to ensure domains are working correctly.
+  </Step>
+  
+  <Step title="Performance Monitoring">
+    Track loading times, response rates, and user experience metrics for all custom domains.
+  </Step>
+  
+  <Step title="Security Audits">
+    Regularly review domain configuration and access controls to maintain security.
+  </Step>
+  
+  <Step title="Certificate Management">
+    Monitor SSL certificate status and renewal requirements for all custom domains.
+  </Step>
+</Steps>
+
+### Maintenance Best Practices
+
+<AccordionGroup>
+  <Accordion title="Regular Reviews">
+    **Monthly Tasks:**
+    - Review domain performance metrics and analytics
+    - Check for any DNS configuration changes or issues
+    - Monitor affiliate feedback about domain experience
+    - Verify all domains are resolving correctly
+    
+    **Quarterly Tasks:**
+    - Comprehensive security review of domain configuration
+    - Performance optimization and tuning
+    - Review and update domain naming conventions if needed
+    - Assess need for additional domains or configuration changes
+  </Accordion>
+  
+  <Accordion title="Documentation Updates">
+    **Keep Records Current:**
+    - Document all domain configurations and purposes
+    - Maintain list of DNS records and their purposes
+    - Update team documentation when changes are made
+    - Keep domain registrar and contact information current
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<Card title="Advanced Domain Configuration" icon="arrow-right">
+<Info>
+Once you've successfully configured your custom domains, consider these advanced features and optimizations to further enhance your affiliate program.
+</Info>
+
+**Additional Resources:**
+- [Setup Guide](/knowledge-base/operators/setup-guide) - Complete program setup including domain configuration
+- [Tracking Implementation](/integrations/tracking/overview) - Advanced tracking setup with custom domains
+- [Media Management](/knowledge-base/operators/setup-guide#media-management) - Optimizing media assets with custom domains
+- [API Documentation](/developers/reference/overview) - Programmatic domain management
+
+**Advanced Features:**
+- Subdomain management for different program segments
+- Geographic domain optimization for global programs
+- Advanced DNS configuration for performance optimization
+- Integration with external CDN services
+</Card>
+
+<Tip>
+Start with configuring the platform domain first, as it provides the most immediate branding benefits. Then add click and ad server domains as your program grows and you identify specific needs for improved performance and ad blocker avoidance.
+</Tip>

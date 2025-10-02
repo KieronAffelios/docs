@@ -74,7 +74,10 @@
               "knowledge-base/operators/automated-deductions",
               "knowledge-base/operators/clean-slate",
               "knowledge-base/operators/auto-approve-commissions",
-              "knowledge-base/operators/auto-approve-affiliates"
+              "knowledge-base/operators/auto-approve-affiliates",
+              "knowledge-base/operators/configuring-user-permissions",
+              "knowledge-base/operators/setup-custom-domain",
+              "knowledge-base/operators/create-manage-commission-plans"
             ]
           },
           {
@@ -83,6 +86,7 @@
               "knowledge-base/affiliates/onboarding",
               "knowledge-base/affiliates/finding-programs",
               "knowledge-base/affiliates/tracking-links",
+              "knowledge-base/affiliates/add-collaborators-to-affiliates",
               "knowledge-base/affiliates/payout-methods",
               "knowledge-base/affiliates/invoice-generation-vat"
             ]
@@ -92,6 +96,7 @@
             "pages": [
               "knowledge-base/troubleshooting/common-issues",
               "knowledge-base/troubleshooting/tracking-issues",
+              "knowledge-base/troubleshooting/cancel-subscription",
               "knowledge-base/faq/glossary"
             ]
           },
