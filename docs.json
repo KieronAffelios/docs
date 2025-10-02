@@ -20,9 +20,31 @@
   "navigation": {
     "global": {
       "anchors": [
-        { "anchor": "Affelios Platform", "icon": "globe", "href": "https://affelios.com" },
-        { "anchor": "Management Service", "icon": "people-roof", "href": "https://hrefsmedia.com" },
-        { "anchor": "OpenAPI Specification", "icon": "brackets-curly", "href": "https://platform.affelios.com/swagger/v1/swagger.json" }
+        { 
+          "anchor": "Affelios Platform", 
+          "icon": "globe", 
+          "href": "https://affelios.com" 
+        },
+        { 
+          "anchor": "Management Service", 
+          "icon": "people-roof", 
+          "href": "https://hrefsmedia.com" 
+        },
+        { 
+          "anchor": "OpenAPI Specification", 
+          "icon": "brackets-curly", 
+          "href": "https://platform.affelios.com/swagger/v1/swagger.json" 
+        },
+        {
+          "anchor": "Terms of Service",
+          "icon": "file-signature",
+          "href": "https://affelios.com/terms-of-service"
+        },
+        {
+          "anchor": "Privacy Policy",
+          "icon": "shield-halved",
+          "href": "https://affelios.com/privacy-policy"
+        }
       ]
     },
     "tabs": [
@@ -70,18 +92,20 @@
             "pages": [
               "knowledge-base/troubleshooting/common-issues",
               "knowledge-base/troubleshooting/tracking-issues",
-              "knowledge-base/faq/glossary",
-              "knowledge-base/faq/policies-and-compliance",
-              "knowledge-base/faq/platform-migration"
+              "knowledge-base/faq/glossary"
             ]
           },
           {
             "group": "Legal & Compliance",
-            "pages": [
-              "knowledge-base/legal/terms-of-service",
-              "knowledge-base/legal/privacy-policy",
-              "knowledge-base/legal/affiliate-policies",
-              "knowledge-base/legal/data-privacy"
+            "anchors": [
+              {
+                "anchor": "Terms of Service",
+                "href": "knowledge-base/legal/terms-of-service"
+              },
+              {
+                "anchor": "Privacy Policy",
+                "href": "knowledge-base/legal/privacy-policy"
+              }
             ]
           }
         ]

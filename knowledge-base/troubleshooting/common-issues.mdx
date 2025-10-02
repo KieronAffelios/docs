@@ -1,265 +1,930 @@
-# Common Issues
+---
+title: "Common Issues"
+description: "Comprehensive troubleshooting guide for frequently encountered problems in the Affelios platform with step-by-step solutions and prevention tips."
+---
 
-Solutions to frequently encountered problems in the Affelios platform.
+<Info>
+This guide provides solutions to the most common issues users encounter when using the Affelios platform. Each section includes detailed troubleshooting steps, prevention tips, and when to contact support for additional assistance.
+</Info>
+
+<Card title="Quick Navigation" icon="compass">
+- [Account and Access Issues](#account-and-access-issues) — Login, registration, and authentication problems
+- [Tracking and Attribution Issues](#tracking-and-attribution-issues) — Missing clicks, conversions, and tracking problems  
+- [Payment and Commission Issues](#payment-and-commission-issues) — Missing commissions and payment delays
+- [Technical Issues](#technical-issues) — Dashboard, API, and integration problems
+- [Performance Issues](#performance-issues) — Slow loading and mobile compatibility
+- [Compliance and Quality Issues](#compliance-and-quality-issues) — Policy violations and account restrictions
+- [Troubleshooting Process](#troubleshooting-process) — Self-service steps and support escalation
+</Card>
 
 ## Account and Access Issues
 
+<Card title="Authentication & Access" icon="key">
+Account and access issues are among the most common problems users encounter. These typically involve login difficulties, registration problems, or authentication failures that prevent access to the platform.
+</Card>
+
 ### Login Problems
-1. **Forgotten Password**
-   - Use password reset functionality
-   - Check email for reset instructions
-   - Contact support if email not received
-   - Verify correct email address
 
-2. **Account Locked**
-   - Multiple failed login attempts
-   - Security measure activation
-   - Wait for automatic unlock or contact support
-   - Verify account credentials
-
-3. **Two-Factor Authentication Issues**
-   - Verify correct time on device
-   - Generate new backup codes
-   - Contact support for assistance
-   - Check authenticator app settings
+<AccordionGroup>
+  <Accordion title="Forgotten Password">
+    **Symptoms:**
+    - Unable to remember password
+    - Password reset email not received
+    - Reset link expired or invalid
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Use Password Reset">
+        Click "Forgot Password" on the login page and enter your registered email address.
+      </Step>
+      <Step title="Check Email">
+        Look for the password reset email in your inbox, spam, and junk folders.
+      </Step>
+      <Step title="Follow Reset Instructions">
+        Click the reset link and create a new password following the security requirements.
+      </Step>
+      <Step title="Contact Support">
+        If no email is received within 15 minutes, contact support with your email address.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Password reset emails are valid for 24 hours. If the link expires, request a new reset email.
+    </Tip>
+  </Accordion>
+  
+  <Accordion title="Account Disabled">
+    **Symptoms:**
+    - "Account disabled" message when logging into a program
+    - Unable to access specific program features
+    - Program access denied notification
+    
+    **Causes:**
+    - Program-specific account suspension by affiliate manager
+    - Policy violations within that specific program
+    - Manual account disabling by program operator
+    - Program-specific compliance issues
+    
+    **Important Distinction:**
+    - Account disabled is **program-specific**, not platform-wide
+    - You can still access other programs where your account is enabled
+    - This is different from a platform-wide account lock
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Verify Program Access">
+        Check if you can access other programs to confirm this is program-specific.
+      </Step>
+      <Step title="Contact Program Manager">
+        Reach out to the specific program's affiliate manager for clarification.
+      </Step>
+      <Step title="Review Program Terms">
+        Check if you violated any program-specific policies or terms.
+      </Step>
+      <Step title="Request Re-enablement">
+        Work with the program manager to resolve issues and request account re-enablement.
+      </Step>
+    </Steps>
+    
+    <Info>
+    Account disabled messages are program-specific. Your Affelios Identity remains active and you can continue using other programs where your account is enabled.
+    </Info>
+    
+    <Warning>
+    Program-specific account disabling is typically permanent unless resolved with the program manager. Focus on understanding the specific reason and working toward resolution.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
 
 ### Registration Problems
-1. **Email Verification Issues**
-   - Check spam/junk folders
-   - Resend verification email
-   - Verify correct email address
-   - Contact support if persistent
 
-2. **Document Upload Problems**
-   - Check file format requirements
-   - Verify file size limits
-   - Ensure clear document quality
-   - Try alternative file formats
+<AccordionGroup>
+  <Accordion title="Email Verification Issues">
+    **Symptoms:**
+    - Account created but not verified
+    - Verification email not received
+    - Verification link expired
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Check All Email Folders">
+        Look in inbox, spam, junk, and promotions folders for the verification email.
+      </Step>
+      <Step title="Resend Verification">
+        Use the "Resend Verification Email" option on the login page.
+      </Step>
+      <Step title="Verify Email Address">
+        Double-check you entered the correct email address during registration.
+      </Step>
+      <Step title="Contact Support">
+        If verification emails continue to fail, contact support for manual verification.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Some email providers may block automated emails. Try using a different email address if verification continues to fail.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
 
 ## Tracking and Attribution Issues
 
+<Card title="Click & Conversion Tracking" icon="chart-line">
+Tracking and attribution issues can significantly impact your affiliate program's performance. These problems typically involve missing clicks, failed conversions, or incorrect attribution that affects commission calculations.
+</Card>
+
 ### Missing Clicks
-1. **Tracking Link Problems**
-   - Verify link structure correctness
-   - Check for URL encoding issues
-   - Test link functionality
-   - Validate tracking parameters
 
-2. **JavaScript Tracking Issues**
-   - Verify script implementation
-   - Check for conflicting scripts
-   - Validate page load timing
-   - Test cross-browser compatibility
-
-3. **Cookie Blocking**
-   - Browser privacy settings impact
-   - Ad blocker interference
-   - Third-party cookie restrictions
-   - Use alternative tracking methods
+<AccordionGroup>
+  <Accordion title="Tracking Link Problems">
+    **Symptoms:**
+    - Links not generating clicks in dashboard
+    - Clicks showing as 0 despite traffic
+    - Inconsistent click counting
+    - "Account disabled" message when accessing tracking links
+    
+    **Common Causes:**
+    - Account awaiting approval (shows as "account disabled")
+    - URL encoding issues
+    - Broken redirects
+    - Invalid tracking parameters
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Check Account Status">
+        Verify your account is approved in the program. If you see "account disabled," you may be awaiting approval.
+      </Step>
+      <Step title="Test Link Functionality">
+        Click your own tracking links to verify they redirect properly and generate clicks.
+      </Step>
+      <Step title="Check URL Encoding">
+        Ensure special characters in URLs are properly encoded (spaces as %20, etc.).
+      </Step>
+      <Step title="Validate Parameters">
+        Confirm ClickKey parameters are being passed correctly through your system.
+      </Step>
+    </Steps>
+    
+    <Info>
+    If you see "account disabled" when accessing tracking links, this typically means your account is awaiting approval. Tracking links won't work until you're approved by the program manager.
+    </Info>
+    
+    <Tip>
+    Use the Affelios link testing tool to validate your tracking links before promoting them, but only after your account is approved.
+    </Tip>
+  </Accordion>
+  
+  <Accordion title="Cookie Blocking">
+    **Symptoms:**
+    - Clicks recorded but conversions not attributed
+    - Attribution lost between sessions
+    - Inconsistent tracking across devices
+    
+    **Causes:**
+    - Browser privacy settings
+    - Ad blocker interference
+    - Third-party cookie restrictions
+    - Incognito/private browsing
+    
+    **Solutions:**
+    
+    <AccordionGroup>
+      <Accordion title="Browser Settings">
+        **User Education:**
+        - Inform users about cookie requirements
+        - Provide instructions for enabling cookies
+        - Suggest whitelisting your domain
+        - Recommend disabling ad blockers for your site
+      </Accordion>
+      
+      <Accordion title="Alternative Tracking">
+        **Backup Methods:**
+        - Implement server-side tracking
+        - Use first-party cookies when possible
+        - Consider email-based attribution
+        - Implement fingerprinting as fallback
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+</AccordionGroup>
 
 ### Missing Conversions
-1. **Attribution Window Issues**
-   - Check cookie duration settings
-   - Verify attribution model
-   - Review conversion timeline
-   - Confirm tracking implementation
 
-2. **Cross-Device Tracking**
-   - Limitations in tracking capabilities
-   - User login requirements
-   - Device fingerprinting challenges
-   - Use email-based attribution
-
-3. **Conversion Pixel Issues**
-   - Verify pixel implementation
-   - Check firing conditions
-   - Validate conversion parameters
-   - Test on multiple browsers
+<AccordionGroup>
+  <Accordion title="Attribution Window Issues">
+    **Symptoms:**
+    - Conversions not credited to affiliates
+    - Attribution lost after time delay
+    - Inconsistent conversion tracking
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Check Cookie Duration">
+        Verify your attribution window settings match your customer journey length.
+      </Step>
+      <Step title="Review Attribution Model">
+        Confirm you're using the correct attribution model (first-click vs last-click).
+      </Step>
+      <Step title="Analyze Conversion Timeline">
+        Check if conversions are happening outside your attribution window.
+      </Step>
+      <Step title="Test Tracking Implementation">
+        Verify conversion tracking is properly implemented on thank-you pages.
+      </Step>
+    </Steps>
+    
+    <Info>
+    Standard attribution windows are 30-90 days, but can be customized based on your business model.
+    </Info>
+  </Accordion>
+  
+  <Accordion title="Cross-Device Tracking">
+    **Symptoms:**
+    - Conversions lost when users switch devices
+    - Attribution gaps in customer journey
+    - Incomplete tracking data
+    
+    **Limitations:**
+    - Browser-based tracking limitations
+    - Device switching without login
+    - Privacy restrictions on fingerprinting
+    
+    **Solutions:**
+    
+    <AccordionGroup>
+      <Accordion title="User Login Requirements">
+        **Encourage Account Creation:**
+        - Require user registration for better tracking
+        - Implement social login options
+        - Offer incentives for account creation
+        - Use email-based attribution when possible
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+  
+  <Accordion title="Conversion Pixel Issues">
+    **Symptoms:**
+    - Conversion pixels not firing
+    - Conversions not recorded in dashboard
+    - Inconsistent conversion tracking
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Verify Pixel Implementation">
+        Check that conversion pixels are properly placed on thank-you/confirmation pages.
+      </Step>
+      <Step title="Test Firing Conditions">
+        Ensure pixels fire only after successful conversions, not on page load.
+      </Step>
+      <Step title="Validate Parameters">
+        Confirm all required conversion parameters are being passed correctly.
+      </Step>
+      <Step title="Cross-Browser Testing">
+        Test conversion tracking across different browsers and devices.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Use browser developer tools to verify pixel firing and check for JavaScript errors that might prevent tracking.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
 
 ## Payment and Commission Issues
 
+<Card title="Commission & Payment Processing" icon="credit-card">
+Payment and commission issues can significantly impact affiliate satisfaction and program performance. These problems typically involve missing commissions, payment delays, or incorrect calculations that affect affiliate earnings.
+</Card>
+
 ### Missing Commissions
-1. **Commission Calculation Delays**
-   - Processing time requirements
-   - Validation period delays
-   - Quality assurance checks
-   - Manual review processes
 
-2. **Excluded Transactions**
-   - Return and refund processing
-   - Quality score impacts
-   - Fraud prevention measures
-   - Terms violation penalties
-
-3. **Attribution Disputes**
-   - Multiple affiliate involvement
-   - Conversion timing issues
-   - Customer journey complexity
-   - Resolution process steps
+<AccordionGroup>
+  <Accordion title="Excluded Transactions">
+    **Symptoms:**
+    - Conversions recorded but commissions not paid
+    - Transactions marked as "excluded"
+    - Reduced commission amounts
+    
+    **Common Exclusions:**
+    - Returns and refunds
+    - Quality score impacts
+    - Fraud prevention measures
+    - Terms violation penalties
+    
+    **Solutions:**
+    
+    <AccordionGroup>
+      <Accordion title="Return Processing">
+        **Understanding Returns:**
+        - Commissions are reversed when customers return products
+        - Refund processing may take 5-10 business days
+        - Quality assurance reviews may delay reversals
+        - Contact support if reversals seem incorrect
+      </Accordion>
+      
+      <Accordion title="Quality Score Impact">
+        **Quality Factors:**
+        - Low conversion rates may reduce commissions
+        - High bounce rates affect quality scores
+        - Fraudulent traffic results in commission exclusions
+        - Focus on quality traffic sources to maintain scores
+      </Accordion>
+      
+      <Accordion title="Policy Violations">
+        **Common Violations:**
+        - Brand bidding violations
+        - Unauthorized promotional methods
+        - Misleading advertising claims
+        - Review program terms to avoid violations
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+  
+  <Accordion title="Attribution Disputes">
+    **Symptoms:**
+    - Multiple affiliates claiming same conversion
+    - Attribution conflicts in reporting
+    - Commission disputes between affiliates
+    
+    **Resolution Process:**
+    
+    <Steps>
+      <Step title="Review Attribution Model">
+        Check if first-click or last-click attribution is being used correctly.
+      </Step>
+      <Step title="Analyze Customer Journey">
+        Review the complete customer path to identify the correct affiliate.
+      </Step>
+      <Step title="Check Timing">
+        Verify conversion occurred within the attribution window.
+      </Step>
+      <Step title="Escalate to Support">
+        Contact support with detailed information for manual review.
+      </Step>
+    </Steps>
+    
+    <Warning>
+    Attribution disputes require careful review. Provide detailed evidence including timestamps, customer journey data, and any relevant screenshots.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
 
 ### Payment Delays
-1. **Minimum Threshold Requirements**
-   - Accumulation to minimum amount
-   - Payment schedule adherence
-   - Processing time factors
-   - Method-specific delays
 
-2. **Bank Information Issues**
-   - Incorrect account details
-   - Verification requirements
-   - International transfer complications
-   - Payment method limitations
-
-3. **Tax Documentation Requirements**
-   - Missing tax forms
-   - Verification delays
-   - Compliance requirements
-   - International tax complications
+<AccordionGroup>
+  <Accordion title="Minimum Threshold Requirements">
+    **Symptoms:**
+    - Commissions earned but not paid
+    - Payment status showing "pending"
+    - Accumulating balance without payout
+    
+    **Understanding Thresholds:**
+    - Most programs require minimum earnings before payout
+    - Common thresholds: $25, $50 or $100
+    - Thresholds reset each payment period
+    - Unmet thresholds carry forward to next period
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Check Minimum Requirements">
+        Review your program's minimum payout threshold in account settings.
+      </Step>
+      <Step title="Monitor Earnings Accumulation">
+        Track your earnings progress toward the minimum threshold.
+      </Step>
+      <Step title="Understand Payment Schedule">
+        Payments typically process monthly or bi-weekly after threshold is met.
+      </Step>
+      <Step title="Contact Program Manager">
+        Discuss threshold adjustments if consistently unable to meet minimums.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Some programs offer lower thresholds for preferred payment methods like PayPal or cryptocurrency.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
 
 ## Technical Issues
 
+<Card title="Platform & Integration Problems" icon="gear">
+Technical issues can range from dashboard problems to API integration failures. These problems typically involve platform functionality, data synchronization, or system compatibility issues.
+</Card>
+
 ### Dashboard Problems
-1. **Loading Issues**
-   - Browser cache clearing
-   - JavaScript enablement
-   - Internet connectivity check
-   - Server status verification
 
-2. **Display Problems**
-   - Browser compatibility issues
-   - Screen resolution impacts
-   - CSS rendering problems
-   - Mobile device limitations
-
-3. **Data Discrepancies**
-   - Reporting delays
-   - Time zone differences
-   - Filter setting impacts
-   - Calculation method variations
+<AccordionGroup>
+  <Accordion title="Loading Issues">
+    **Symptoms:**
+    - Dashboard not loading completely
+    - Slow page load times
+    - Blank or partially loaded pages
+    - Error messages during loading
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Clear Browser Cache">
+        Clear your browser cache and cookies, then refresh the page.
+      </Step>
+      <Step title="Enable JavaScript">
+        Ensure JavaScript is enabled in your browser settings.
+      </Step>
+      <Step title="Check Internet Connection">
+        Verify your internet connection is stable and fast enough.
+      </Step>
+      <Step title="Try Different Browser">
+        Test with Chrome, Firefox, Safari, or Edge to isolate browser issues.
+      </Step>
+      <Step title="Check Server Status">
+        Visit the Affelios status page to check for known issues.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Hard refresh (Ctrl+F5 or Cmd+Shift+R) can often resolve loading issues by forcing a complete page reload.
+    </Tip>
+  </Accordion>
+  
+  <Accordion title="Data Discrepancies">
+    **Symptoms:**
+    - Numbers not matching expected values
+    - Missing data in reports
+    - Inconsistent calculations
+    - Time zone confusion
+    
+    **Common Causes:**
+    - Reporting delays (up to 24 hours)
+    - Time zone differences
+    - Filter setting impacts
+    - Calculation method variations
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Check Data Freshness">
+        Allow up to 24 hours for data to fully process and appear in reports.
+      </Step>
+      <Step title="Verify Time Zone Settings">
+        Ensure your account time zone matches your local time zone.
+      </Step>
+      <Step title="Review Filter Settings">
+        Check that date ranges and filters are set correctly.
+      </Step>
+      <Step title="Compare Calculation Methods">
+        Understand how different metrics are calculated and displayed.
+      </Step>
+    </Steps>
+    
+    <Info>
+    Real-time data may show slight variations from final processed data. Always refer to finalized reports for accurate numbers.
+    </Info>
+  </Accordion>
+</AccordionGroup>
 
 ### API Integration Issues
-1. **Authentication Problems**
-   - API key verification
-   - Permission settings check
-   - Token expiration issues
-   - Rate limiting impacts
 
-2. **Data Synchronization Issues**
-   - Webhook configuration problems
-   - Endpoint accessibility issues
-   - Data format mismatches
-   - Timing synchronization problems
-
-3. **Rate Limiting**
-   - Request frequency limits
-   - Concurrent request restrictions
-   - Quota management
-   - Throttling implementations
-
-## Performance Issues
-
-### Slow Loading Times
-1. **Network Connectivity**
-   - Internet speed testing
-   - DNS resolution issues
-   - CDN accessibility problems
-   - Geographic distance factors
-
-2. **Browser Optimization**
-   - Cache management
-   - Extension interference
-   - Browser updates required
-   - Hardware limitations
-
-3. **System Performance**
-   - Server capacity issues
-   - Database optimization needs
-   - Traffic volume impacts
-   - Maintenance activities
-
-### Mobile Issues
-1. **Mobile Compatibility**
-   - Responsive design problems
-   - Touch interface issues
-   - Screen size limitations
-   - App version updates
-
-2. **Mobile Tracking**
-   - App-to-web attribution
-   - Deep linking issues
-   - Mobile browser limitations
-   - Cross-app tracking challenges
+<AccordionGroup>
+  <Accordion title="Authentication Problems">
+    **Symptoms:**
+    - API requests returning 401/403 errors
+    - Authentication failures
+    - Token expiration errors
+    - Permission denied messages
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Verify API Key">
+        Check that your API key is correct and active in your account settings.
+      </Step>
+      <Step title="Check Permissions">
+        Ensure your API key has the necessary permissions for the requested operations.
+      </Step>
+      <Step title="Refresh Tokens">
+        Generate new API keys if existing ones have expired or been compromised.
+      </Step>
+      <Step title="Review Rate Limits">
+        Check if you're exceeding API rate limits and implement proper throttling.
+      </Step>
+    </Steps>
+    
+    <Warning>
+    Never share API keys publicly or commit them to version control. Use environment variables for secure storage.
+    </Warning>
+  </Accordion>
+  
+  <Accordion title="Data Synchronization Issues">
+    **Symptoms:**
+    - Webhooks not firing
+    - Data not syncing between systems
+    - Missing or duplicate records
+    - Sync delays or failures
+    
+    **Solutions:**
+    
+    <AccordionGroup>
+      <Accordion title="Webhook Configuration">
+        **Setup Requirements:**
+        - Valid HTTPS endpoint URL
+        - Proper webhook authentication
+        - Correct event subscriptions
+        - Endpoint accessibility from external systems
+        
+        **Troubleshooting:**
+        - Test webhook endpoint manually
+        - Check webhook logs for errors
+        - Verify SSL certificate validity
+        - Ensure endpoint responds with 200 status
+      </Accordion>
+      
+      <Accordion title="Data Format Issues">
+        **Common Problems:**
+        - Incorrect JSON formatting
+        - Missing required fields
+        - Data type mismatches
+        - Encoding issues
+        
+        **Solutions:**
+        - Validate JSON structure
+        - Check field requirements in API documentation
+        - Ensure proper data types
+        - Use UTF-8 encoding for text data
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+  
+  <Accordion title="Rate Limiting">
+    **Symptoms:**
+    - API requests being throttled
+    - 429 Too Many Requests errors
+    - Slow response times
+    - Quota exceeded messages
+    
+    **Understanding Limits:**
+    - API calls per minute/hour limits
+    - Concurrent request restrictions
+    - Data transfer quotas
+    - Account-specific limits
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Implement Throttling">
+        Add delays between API calls to stay within rate limits.
+      </Step>
+      <Step title="Use Batch Operations">
+        Combine multiple requests into single API calls when possible.
+      </Step>
+      <Step title="Cache Responses">
+        Store API responses locally to reduce redundant requests.
+      </Step>
+      <Step title="Monitor Usage">
+        Track your API usage to identify optimization opportunities.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Implement exponential backoff for retry logic to handle rate limiting gracefully and avoid overwhelming the API.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
 
 ## Compliance and Quality Issues
 
+<Card title="Policy & Quality Management" icon="shield-halved">
+Compliance and quality issues can result in account restrictions, policy violations, or legal complications. These problems typically involve traffic quality, brand guidelines, or regulatory compliance failures.
+</Card>
+
 ### Policy Violations
-1. **Traffic Quality Issues**
-   - Low conversion rates
-   - High bounce rates
-   - Fraudulent activity detection
-   - Quality score impacts
 
-2. **Brand Guideline Violations**
-   - Incorrect logo usage
-   - Unauthorized messaging
-   - Brand bidding violations
-   - Content policy breaches
-
-3. **Legal Compliance Issues**
-   - Disclosure requirement failures
-   - Regional regulation violations
-   - Tax compliance problems
-   - Privacy policy breaches
+<AccordionGroup>
+  <Accordion title="Traffic Quality Issues">
+    **Symptoms:**
+    - Low conversion rates
+    - High bounce rates
+    - Quality score warnings
+    - Traffic source flags
+    
+    **Common Quality Issues:**
+    - Bot traffic or click farms
+    - Incentivized traffic violations
+    - Misleading advertising
+    - Poor user experience
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Review Traffic Sources">
+        Analyze your traffic sources for quality and compliance with program terms.
+      </Step>
+      <Step title="Improve Conversion Rates">
+        Focus on targeted, relevant traffic that converts naturally.
+      </Step>
+      <Step title="Monitor Quality Metrics">
+        Track bounce rates, time on site, and conversion rates regularly.
+      </Step>
+      <Step title="Address Quality Concerns">
+        Work with program managers to understand and resolve quality issues.
+      </Step>
+    </Steps>
+    
+    <Warning>
+    Repeated quality violations may result in account suspension or termination. Focus on sustainable, compliant traffic sources.
+    </Warning>
+  </Accordion>
+  
+  <Accordion title="Brand Guideline Violations">
+    **Symptoms:**
+    - Brand compliance warnings
+    - Logo usage violations
+    - Unauthorized messaging flags
+    - Content policy breaches
+    
+    **Common Violations:**
+    - Incorrect logo usage or modifications
+    - Unauthorized brand messaging
+    - Brand bidding violations
+    - Misleading advertising claims
+    
+    **Solutions:**
+    
+    <AccordionGroup>
+      <Accordion title="Brand Asset Compliance">
+        **Proper Usage:**
+        - Use only approved brand assets
+        - Follow logo usage guidelines
+        - Maintain brand consistency
+        - Respect trademark rights
+        
+        **Avoid:**
+        - Modifying logos or brand colors
+        - Using outdated brand assets
+        - Creating unauthorized variations
+        - Violating brand guidelines
+      </Accordion>
+      
+      <Accordion title="Content Policy Compliance">
+        **Advertising Standards:**
+        - Use truthful, non-misleading claims
+        - Include required disclosures
+        - Follow advertising regulations
+        - Respect intellectual property
+        
+        **Best Practices:**
+        - Review all promotional content
+        - Get approval for creative materials
+        - Stay updated on policy changes
+        - Consult program managers for guidance
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+  
+  <Accordion title="Legal Compliance Issues">
+    **Symptoms:**
+    - Compliance warnings
+    - Legal violation notices
+    - Disclosure requirement failures
+    - Regulatory issues
+    
+    **Common Compliance Issues:**
+    - Missing affiliate disclosures
+    - Regional regulation violations
+    - Tax compliance problems
+    - Privacy policy breaches
+    
+    **Solutions:**
+    
+    <Steps>
+      <Step title="Review Legal Requirements">
+        Understand applicable laws and regulations in your jurisdiction.
+      </Step>
+      <Step title="Implement Required Disclosures">
+        Include proper affiliate disclosures on all promotional content.
+      </Step>
+      <Step title="Ensure Tax Compliance">
+        Complete all required tax documentation and reporting.
+      </Step>
+      <Step title="Consult Legal Counsel">
+        Seek professional legal advice for complex compliance issues.
+      </Step>
+    </Steps>
+    
+    <Info>
+    Legal compliance requirements vary by jurisdiction. Always consult with legal professionals for specific guidance.
+    </Info>
+  </Accordion>
+</AccordionGroup>
 
 ### Account Restrictions
-1. **Temporary Suspensions**
-   - Investigation periods
-   - Quality review processes
-   - Compliance verification
-   - Resolution requirements
 
-2. **Permanent Terminations**
-   - Serious policy violations
-   - Fraudulent activity
-   - Legal requirement breaches
-   - Appeal process options
+<AccordionGroup>
+  <Accordion title="Temporary Suspensions">
+    **Symptoms:**
+    - Account access restricted
+    - Suspension notification received
+    - Limited platform functionality
+    - Investigation period notice
+    
+    **Common Causes:**
+    - Quality review processes
+    - Compliance verification needed
+    - Policy violation investigation
+    - Security concerns
+    
+    **Resolution Process:**
+    
+    <Steps>
+      <Step title="Understand Suspension Reason">
+        Review the suspension notice for specific details about the issue.
+      </Step>
+      <Step title="Gather Required Information">
+        Collect documentation and evidence to address the concerns.
+      </Step>
+      <Step title="Submit Appeal or Response">
+        Follow the provided process to respond to the suspension.
+      </Step>
+      <Step title="Cooperate with Investigation">
+        Provide additional information if requested by the review team.
+      </Step>
+    </Steps>
+    
+    <Tip>
+    Most temporary suspensions are resolved within 5-10 business days. Respond promptly to expedite the review process.
+    </Tip>
+  </Accordion>
+  
+  <Accordion title="Permanent Terminations">
+    **Symptoms:**
+    - Account permanently closed
+    - Termination notice received
+    - No access to platform
+    - Appeal process information
+    
+    **Serious Violations:**
+    - Fraudulent activity
+    - Repeated policy violations
+    - Legal requirement breaches
+    - Security violations
+    
+    **Appeal Process:**
+    
+    <AccordionGroup>
+      <Accordion title="Understanding Termination">
+        **Review Process:**
+        - Termination decisions are carefully reviewed
+        - Multiple violations typically lead to termination
+        - Appeals are considered on a case-by-case basis
+        - Evidence and documentation are required
+        
+        **Appeal Requirements:**
+        - Detailed explanation of circumstances
+        - Evidence supporting your case
+        - Commitment to compliance going forward
+        - Specific remediation steps taken
+      </Accordion>
+      
+      <Accordion title="Prevention Strategies">
+        **Best Practices:**
+        - Read and understand all program terms
+        - Maintain high-quality traffic sources
+        - Follow brand guidelines strictly
+        - Stay compliant with legal requirements
+        - Communicate proactively with program managers
+        
+        **Warning Signs:**
+        - Multiple quality warnings
+        - Repeated policy violations
+        - Declining performance metrics
+        - Compliance issues
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting Process
 
-### Self-Service Steps
-1. **Initial Diagnosis**
-   - Problem description documentation
-   - Error message collection
-   - Screenshot capture
-   - Timeline establishment
-
-2. **Basic Troubleshooting**
-   - Cache clearing
-   - Browser restart
-   - Different browser testing
-   - Device testing
-
-3. **Advanced Troubleshooting**
-   - Network diagnostics
-   - Console error checking
-   - Developer tools usage
-   - API testing tools
+<Card title="Systematic Problem Resolution" icon="magnifying-glass">
+Follow this structured approach to resolve issues efficiently, starting with self-service steps before escalating to support when necessary.
+</Card>
 
 ### Support Escalation
-1. **When to Contact Support**
-   - Self-service steps exhausted
-   - Complex technical issues
-   - Account-specific problems
-   - Urgent resolution needed
 
-2. **Information to Provide**
-   - Detailed problem description
-   - Error messages and codes
-   - Screenshots or recordings
-   - Account and transaction details
+<AccordionGroup>
+  <Accordion title="When to Contact Support">
+    **Escalation Triggers:**
+    - Complex technical issues
+    - Account-specific problems
+    - Urgent resolution needed
 
-3. **Support Response Expectations**
-   - Response time estimates
-   - Escalation procedures
-   - Resolution timelines
-   - Follow-up processes
+  </Accordion>
+  
+  <Accordion title="Information to Provide">
+    **Essential Details:**
+    - Detailed problem description
+    - Error messages and codes
+    - Screenshots or screen recordings
+    - Account and transaction details
+    
+    **Support Request Template:**
+    
+    ```
+    Subject: [Priority] Issue Description
+    
+    Problem Summary:
+    - What happened?
+    - When did it start?
+    - How often does it occur?
+    
+    Technical Details:
+    - Browser and version
+    - Operating system
+    - Error messages (if any)
+    - Steps to reproduce
+    
+    Account Information:
+    - Account email/ID
+    - Program name (if applicable)
+    - Transaction IDs (if relevant)
+    
+    Attachments:
+    - Screenshots
+    - Error logs
+    - Network diagnostics
+    ```
+    
+    <Tip>
+    The more detailed information you provide, the faster support can resolve your issue. Include all relevant context and evidence.
+    </Tip>
+  </Accordion>
+  
+  <Accordion title="Support Response Expectations">
+    **Response Timeline:**
+    - Initial acknowledgment: Within 24 hours
+    - Resolution: Varies by issue complexity
+    
+    **Escalation Process:**
+    
+    <Steps>
+      <Step title="Initial Response">
+        Support team acknowledges your request and provides initial guidance.
+      </Step>
+      <Step title="Investigation">
+        Technical team investigates the issue and gathers additional information.
+      </Step>
+      <Step title="Resolution">
+        Solution is implemented or workaround is provided.
+      </Step>
+    </Steps>
+    
+    <Info>
+      Complex issues may require multiple interactions and technical escalations. Stay patient and provide additional information when requested.
+    </Info>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Resources
+
+<Card title="Additional Support" icon="book-open">
+Explore these resources for more detailed guidance and support options.
+</Card>
+
+### Getting Started
+- 🌟 [Quickstart Guide](/quickstart) — Get up and running fast
+- 👥 [For Affiliates](/knowledge-base/getting-started/for-affiliates) — Affiliate onboarding guide
+- ⚙️ [For Operators](/knowledge-base/getting-started/for-operators) — Operator setup guide
+- 🔑 [Affelios Identity](/knowledge-base/getting-started/affelios-identity) — Account management
+
+### Technical Resources
+- 🔧 [Tracking Issues](/knowledge-base/troubleshooting/tracking-issues) — Technical troubleshooting
+- 🔌 [API Reference](/developers/reference/overview) — Developer documentation
+- 🔗 [Webhooks](/developers/reference/webhooks) — Real-time data synchronization
+- 🧩 [Integrations](/integrations) — Platform connections
+
+### Platform Features
+- 📊 [Reporting](/knowledge-base/reporting/reports) — Analytics and reporting
+- 💰 [Commission Plans](/knowledge-base/operators/setup-guide#commission-plan-defaults--brand-association) — Commission configuration
+- 🎯 [Attribution](/knowledge-base/operators/attribution) — Attribution models
+- 📋 [Payout Methods](/knowledge-base/affiliates/payout-methods) — Payment options
+
+### Compliance & Legal
+- 📜 [Terms of Service](/knowledge-base/legal/terms-of-service) — Platform terms
+- 🔒 [Privacy Policy](/knowledge-base/legal/privacy-policy) — Data protection
+- ⚖️ [Affiliate Policies](/knowledge-base/legal/affiliate-policies) — Program policies
+- 📋 [Data Privacy](/knowledge-base/legal/data-privacy) — Privacy compliance
+
+---
+
+<Tip>
+This troubleshooting guide is regularly updated based on common issues and user feedback. If you don't find a solution here, contact support for personalized assistance.
+</Tip>

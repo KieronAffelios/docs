@@ -2,26 +2,41 @@
 
 Comprehensive guide to diagnosing and resolving affiliate tracking problems.
 
+<Info>
+This troubleshooting guide helps you diagnose and fix tracking issues in Affelios. For implementation details, see [How Attribution Works](/knowledge-base/operators/attribution) (operators) and [How Tracking Links Work](/knowledge-base/affiliates/tracking-links) (affiliates).
+</Info>
+
 ## Understanding Tracking
 
 ### Tracking Fundamentals
 1. **How Tracking Works**
-   - Click registration process
-   - Cookie placement and storage
-   - Conversion attribution methods
-   - Data flow and processing
+   - Click registration process and ClickKey generation
+   - Cookie placement and storage mechanisms
+   - Conversion attribution methods and timing
+   - Data flow from click to commission processing
+   
+   <Tip>
+   For detailed implementation guidance, see [How Attribution Works](/knowledge-base/operators/attribution) for operators or [How Tracking Links Work](/knowledge-base/affiliates/tracking-links) for affiliates.
+   </Tip>
 
 2. **Tracking Components**
-   - Affiliate tracking links
-   - Conversion tracking pixels
-   - JavaScript tracking codes
-   - Server-to-server postbacks
+   - **Affiliate tracking links** - Generated from trackers and contain ClickKeys
+   - **Conversion tracking pixels** - Fire on purchase completion
+   - **JavaScript tracking codes** - Handle ClickKey capture and storage
+   - **Server-to-server postbacks** - Send transaction data to Affelios
+   
+   <Info>
+   Understanding tracker-based link generation is crucial for troubleshooting. See [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#from-trackers-to-tracking-links) for the complete process.
+   </Info>
 
 3. **Attribution Models**
-   - First-click attribution
-   - Last-click attribution
-   - Multi-touch attribution
-   - Custom attribution rules
+   - **First-click attribution** - Credit goes to the first affiliate link clicked
+   - **Last-click attribution** - Credit goes to the most recent affiliate link
+   - **Custom attribution rules** - Program-specific attribution logic
+   
+   <Info>
+   For detailed attribution configuration and commission plan setup, see [How Attribution Works](/knowledge-base/operators/attribution#commission-plan-configuration).
+   </Info>
 
 ### Common Tracking Challenges
 1. **Technical Limitations**
@@ -41,9 +56,13 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
 ### Missing Clicks
 1. **Link Structure Problems**
    - **Symptoms**: No clicks registered despite traffic
-   - **Causes**: Malformed tracking URLs, missing parameters
-   - **Solutions**: Validate link structure, create new tracker if needed
+   - **Causes**: Malformed tracking URLs, missing parameters, incorrect tracker configuration
+   - **Solutions**: Validate link structure, verify tracker setup, create new tracker if needed
    - **Prevention**: Use proper tracker setup, validate before deployment
+   
+   <Info>
+   For proper link generation and structure, see [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#understanding-link-structure). For ClickKey parameter implementation, see [How Attribution Works](/knowledge-base/operators/attribution#clickkey-parameter-implementation).
+   </Info>
 
 2. **JavaScript Errors**
    - **Symptoms**: Intermittent click tracking failures
@@ -81,15 +100,23 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
 ### Missing Conversions
 1. **Pixel Implementation Problems**
    - **Symptoms**: Conversions not recorded
-   - **Causes**: Missing conversion pixels, incorrect placement
-   - **Solutions**: Verify pixel implementation, test firing conditions
+   - **Causes**: Missing conversion pixels, incorrect placement, ClickKey not properly stored
+   - **Solutions**: Verify pixel implementation, test firing conditions, check ClickKey storage
    - **Prevention**: Thorough testing, implementation validation
+   
+   <Info>
+   For proper ClickKey storage implementation, see [How Attribution Works](/knowledge-base/operators/attribution#backend-clickkey-storage). For testing procedures, see [How Attribution Works](/knowledge-base/operators/attribution#testing-and-validation).
+   </Info>
 
 2. **Attribution Window Issues**
    - **Symptoms**: Conversions attributed incorrectly or not at all
-   - **Causes**: Expired cookies, incorrect attribution windows
-   - **Solutions**: Adjust attribution settings, verify cookie duration
-   - **Prevention**: Appropriate window configuration, clear communication
+   - **Causes**: Expired cookies, incorrect attribution windows, ClickKey storage failures
+   - **Solutions**: Adjust attribution settings, verify cookie duration, implement multiple storage methods
+   - **Prevention**: Appropriate window configuration, clear communication, robust storage implementation
+   
+   <Tip>
+   The attribution flow from ClickKey capture to commission processing is detailed in [How Attribution Works](/knowledge-base/operators/attribution#transaction-reporting-to-affelios).
+   </Tip>
 
 3. **Cross-Device Attribution**
    - **Symptoms**: Mobile clicks not attributed to desktop conversions
@@ -100,36 +127,62 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
 ### Duplicate Conversions
 1. **Multiple Firing Events**
    - **Symptoms**: Same conversion recorded multiple times
-   - **Causes**: Pixel firing on page refresh, multiple pixel implementations
-   - **Solutions**: Implement conversion deduplication, session-based tracking
-   - **Prevention**: Unique conversion identifiers, proper pixel placement
+   - **Causes**: Pixel firing on page refresh, multiple pixel implementations, missing transaction IDs
+   - **Solutions**: Implement conversion deduplication, session-based tracking, use unique transaction IDs
+   - **Prevention**: Unique conversion identifiers, proper pixel placement, transaction ID implementation
+   
+   <Info>
+   **Transaction ID Best Practice:** Integrations should pass a unique transaction ID from the operator's internal systems to ensure idempotency. This prevents duplicate conversions when the same transaction is reported multiple times due to network issues, retries, or system failures.
+   
+   For implementation details, see [How Attribution Works](/knowledge-base/operators/attribution#transaction-reporting-to-affelios).
+   </Info>
 
 2. **Testing Environment Pollution**
    - **Symptoms**: Test conversions in production data
-   - **Causes**: Development testing on production systems
-   - **Solutions**: Filter test transactions, separate environments
-   - **Prevention**: Dedicated testing environments, proper data segregation
+   - **Causes**: Development testing on production systems, missing transaction ID validation
+   - **Solutions**: Filter test transactions, separate environments, validate transaction IDs
+   - **Prevention**: Dedicated testing environments, proper data segregation, transaction ID validation
 
 ## Mobile Tracking Challenges
+
+<Warning>
+**Important Mobile Tracking Limitations:** Due to recent privacy changes by Apple (iOS 14.5+ ATT framework) and Android (Privacy Sandbox), web-to-app attribution has become significantly more difficult. Affelios currently supports mobile tracking primarily for in-house analytics, such as tracking customer registrations by platform, rather than full cross-platform attribution.
+
+**Technical Requirements:** Implementing mobile tracking requires technical knowledge and direct integration within the mobile apps themselves, including SDK implementation and proper attribution handling within the app code.
+</Warning>
 
 ### App-to-Web Attribution
 1. **Deep Link Issues**
    - **Symptoms**: Lost attribution from app to website
-   - **Causes**: Deep link configuration problems, app store attribution
+   - **Causes**: Deep link configuration problems, app store attribution, platform privacy restrictions
    - **Solutions**: Proper deep link setup, universal link implementation
    - **Prevention**: Comprehensive testing, platform-specific optimization
+   
+   <Info>
+   **Platform Privacy Impact:** Apple's App Tracking Transparency (ATT) and Android's Privacy Sandbox have significantly limited cross-platform tracking capabilities. Traditional web-to-app attribution methods are no longer reliable.
+   </Info>
 
 2. **Mobile Browser Limitations**
    - **Symptoms**: Inconsistent tracking on mobile browsers
-   - **Causes**: Safari ITP, Chrome SameSite restrictions
+   - **Causes**: Safari ITP, Chrome SameSite restrictions, iOS 14.5+ ATT framework
    - **Solutions**: Server-side tracking, first-party data collection
    - **Prevention**: Mobile-first tracking strategy, regular testing
+   
+   <Tip>
+   **Current Affelios Mobile Support:** Mobile tracking in Affelios is currently optimized for in-house analytics, such as monitoring customer registration patterns across different platforms, rather than full cross-platform attribution.
+   </Tip>
 
 3. **Cross-App Tracking**
    - **Symptoms**: Attribution lost between mobile apps
-   - **Causes**: App sandboxing, privacy restrictions
-   - **Solutions**: SDK implementation, unified ID solutions
+   - **Causes**: App sandboxing, privacy restrictions, platform privacy frameworks
+   - **Solutions**: SDK implementation, unified ID solutions (limited effectiveness)
    - **Prevention**: Platform-native attribution, compliance with guidelines
+   
+   <Info>
+   **Privacy Framework Impact:** Both Apple's ATT and Android's Privacy Sandbox have created significant barriers to cross-app tracking, making traditional attribution methods unreliable for mobile-to-web conversions.
+   
+   **Implementation Complexity:** Cross-app tracking requires significant technical expertise and direct integration within each mobile application, including custom SDK development, attribution logic implementation, and compliance with platform-specific privacy requirements.
+   </Info>
 
 ## Privacy and Compliance Impact
 
@@ -156,14 +209,18 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
 
 ### Browser-Based Debugging
 1. **Developer Console**
-   - Network tab analysis for tracking calls
+   - Network tab analysis for tracking calls and ClickKey transmission
    - Console error identification
-   - Cookie and storage inspection
+   - Cookie and storage inspection (check ClickKey storage)
    - JavaScript debugging tools
+   
+   <Info>
+   For comprehensive testing procedures including ClickKey validation, see [How Attribution Works](/knowledge-base/operators/attribution#testing-procedures).
+   </Info>
 
 2. **Browser Extensions**
    - Tracking pixel validators
-   - Cookie inspection tools
+   - Cookie inspection tools (verify ClickKey cookies)
    - Network request analyzers
    - Attribution testing tools
 
@@ -172,6 +229,11 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
    - Cross-browser validation
    - Mobile device testing
    - Different network condition tests
+   - ClickKey capture and storage validation
+   
+   <Tip>
+   For detailed tracker testing procedures, see [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#tracker-testing-checklist).
+   </Tip>
 
 ### Server-Side Diagnostics
 1. **Log Analysis**
@@ -200,12 +262,22 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
    - Create new tracker or verify existing tracker setup
    - Update tracking code placement
    - Verify account settings
+   - Check ClickKey parameter configuration
+   
+   <Info>
+   For step-by-step tracker creation and link generation, see [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#creating-your-first-tracker).
+   </Info>
 
 2. **Testing Protocols**
    - End-to-end tracking tests
    - Cross-device verification
    - Multi-browser validation
    - Performance impact assessment
+   - ClickKey capture and storage validation
+   
+   <Tip>
+   Comprehensive testing procedures are outlined in [How Attribution Works](/knowledge-base/operators/attribution#testing-procedures) and [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#tracker-testing-checklist).
+   </Tip>
 
 ### Advanced Solutions
 1. **Technical Implementations**
@@ -213,12 +285,22 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
    - First-party data collection
    - Advanced attribution modeling
    - Custom tracking solutions
+   - ClickKey storage optimization
+   
+   <Info>
+   For detailed technical implementation guidance, see [How Attribution Works](/knowledge-base/operators/attribution#backend-clickkey-storage) and [How Attribution Works](/knowledge-base/operators/attribution#performance-optimization).
+   </Info>
 
 2. **Process Improvements**
    - Automated testing implementation
    - Monitoring and alerting systems
    - Regular audit procedures
    - Documentation and training
+   - Tracker performance optimization
+   
+   <Tip>
+   Learn about tracker-based optimization strategies in [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#tracker-performance-analysis).
+   </Tip>
 
 ## Prevention and Best Practices
 
@@ -247,3 +329,46 @@ Comprehensive guide to diagnosing and resolving affiliate tracking problems.
    - Configuration reviews
    - Performance optimization
    - Compliance verification
+   - Tracker performance audits
+
+---
+
+## Related Documentation
+
+<Card title="Implementation Guides" icon="book">
+**For Operators (Program Managers):**
+- [How Attribution Works](/knowledge-base/operators/attribution) - Complete technical implementation guide
+- [ClickKey Parameter Implementation](/knowledge-base/operators/attribution#clickkey-parameter-implementation) - URL parameter setup
+- [Backend ClickKey Storage](/knowledge-base/operators/attribution#backend-clickkey-storage) - Data storage strategies
+- [Testing and Validation](/knowledge-base/operators/attribution#testing-and-validation) - Implementation testing procedures
+
+**For Affiliates:**
+- [How Tracking Links Work](/knowledge-base/affiliates/tracking-links) - Complete tracker and link guide
+- [Creating Your First Tracker](/knowledge-base/affiliates/tracking-links#creating-your-first-tracker) - Tracker setup process
+- [Understanding Link Structure](/knowledge-base/affiliates/tracking-links#understanding-link-structure) - Link components and variations
+- [Tracker Testing Checklist](/knowledge-base/affiliates/tracking-links#tracker-testing-checklist) - Pre-deployment testing
+
+**Advanced Topics:**
+- [Tracker Performance Analysis](/knowledge-base/affiliates/tracking-links#tracker-performance-analysis) - Optimization strategies
+- [Commission Plan Configuration](/knowledge-base/operators/attribution#commission-plan-configuration) - Attribution logic setup
+- [Performance Optimization](/knowledge-base/operators/attribution#performance-optimization) - Scalable implementation
+</Card>
+
+<Card title="Quick Reference" icon="lightbulb">
+**Common Issues and Solutions:**
+
+**Missing Clicks:**
+1. Verify tracker configuration - [How Tracking Links Work](/knowledge-base/affiliates/tracking-links#creating-your-first-tracker)
+2. Check link structure - [Understanding Link Structure](/knowledge-base/affiliates/tracking-links#understanding-link-structure)
+3. Validate ClickKey parameters - [ClickKey Parameter Implementation](/knowledge-base/operators/attribution#clickkey-parameter-implementation)
+
+**Missing Conversions:**
+1. Verify ClickKey storage - [Backend ClickKey Storage](/knowledge-base/operators/attribution#backend-clickkey-storage)
+2. Test attribution flow - [Transaction Reporting to Affelios](/knowledge-base/operators/attribution#transaction-reporting-to-affelios)
+3. Check commission configuration - [Commission Plan Configuration](/knowledge-base/operators/attribution#commission-plan-configuration)
+
+**Testing and Validation:**
+1. Use comprehensive testing procedures - [Testing and Validation](/knowledge-base/operators/attribution#testing-procedures)
+2. Follow tracker testing checklist - [Tracker Testing Checklist](/knowledge-base/affiliates/tracking-links#tracker-testing-checklist)
+3. Monitor tracker performance - [Tracker Performance Analysis](/knowledge-base/affiliates/tracking-links#tracker-performance-analysis)
+</Card>
