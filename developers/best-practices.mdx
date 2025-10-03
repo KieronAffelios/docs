@@ -1,0 +1,166 @@
+---
+title: "Best Practices"
+sidebarTitle: Best Practices
+description: "Affelios-specific best practices for optimal integration performance, focusing on instant customer creation and batched transaction processing"
+---
+
+<Info>
+This guide provides Affelios-specific best practices for building high-performance integrations. These recommendations are optimized for industries like iGaming and Trading where real-time customer creation and efficient transaction processing are critical.
+</Info>
+
+## Instant Customer Creation
+
+### Create Customers at Registration/Purchase
+
+<Card title="Immediate Customer Creation" icon="user-plus">
+Create customers in Affelios immediately when users register or make their first purchase to ensure proper attribution and tracking.
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Why Instant Creation Matters">
+    **Attribution Benefits:**
+    - Ensures all user actions are properly attributed to affiliates
+    - Prevents loss of conversion data during user journey
+    - Enables real-time commission calculations
+    - Provides immediate tracking link validation
+    
+    **User Experience:**
+    - Seamless integration without user awareness
+    - No delays in affiliate tracking
+    - Immediate access to affiliate benefits
+  </Accordion>
+</AccordionGroup>
+
+## Batched Transaction Processing
+
+### Optimize for High-Volume Industries
+
+<Card title="Batched Operations for High-Volume Industries" icon="chart-line">
+Use batched transaction processing for industries where customers make multiple transactions in short timeframes. For low-volume industries like e-commerce, instant transaction processing per customer is preferred.
+</Card>
+
+<AccordionGroup>
+  <Accordion title="When to Use Batching">
+    **High-Volume Industries (Use Batching):**
+    - **iGaming**: Multiple bets, spins, or games per session
+    - **Market Trading**: Multiple trades, deposits, withdrawals
+    - **High-frequency applications**: Where customers make many transactions quickly
+    
+    **Low-Volume Industries (Use Instant Processing):**
+    - **E-commerce**: Single purchases per customer
+    - **Subscription services**: Monthly/annual billing
+    - **Low-frequency applications**: Where customers make few transactions
+    
+    **Cost Benefits of Batching:**
+    - Reduces API call overhead significantly
+    - Cuts down on processing costs
+    - Makes Affelios even more cost-effective
+    - Better resource utilization
+    
+    **Performance Benefits:**
+    - Improves processing efficiency
+    - Reduces network overhead
+    - Optimizes data transfer
+  </Accordion>
+
+  <Accordion title="Transaction Grouping Strategy">
+    **Time Window Grouping:**
+    
+    Group all transactions for each customer within a specific time window that you choose. This approach balances cost efficiency with real-time processing needs.
+    
+    **Time Window Options:**
+    - **1 Hour**: Near real-time processing, higher costs
+    - **4 Hours**: Good balance of efficiency and responsiveness
+    - **12 Hours**: Cost-optimized for most use cases
+    - **24 Hours**: Maximum cost savings, delayed processing
+    
+    **Real-Time vs. Cost Trade-offs:**
+    
+    **Shorter Time Windows (1-4 hours):**
+    - Closer to real-time processing
+    - Higher API call frequency
+    - Better for time-sensitive applications
+    - Slightly higher processing costs
+    
+    **Longer Time Windows (12-24 hours):**
+    - Maximum cost savings through batching
+    - Lower API call frequency
+    - Better for high-volume, less time-sensitive operations
+    - Optimal for cost-conscious implementations
+    
+    **Choosing Your Time Window:**
+    
+    <Info>
+    **Affelios Recommendation:** For industries or scenarios with high transaction volume (such as iGaming or trading), Affelios recommends using a 24-hour batching window to maximize cost efficiency and system performance.
+    </Info>
+    
+    **Implementation Considerations:**
+    - Monitor transaction volume per customer
+    - Adjust time windows based on peak usage periods
+    - Consider different windows for different transaction types
+    - Implement fallback mechanisms for critical transactions
+  </Accordion>
+</AccordionGroup>
+
+## Performance Optimization
+
+### Time Window Grouping Strategy
+
+<Card title="Optimal Transaction Grouping" icon="gauge">
+Group transactions that occurred within your chosen time window to maximize cost efficiency and system performance.
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Time Window Grouping Strategy">
+    **Grouping Rules:**
+    - Only group transactions that occurred within the same time window
+    - Each customer's transactions are grouped separately
+    - Transactions outside the window are processed in separate batches
+    - Maintain chronological order within each batch
+    
+    **Time Window Boundaries:**
+    - **1 Hour**: Group transactions from 00:00-00:59, 01:00-01:59, etc.
+    - **4 Hours**: Group transactions from 00:00-03:59, 04:00-07:59, etc.
+    - **12 Hours**: Group transactions from 00:00-11:59, 12:00-23:59
+    - **24 Hours**: Group all transactions from 00:00-23:59 (daily batches)
+    
+    **Implementation Guidelines:**
+    - Collect all transactions for each customer within the time window
+    - Store transactions with timestamps for proper grouping
+    - Process batches at the end of each time window
+    - Handle edge cases where transactions span window boundaries
+    - Process all transactions for a customer within the same time window together
+    - Send as a single API call to Affelios
+    - Maintain transaction order and integrity
+    - Handle failed batches by retrying the entire group
+  </Accordion>
+  
+  <Accordion title="Performance Benefits">
+    **Cost Optimization:**
+    - Minimal API calls
+    - Maximum batching efficiency
+    - Reduced processing overhead
+    - Lower total costs
+    
+    **System Performance:**
+    - Predictable processing patterns
+    - Reduced API call frequency
+    - Better resource utilization
+    - Improved system stability
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Card title="Next Steps" icon="arrow-right">
+<Info>
+Now that you understand the best practices for integrating with the Affelios API, you can build more robust and maintainable applications.
+</Info>
+
+**What's Next?**
+- [API Testing](/developers/testing) - Learn about testing your API integrations
+- [Error Handling](/developers/error-handling) - Learn about error handling and troubleshooting
+- [API Authentication](/developers/authentication) - Learn about authentication methods
+- [API Reference](/api-reference) - Explore available endpoints
+- [Integration Examples](/integrations/api/examples) - See practical integration examples
+</Card>

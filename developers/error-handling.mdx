@@ -1,0 +1,346 @@
+---
+title: "Error Handling"
+sidebarTitle: Error Handling
+description: "Comprehensive guide to understanding, handling, and troubleshooting API errors in the Affelios platform"
+---
+
+Learn how to properly handle errors when integrating with the Affelios API, including immediate API errors, asynchronous processing errors, and best practices for robust error handling.
+
+## HTTP Status Codes
+
+The Affelios API uses standard HTTP status codes to indicate the success or failure of requests:
+
+<AccordionGroup>
+  <Accordion title="2xx Success Codes">
+    **200 OK**: Request successful, data returned
+    
+    **201 Created**: Resource successfully created
+    
+    **202 Accepted**: Request accepted for processing
+    
+    **204 No Content**: Request successful, no data returned
+  </Accordion>
+  
+  <Accordion title="4xx Client Errors">
+    **400 Bad Request**: Invalid request data or parameters
+    
+    **401 Unauthorized**: Authentication required or invalid
+    
+    **403 Forbidden**: Insufficient permissions for the request
+    
+    **404 Not Found**: Resource not found
+    
+    **409 Conflict**: Resource already exists or conflict occurred
+    
+    **422 Unprocessable Entity**: Valid request but business logic error
+  </Accordion>
+  
+  <Accordion title="5xx Server Errors">
+    **500 Internal Server Error**: Unexpected server error
+    
+    **502 Bad Gateway**: Upstream service unavailable
+    
+    **503 Service Unavailable**: Service temporarily unavailable
+    
+    **504 Gateway Timeout**: Request timeout
+  </Accordion>
+</AccordionGroup>
+
+## Error Handling Best Practices
+
+### Implement Proper Error Handling
+
+<Card title="Error Handling Strategy" icon="shield-check">
+Follow these practices for robust error handling in your applications:
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Always Check Status Codes">
+    **HTTP Status Validation**:
+    ```javascript
+    const response = await fetch('/api/v1/customers', {
+      headers: { 'X-Api-Key': apiKey }
+    });
+    
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(`API Error: ${error.error.message}`);
+    }
+    
+    return await response.json();
+    ```
+  </Accordion>
+  
+  <Accordion title="Implement Retry Logic">
+    **Exponential Backoff**:
+    ```javascript
+    async function apiCallWithRetry(url, options, maxRetries = 3) {
+      for (let i = 0; i < maxRetries; i++) {
+        try {
+          const response = await fetch(url, options);
+          if (response.ok) return response;
+          
+          // Only retry on server errors (5xx)
+          if (response.status >= 500) {
+            const delay = Math.pow(2, i) * 1000; // Exponential backoff
+            await new Promise(resolve => setTimeout(resolve, delay));
+            continue;
+          }
+          
+          throw new Error(`HTTP ${response.status}`);
+        } catch (error) {
+          if (i === maxRetries - 1) throw error;
+          await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+        }
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Log Errors Appropriately">
+    **Structured Logging**:
+    ```javascript
+    function logApiError(error, context) {
+      console.error({
+        timestamp: new Date().toISOString(),
+        error: {
+          code: error.code,
+          message: error.message,
+          requestId: error.requestId
+        },
+        context: {
+          endpoint: context.endpoint,
+          method: context.method,
+          userId: context.userId
+        }
+      });
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Handle Different Error Types">
+    **Error Type Handling**:
+    ```javascript
+    function handleApiError(error) {
+      switch (error.code) {
+        case 'UNAUTHORIZED':
+          // Redirect to login or refresh token
+          redirectToLogin();
+          break;
+        case 'VALIDATION_ERROR':
+          // Show user-friendly validation messages
+          showValidationErrors(error.details);
+          break;
+        case 'NOT_FOUND':
+          // Handle resource not found
+          showNotFoundError(error.message);
+          break;
+        default:
+          // Generic error handling
+          showGenericError(error.message);
+      }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Asynchronous Error Handling
+
+Some operations in the Affelios platform are processed asynchronously, which means they may succeed initially but fail during background processing. This is particularly common with transaction processing.
+
+### How Asynchronous Processing Works
+
+<Card title="Queued Operations" icon="clock">
+Certain operations like transaction creation are queued for background processing to ensure optimal performance and reliability.
+</Card>
+
+**Process Flow:**
+1. **API Request**: You submit a transaction via API
+2. **Immediate Response**: API returns `201 Created`
+3. **Background Processing**: Transaction is queued for processing
+4. **Processing**: Affelios processes the transaction asynchronously
+5. **Result**: Transaction either succeeds or fails during processing
+
+### Monitoring Asynchronous Errors
+
+<Warning>
+**Important**: Even though your API request succeeded (returned 2xx status), the actual operation may fail during background processing. These errors are not returned in the API response.
+</Warning>
+
+**Where to Find Processing Errors:**
+- Navigate to **Transactions > Transaction Errors and Failures** in the Affelios dashboard
+- This section shows all transactions that failed during background processing
+- Each error includes details about why the transaction failed
+
+<AccordionGroup>
+  <Accordion title="Common Asynchronous Error Scenarios">
+    **Transaction Processing Failures:**
+    - Invalid customer data discovered during processing
+    - Commission calculation errors
+    - External system integration failures
+    - Data validation issues not caught during initial API validation
+    - **Date formatting errors**: Unformatted dates that don't follow ISO 8601 standard
+    
+    **Why These Aren't Immediate API Errors:**
+    - Initial validation only checks basic data structure
+    - Complex business logic validation happens during processing
+    - External dependencies may not be available during API call
+    - Some validation requires cross-referencing with other data
+    - Date format validation requires parsing and business logic checks
+  </Accordion>
+  
+  <Accordion title="Monitoring Best Practices">
+    **Regular Monitoring:**
+    - Check the Transaction Errors dashboard regularly
+    - Set up alerts for high error rates
+    - Monitor error patterns to identify systematic issues
+    - Review error details to understand root causes
+    
+    **Error Resolution:**
+    - Fix data issues and resubmit failed transactions
+    - Update integration logic based on error patterns
+    - Contact support for persistent issues
+    - Implement better validation before API submission
+  </Accordion>
+</AccordionGroup>
+
+### Monitor and Debug
+
+<Card title="Debugging Tools" icon="bug">
+Use these tools and techniques to debug API issues:
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Logging Best Practices">
+    **Comprehensive Logging**:
+    - Log all API requests and responses
+    - Log timing information for performance analysis
+    - Use structured logging for better searchability
+  </Accordion>
+  
+  <Accordion title="Testing with API Tools">
+    **Using Postman and Similar Tools**:
+    - Test API requests directly without application code
+    - Easily modify headers, body, and parameters
+    - View raw request and response data
+    - Test different authentication scenarios
+    - Save and organize API requests for reuse
+    
+    <Info>
+    **Quick Start**: You can import the Affelios OpenAPI specification directly into Postman. Use the [OpenAPI Specification](https://platform.affelios.com/swagger/v1/swagger.json) to automatically generate a complete collection with all available endpoints, request examples, and response schemas.
+    </Info>
+    
+    **Benefits for Error Debugging**:
+    - Isolate issues from application logic
+    - Test with different data combinations
+    - Verify authentication and permissions
+    - Share exact request details with support
+    - Test error scenarios systematically
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting Guide
+
+### Common Issues and Solutions
+
+<AccordionGroup>
+  <Accordion title="Authentication Issues">
+    **Problem**: Getting 401 Unauthorized errors
+    
+    **Solutions**:
+    1. Verify API key is correctly formatted
+    2. Check that key is active and not expired
+    3. Ensure key has required permissions
+    4. Confirm you're using the correct environment
+    5. Check for typos in the API key
+  </Accordion>
+  
+  <Accordion title="Permission Issues">
+    **Problem**: Getting 403 Forbidden errors
+    
+    **Solutions**:
+    1. Review API key permissions in dashboard
+    2. Check user role and access level
+    3. Verify resource ownership
+    4. Confirm program access rights
+    5. Request additional permissions if needed
+  </Accordion>
+  
+  
+  <Accordion title="Data Issues">
+    **Problem**: Getting validation errors
+    
+    **Solutions**:
+    1. Review API documentation for field requirements
+    2. Validate data before sending requests
+    3. Check data types and formats
+    4. Ensure required fields are present
+    5. Verify business rule compliance
+  </Accordion>
+  
+  <Accordion title="Asynchronous Processing Issues">
+    **Problem**: API requests succeed but operations fail in background processing
+    
+    **Solutions**:
+    1. Check **Transactions > Transaction Errors and Failures** in dashboard
+    2. Review error details to understand failure reasons
+    3. Fix data issues and resubmit failed transactions
+    4. Implement better pre-validation before API calls
+    5. Monitor error patterns for systematic issues
+    6. Contact support for persistent processing failures
+  </Accordion>
+  
+  <Accordion title="Date Format Issues">
+    **Problem**: Getting date formatting errors in asynchronous processing
+    
+    **Common Date Format Errors:**
+    - Using MM/DD/YYYY or DD/MM/YYYY formats
+    - Missing timezone information
+    - Using 12-hour format without AM/PM
+    - Including timezone names instead of offsets
+    - Using Unix timestamps instead of ISO strings
+    
+    **Required Format (ISO 8601):**
+    ```
+    YYYY-MM-DDTHH:mm:ss.sssZ
+    ```
+    
+    **Examples:**
+    - `2024-01-15T10:30:00.000Z` (UTC timezone)
+    - `2024-01-15T10:30:00.000+00:00` (with timezone offset)
+    - `2024-01-15` (date only)
+    
+    **Solutions:**
+    1. Always use UTC timezone (Z suffix) unless specifically required
+    2. Include milliseconds for precise timestamps
+    3. Validate date formats before sending API requests
+    4. Use your programming language's ISO 8601 formatting functions
+    5. Check **Transactions > Transaction Errors and Failures** for date-related failures
+  </Accordion>
+</AccordionGroup>
+
+### Getting Help
+
+<Card title="Support Resources" icon="life-ring">
+If you need additional help with error handling:
+</Card>
+
+- **Documentation**: Review the [API Reference](/api-reference) for detailed endpoint information
+- **Support**: Contact support with request IDs for faster resolution
+- **Community**: Join our developer community for tips and best practices
+- **Status Page**: Check our [status page](https://status.affelios.com) for service issues
+
+---
+
+<Card title="Next Steps" icon="arrow-right">
+<Info>
+Now that you understand error handling, you can build more robust integrations with the Affelios API.
+</Info>
+
+**What's Next?**
+- [API Testing](/developers/testing) - Learn about testing your API integrations
+- [API Authentication](/developers/authentication) - Learn about authentication methods
+- [API Reference](/api-reference) - Explore available endpoints
+- [Integration Examples](/integrations/api/examples) - See practical integration examples
+- [Webhook Setup](/integrations/api/webhooks) - Set up real-time notifications
+</Card>

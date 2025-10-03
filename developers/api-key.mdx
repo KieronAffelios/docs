@@ -1,0 +1,267 @@
+---
+title: "API Key Management"
+sidebarTitle: API Keys
+description: "Complete guide to creating, managing, and using API keys for programmatic access to the Affelios platform"
+---
+
+<Info>
+API Keys enable comprehensive programmatic access to the Affelios platform, allowing you to retrieve data, manage integrations, synchronize information, and interact with all platform features without manual dashboard access. This guide will show you how to create API keys and help you understand how API keys are scoped so that you know how to best manage API access for your programs and integrations.
+</Info>
+
+## Prerequisites
+
+Before creating API keys, ensure you have the necessary permissions:
+
+<Card title="Required Permissions" icon="shield-check">
+- **API Keys Permission**: Minimum requirement for creating and managing API keys
+- **User Access**: Affiliates need to request this permission from their program manager
+- **Operator Access**: Operators can grant API key permissions to users
+</Card>
+
+<Warning>
+**Security Notice**: Program managers should avoid creating API keys for users. Instead, grant them access to create their own API keys. This ensures that API keys are automatically limited to the data the user already has permission to access. If a user has admin access, they'll be allowed to view all data within a program through their API keys, but if they're an affiliate, they'll only see their own data regardless of API key permissions.
+</Warning>
+
+## Creating API Keys
+
+### Step-by-Step Creation Process
+
+<Steps>
+  <Step title="Access API Key Settings">
+    Navigate to your **Settings** and select **"API Keys"** from the menu.
+  </Step>
+  <Step title="Create New API Key">
+    Click the **"Create API Key"** button to start the creation process.
+  </Step>
+  <Step title="Configure Permissions">
+    Assign different permissions to your API key depending on your use case. You can only assign permissions within the scope of permissions your user possesses on the related program.
+  </Step>
+  <Step title="Copy and Store Key">
+    Once created, copy and securely store your API key. You will not be able to retrieve this key again at a later time.
+  </Step>
+</Steps>
+
+### Permission Configuration
+
+<Card title="Permission Best Practices" icon="gear">
+When configuring API key permissions, follow these guidelines:
+- Avoid assigning all read/write permissions
+- Keep API key permissions limited to their required purpose
+- Only assign permissions that match your user's access level
+- Regularly review and update permissions as needed
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Available Permissions">
+    API keys can be configured with various permission levels:
+    
+    - **Read Access**: View data and reports
+    - **Write Access**: Create and modify data
+    - **Admin Access**: Full program management capabilities
+    - **Affiliate Access**: Limited to own affiliate data
+    - **Operator Access**: Full program access (if user has operator role)
+  </Accordion>
+  
+  <Accordion title="Permission Scoping">
+    **User Permission Constraints:**
+    API keys are **always limited by the user's existing permissions**. You can only assign API key permissions that match or are within the scope of permissions your user account already possesses on the related program.
+    
+    **Data Access Levels:**
+    - **Affiliate Level**: Access only to own affiliate data (affiliates can only see their own data)
+    - **Program Level**: Access to all data within a program (operators can see all program data)
+    
+    **Functional Permissions:**
+    - **API Keys**: Create and manage API keys (requires API Keys permission)
+    - **Reports**: Generate and export reports (requires Reports permission)
+    - **Affiliates**: Manage affiliate accounts (requires Affiliate Management permission)
+    - **Commissions**: View and manage commission data (requires Commission access)
+    
+    <Warning>
+    **Important**: If you are an affiliate, you will only be able to view or modify your own data through API keys, even if you have API key permissions. Program managers should grant users the ability to create their own API keys rather than creating keys for them.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+## API Key Structure
+
+<Card title="Key Format" icon="key">
+API keys follow a specific format for identification and security:
+</Card>
+
+```
+5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb
+│
+└── Unique identifier with random characters and UUID format
+```
+
+<Info>
+API keys are scoped to an individual user and can only access data that the user has permission to view. The data scope is **always limited by the user's existing permissions** - API keys cannot provide access to data beyond what the user account can already see through the dashboard. The key format includes both random characters and UUID components for enhanced security.
+</Info>
+
+## Using API Keys
+
+### Authentication Method
+
+<Card title="Authentication in Requests" icon="lock">
+To use your API key in requests, include it in the `X-Api-Key` header of all API calls. For detailed examples and implementation guidance, see our [Authentication documentation](/developers/authentication).
+</Card>
+
+### Platform Integration Capabilities
+
+<Card title="API Key Use Cases" icon="plug">
+API keys enable comprehensive platform interactions beyond simple data retrieval:
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Data Management">
+    **Retrieve and Sync Data:**
+    - Fetch affiliate performance metrics
+    - Download commission reports
+    - Access conversion tracking data
+    - Export program analytics
+  </Accordion>
+  
+  <Accordion title="Integration Management">
+    **Platform Integrations:**
+    - Connect e-commerce platforms (Shopify, WooCommerce)
+    - Sync product catalogs and inventory
+    - Manage affiliate tracking links
+    - Configure webhook endpoints
+  </Accordion>
+  
+  <Accordion title="Program Administration">
+    **Operational Tasks:**
+    - Create and manage affiliate accounts
+    - Configure commission plans
+    - Process payouts and payments
+    - Manage program settings and branding
+  </Accordion>
+  
+  <Accordion title="Real-time Operations">
+    **Live Platform Interaction:**
+    - Track conversions in real-time
+    - Update affiliate status and permissions
+    - Process commission calculations
+    - Send notifications and alerts
+  </Accordion>
+</AccordionGroup>
+
+## Security Best Practices
+
+<Card title="API Key Security" icon="shield-halved">
+Follow these security guidelines to protect your API keys and data:
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Key Storage">
+    **Secure Storage:**
+    - Store API keys in environment variables
+    - Use secure credential management systems
+    - Never hardcode keys in source code
+    - Rotate keys regularly for enhanced security
+    
+    **Environment Variables Example:**
+    ```bash
+    export AFFELIOS_API_KEY="5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb"
+    ```
+  </Accordion>
+  
+  <Accordion title="Access Control">
+    **Permission Management:**
+    - Grant minimum required permissions
+    - Regularly audit API key usage
+    - Revoke unused or compromised keys
+    - Monitor API key activity logs
+    
+    **User Access:**
+    - Affiliates: Limited to own data only
+    - Operators: Full program access
+  </Accordion>
+  
+  <Accordion title="Monitoring & Alerts">
+    **Usage Monitoring:**
+    - Track API key usage patterns
+    - Set up alerts for unusual activity
+    - Monitor failed authentication attempts
+    - Review access logs regularly
+    
+    **Incident Response:**
+    - Have a plan for compromised keys
+    - Know how to quickly revoke access
+    - Document key rotation procedures
+  </Accordion>
+</AccordionGroup>
+
+## Managing API Keys
+
+### Key Lifecycle Management
+
+<Steps>
+  <Step title="Create New Key">
+    Generate a new API key when needed for new integrations or applications.
+  </Step>
+  <Step title="Configure Permissions">
+    Set appropriate permissions based on the intended use case.
+  </Step>
+  <Step title="Test Integration">
+    Verify the key works correctly with your application.
+  </Step>
+  <Step title="Monitor Usage">
+    Regularly check API key usage and performance.
+  </Step>
+  <Step title="Rotate Keys">
+    Periodically rotate keys for enhanced security.
+  </Step>
+  <Step title="Revoke Unused Keys">
+    Remove keys that are no longer needed.
+  </Step>
+</Steps>
+
+### Key Management Dashboard
+
+<Card title="Dashboard Features" icon="gauge">
+The API Keys dashboard provides comprehensive management capabilities:
+</Card>
+
+<AccordionGroup>
+  <Accordion title="Key Overview">
+    **Key Information:**
+    - Key name and description
+    - Creation date and last used
+    - Permission levels and scope
+    - Usage statistics and limits
+  </Accordion>
+  
+  <Accordion title="Usage Analytics">
+    **Performance Metrics:**
+    - API call frequency and patterns
+    - Success and error rates
+    - Response times and performance
+    - Data access patterns
+  </Accordion>
+  
+  <Accordion title="Security Controls">
+    **Access Management:**
+    - Enable/disable keys instantly
+    - Modify permissions in real-time
+    - View access logs and history
+    - Set usage limits and alerts
+  </Accordion>
+</AccordionGroup>
+
+
+---
+
+<Card title="Next Steps" icon="arrow-right">
+<Info>
+Now that you understand API key management, you can start integrating with the Affelios API to access your data programmatically.
+</Info>
+
+**What's Next?**
+- [API Authentication](/developers/authentication) - Learn about authentication methods and security
+- [API Reference](/api-reference) - Explore available endpoints and data structures
+- [Integration Examples](/integrations/api/examples) - See practical integration examples
+- [Webhook Setup](/integrations/api/webhooks) - Set up real-time data notifications
+- [Platform Integrations](/integrations/no-code/shopify) - Connect with e-commerce platforms
+- [Tracking Implementation](/integrations/tracking/pixel-tracking) - Set up conversion tracking
+</Card>

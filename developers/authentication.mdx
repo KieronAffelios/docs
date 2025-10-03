@@ -1,0 +1,156 @@
+---
+title: "API Authentication"
+sidebarTitle: Authentication
+description: "Complete guide to authenticating with the Affelios Platform API and managing access credentials."
+---
+
+## Authentication Overview
+
+The Affelios Platform API uses **API Key authentication** for all requests. This simple and secure method is ideal for server-to-server integrations and provides reliable access control.
+
+### Authentication Method
+- **API Key Authentication** (Primary)
+  - Simple header-based authentication using `X-Api-Key`
+  - Suitable for server-to-server integrations
+  - Long-lived credentials with configurable expiration
+  - Per-operator access control
+
+## API Key Authentication
+
+### Obtaining API Keys
+
+API keys are generated through the Affelios dashboard:
+
+1. **Via Dashboard**
+   - Log into your Affelios account
+   - Navigate to Settings > API Keys
+   - Click "Generate New API Key"
+   - Provide a descriptive name for your integration
+   - Copy and securely store the generated key
+
+### API Key Structure
+```
+5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb
+│
+└── Unique identifier with random characters and UUID format
+```
+
+### Using API Keys
+
+All API requests must include your API key in the `X-Api-Key` header:
+
+**Required Header:**
+```http
+X-Api-Key: 5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb
+```
+
+<CodeGroup>
+
+```javascript javascript
+const response = await fetch('https://api.affelios.com/api/v1/customer', {
+  method: 'POST',
+  headers: {
+    'X-Api-Key': '5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    externalId: 'customer_123',
+    brandId: 'brand_456'
+  })
+});
+```
+
+```python python
+import requests
+
+headers = {
+    'X-Api-Key': '5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb',
+    'Content-Type': 'application/json'
+}
+
+response = requests.post(
+    'https://api.affelios.com/api/v1/customer',
+    headers=headers,
+    json={
+        'externalId': 'customer_123',
+        'brandId': 'brand_456'
+    }
+)
+```
+
+```php php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.affelios.com/api/v1/customer');
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'X-Api-Key: 5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb',
+    'Content-Type: application/json'
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+    'externalId' => 'customer_123',
+    'brandId' => 'brand_456'
+]));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($ch);
+curl_close($ch);
+```
+
+```bash bash
+curl -X POST https://api.affelios.com/api/v1/customer \
+  -H "X-Api-Key: 5XPmdXTl8j93xI0j45b6a3fd-1062-4c11-b434-b8de3e4eafeb" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "externalId": "customer_123",
+    "brandId": "brand_456"
+  }'
+```
+
+</CodeGroup>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Authentication Errors">
+    **401 Unauthorized:**
+    - Verify API key is correct and active
+    - Check that key has required permissions
+    - Ensure key hasn't been revoked or expired
+    
+    **403 Forbidden:**
+    - Confirm user has necessary permissions
+    - Check if key scope matches request
+    - Verify program access rights
+  </Accordion>
+  
+  <Accordion title="Permission Issues">
+    **Insufficient Permissions:**
+    - Review key permission configuration
+    - Request additional permissions if needed
+    - Check user role and access level
+    
+    **Data Access Denied:**
+    - Verify data belongs to user's scope
+    - Check program-level permissions
+    - Confirm affiliate vs operator access
+  </Accordion>
+  
+  <Accordion title="Integration Problems">
+    **Connection Issues:**
+    - Verify API endpoint URL
+    - Check network connectivity
+    - Confirm SSL/TLS configuration
+  </Accordion>
+</AccordionGroup>
+
+### Getting Help
+
+<Card title="Support Resources" icon="life-ring">
+If you encounter issues with API authentication or usage:
+</Card>
+
+- **Documentation**: Visit our [API Documentation](/api-reference) for detailed endpoint information
+- **Support**: Contact support for assistance with permission issues or technical problems
+- **Community**: Join our developer community for tips and best practices

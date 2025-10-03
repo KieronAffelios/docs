@@ -1,0 +1,216 @@
+---
+title: "API Testing"
+sidebarTitle: Testing
+description: "Comprehensive guide to testing your Affelios API integrations, including error scenarios, validation, and best practices"
+---
+
+## Testing Overview
+
+<Card title="Why Test API Integrations?" icon="flask">
+Thorough testing helps ensure your integration works correctly, handles errors gracefully, and provides a reliable user experience.
+</Card>
+
+**Testing Benefits:**
+- Catch integration issues before production
+- Validate error handling and edge cases
+- Ensure data integrity and security
+- Improve application reliability
+- Reduce support requests and debugging time
+
+### Authentication Setup
+
+<Card title="Test API Keys" icon="key">
+Create dedicated API keys for testing to avoid affecting production data.
+</Card>
+
+**Best Practices:**
+- Use separate API keys for testing and production
+- Create test keys with minimal required permissions
+- Document your test key configurations
+- Rotate test keys regularly for security
+
+## Error Scenario Testing
+
+### Date Format Testing
+
+<Card title="ISO 8601 Date Format" icon="calendar">
+All date and time values in the Affelios API must follow the ISO 8601 standard format.
+</Card>
+
+**Required Format:**
+```
+YYYY-MM-DDTHH:mm:ss.sssZ
+```
+
+**Test Cases:**
+- Valid ISO 8601 formats
+- Invalid date formats (MM/DD/YYYY, DD/MM/YYYY)
+- Missing timezone information
+- 12-hour format without AM/PM
+- Timezone names instead of offsets
+- Unix timestamps instead of ISO strings
+
+**Examples:**
+- ✅ `2024-01-15T10:30:00.000Z` (UTC timezone)
+- ✅ `2024-01-15T10:30:00.000+00:00` (with timezone offset)
+- ✅ `2024-01-15` (date only)
+- ❌ `01/15/2024` (US format)
+- ❌ `15/01/2024` (European format)
+- ❌ `2024-01-15 10:30:00` (missing T separator)
+
+## Integration Testing
+
+### End-to-End Testing
+
+<Card title="Complete Workflow Testing" icon="list-check">
+Test complete user workflows to ensure all components work together correctly.
+</Card>
+
+**Test Scenarios:**
+1. **Customer Creation Flow**
+   - Create customer via API
+   - Verify customer appears in dashboard
+   - Test customer data retrieval
+   - Validate error handling
+
+2. **Transaction Processing Flow**
+   - Submit transaction via API
+   - Verify immediate response (201 Created)
+   - Check transaction appears in dashboard
+   - Monitor for asynchronous processing errors
+
+3. **Commission Calculation Flow**
+   - Create transaction with known commission rules
+   - Verify commission calculation
+   - Check commission appears in reports
+   - Validate payout calculations
+
+### Performance Testing
+
+<Card title="Load and Performance" icon="gauge">
+Test your integration under various load conditions to ensure it performs well.
+</Card>
+
+**Test Scenarios:**
+- **Single Request Testing**: Verify individual API calls work correctly
+- **Batch Request Testing**: Test multiple requests in sequence
+- **Concurrent Request Testing**: Test simultaneous API calls
+- **Rate Limit Testing**: Verify behavior under high request volumes
+- **Timeout Testing**: Test behavior with slow network conditions
+
+## Testing Tools and Methods
+
+### API Testing Tools
+
+<AccordionGroup>
+  <Accordion title="Postman and Similar Tools">
+    **Benefits:**
+    - Test API requests directly without application code
+    - Easily modify headers, body, and parameters
+    - View raw request and response data
+    - Test different authentication scenarios
+    - Save and organize API requests for reuse
+    
+    <Info>
+    **Quick Start**: You can import the Affelios OpenAPI specification directly into Postman. Use the [OpenAPI Specification](https://platform.affelios.com/swagger/v1/swagger.json) to automatically generate a complete collection with all available endpoints, request examples, and response schemas.
+    </Info>
+    
+    **Setup Example:**
+    ```bash
+    Method: POST
+    URL: https://api.affelios.com/api/v1/transactions
+    Headers:
+      X-Api-Key: your-api-key-here
+      Content-Type: application/json
+    Body (raw JSON):
+    {
+      "externalId": "test_transaction_123",
+      "customerId": "customer_456",
+      "amount": 100.00
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Automated Testing">
+    **Unit Tests:**
+    - Test individual API functions
+    - Mock API responses for consistent testing
+    - Validate error handling logic
+    - Test data transformation functions
+    
+    **Integration Tests:**
+    - Test complete API workflows
+    - Use test environment for safe testing
+    - Validate end-to-end functionality
+    - Test error scenarios and recovery
+  </Accordion>
+  
+  <Accordion title="Manual Testing">
+    **Dashboard Verification:**
+    - Check that API-created data appears correctly
+    - Verify data formatting and display
+    - Test different user permission levels
+    - Validate report generation
+    
+    **Error Monitoring:**
+    - Check **Transactions > Transaction Errors and Failures**
+    - Monitor for asynchronous processing errors
+    - Verify error messages are helpful
+    - Test error recovery procedures
+  </Accordion>
+</AccordionGroup>
+
+## Monitoring and Validation
+
+### Real-time Monitoring
+
+<Card title="Live Monitoring" icon="chart-line">
+Monitor your integration in real-time to catch issues early.
+</Card>
+
+**Monitoring Points:**
+- API response times and success rates
+- Error frequency and types
+- Data synchronization accuracy
+- User experience metrics
+- System performance indicators
+
+### Validation Checklist
+
+<Card title="Pre-Production Checklist" icon="list-check">
+Use this checklist to ensure your integration is ready for production.
+</Card>
+
+**Integration Validation:**
+- [ ] All API endpoints tested successfully
+- [ ] Error handling tested for all scenarios
+- [ ] Authentication and permissions verified
+- [ ] Data validation working correctly
+- [ ] Performance meets requirements
+- [ ] Monitoring and logging implemented
+- [ ] Documentation updated
+- [ ] Support team trained on integration
+
+**Error Handling Validation:**
+- [ ] 401 Unauthorized errors handled
+- [ ] 403 Forbidden errors handled
+- [ ] 404 Not Found errors handled
+- [ ] 400 Validation errors handled
+- [ ] Network timeout errors handled
+- [ ] Asynchronous processing errors monitored
+- [ ] User-friendly error messages displayed
+- [ ] Error logging and reporting working
+
+---
+
+<Card title="Next Steps" icon="arrow-right">
+<Info>
+Now that you understand API testing, you can build more reliable integrations with the Affelios API.
+</Info>
+
+**What's Next?**
+- [Error Handling](/developers/error-handling) - Learn about error handling and troubleshooting
+- [API Authentication](/developers/authentication) - Learn about authentication methods
+- [API Reference](/api-reference) - Explore available endpoints
+- [Integration Examples](/integrations/api/examples) - See practical integration examples
+</Card>

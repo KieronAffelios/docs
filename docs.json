@@ -127,12 +127,15 @@
         "tab": "Developers",
         "groups": [
           {
-            "group": "API & Developer Reference",
+            "group": "Developer Reference",
             "pages": [
-              "developers/reference/overview",
-              "developers/reference/authentication",
-              "developers/reference/webhooks",
-              "developers/reference/sdks"
+              "developers/overview",
+              "developers/api-key",
+              "developers/authentication",
+              "developers/error-handling",
+              "developers/testing",
+              "developers/best-practices",
+              "developers/sdks"
             ]
           }
         ]
